@@ -9,6 +9,7 @@ case class Cliente(id: String, nombre: String){
         val cliente = new ClienteBean()
         cliente.id = id
         cliente.nombre = nombre
+        cliente
     }
 }
 

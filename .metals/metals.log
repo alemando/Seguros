@@ -1,0 +1,16 @@
+INFO  time: initialize in 1.44s
+WARN  no build target: C:\Users\sespi\workspace\Seguros\Cliente.scala
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala
+INFO  no build target: using presentation compiler with only scala-library
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
+INFO  shutting down Metals

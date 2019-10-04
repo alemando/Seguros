@@ -1,0 +1,6 @@
+#FileLock
+#Fri Oct 04 15:21:24 COT 2019
+hostName=localhost
+id=16d986f28e9520ca320c09af10ee4557ca41becb565
+method=file
+server=localhost\:50125

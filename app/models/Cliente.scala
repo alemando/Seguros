@@ -1,17 +1,33 @@
-case class Cliente(val documento:String,val nombre:String,val apellido1:String,val apellido2:String,var _direccion:String,var _datosResidencia:String,var _datosContacto:String,val fechaNacimiento:String,var _ingresos:Int, var _egresos:Int){
+case class Cliente(val documento:String,val nombre:String,val apellido1:String,val apellido2:String,var pdireccion:String,var pdatosResidencia:String,var pdatosContacto:String,val fechaNacimiento:String,var pingresos:Int, var pegresos:Int){
   //Getters
-  def direccion=_direccion
-  def datosResidencia=_datosResidencia
-  def datosContacto=_datosContacto
-  def ingresos=_ingresos
-  def egresos=_egresos
+  //Estas variables decidí empezarlas con p para decir que son privadas, pues BeanProperty me ponia problema si usaba _
+  def direccion=pdireccion
+  def datosResidencia=pdatosResidencia
+  def datosContacto=pdatosContacto
+  def ingresos=pingresos
+  def egresos=pegresos
   
   //Setters
-  def setDireccion_=(direccion:String)=_direccion
-  def setResidencia_=(datosResidencia:String)=_datosResidencia
-  def setDatosContacto_=(datosContacto:String)=_datosContacto
-  def setIngresos_=(ingresos:Int)=_ingresos
-  def setEgresos_=(egresos:Int)=_egresos
+  def setDireccion_=(direccion:String)=pdireccion
+  def setResidencia_=(datosResidencia:String)=pdatosResidencia
+  def setDatosContacto_=(datosContacto:String)=pdatosContacto
+  def setIngresos_=(ingresos:Int)=pingresos
+  def setEgresos_=(egresos:Int)=pegresos
+  
+  def toBean={
+    val cliente= new ClienteBean()
+    cliente.documento=documento
+    cliente.nombre=nombre
+    cliente.appelido1=apellido1
+    cliente.apellido2=apellido2
+    cliente.pdireccion=pdireccion
+    cliente.pdatosResidencia=pdatosResidencia
+    cliente.pdatosContacto=pdatosContacto
+    cliente.fechaNacimiento=fechaNacimiento
+    cliente.pingresos=pingresos.toString()
+    cliente.pegresos=pegresos.toString()
+    cliente
+  }
 }
 
 object Cliente{

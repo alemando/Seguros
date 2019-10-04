@@ -14,3 +14,50 @@ WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Segur
 WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
 WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
 INFO  shutting down Metals
+INFO  time: initialize in 2.14s
+INFO  skipping build import with status 'Requested'
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala
+INFO  no build target: using presentation compiler with only scala-library
+oct 04, 2019 3:21:52 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+ADVERTENCIA: Unmatched cancel notification for request id 7
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala' because it doesn't belong to a build target.
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala' because it doesn't belong to a build target.
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala' because it doesn't belong to a build target.
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala' because it doesn't belong to a build target.
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\ClienteBean.scala
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because it doesn't belong to a build target.

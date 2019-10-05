@@ -1218,3 +1218,31 @@ ERROR Failed to compile 'root'
 INFO  compiling root (13 scala sources and 1 java source)
 INFO  time: compiled root in 1.1s
 ERROR Failed to compile 'root'
+INFO  time: initialize in 1.22s
+INFO  skipping build import with status 'Installed'
+INFO  running embedded 'bloop bsp --protocol tcp --host 127.0.0.1 --port 52770'
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala
+INFO  no build target: using presentation compiler with only scala-library
+The server is listening for incoming connections at tcp://127.0.0.1:52770...
+Accepted incoming BSP client connection at tcp://127.0.0.1:52770
+INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\sespi\AppData\Local\scalameta\metals\cache\bsp.trace.json
+request received: build/initialize
+INFO  time: connected to build server in 17s
+BSP initialization handshake complete.
+INFO  time: imported build in 4.07s
+INFO  time: indexed workspace in 4.52s
+INFO  compiling root (13 scala sources and 1 java source)
+INFO  time: compiled root in 10s
+ERROR Failed to compile 'root','root-test'
+oct 05, 2019 6:53:44 PM scala.meta.internal.pc.CompilerAccess handleError
+GRAVE: null
+java.lang.NullPointerException
+	at scala.meta.internal.pc.HoverProvider.hover(HoverProvider.scala:37)
+
+oct 05, 2019 6:54:14 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+ADVERTENCIA: Unmatched cancel notification for request id 38
+oct 05, 2019 6:56:10 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+ADVERTENCIA: Unmatched cancel notification for request id 160
+INFO  compiling root (13 scala sources and 1 java source)
+INFO  time: compiled root in 5.6s
+ERROR Failed to compile 'root'

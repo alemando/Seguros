@@ -8,7 +8,7 @@ import com.google.firebase.FirebaseException
 import scala.concurrent.Future
 import scala.concurrent.Promise
 
-//Creación de la clase cliente como tal
+//Creación de la clase cliente 
 case class Cliente(val documento:String,val nombre:String,val apellido1:String,val apellido2:String,var pdireccion:String,var pdatosResidencia:String,var pdatosContacto:String,val fechaNacimiento:String,var pingresos:Int, var pegresos:Int){
   //Getters
   //Estas variables decidí empezarlas con p para decir que son privadas, pues BeanProperty me ponia problema si usaba _
@@ -47,6 +47,7 @@ case class ClienteNotFoundException(s:String) extends Exception(s)
 
 //companion object, las comprobaciones las podemos hacer aquí
 object Cliente{
+  //Método apply donde podemos hacer comprobaciones, además muchas instancias de cliente se crean usando este método.
   def apply(documento:String,nombre:String,apellido1:String,apellido2:String,direccion:String,datosResidencia:String,datosContacto:String,fechaNacimiento:String,ingresos:Int,egresos:Int):Boolean={
     //Cliente(documento,nombre,direccion,datosResidencia,datosContacto,fechaNacimiento,ingresos,egresos)
     if(ingresos<0){
@@ -59,8 +60,8 @@ object Cliente{
   }
   //Me crea un cliete en la base de datos
   def create(cliente: Cliente) = {
-    val ref  = Conexion.ref(s"clientes/${cliente.documento}")
-    val clienteRecord = cliente.toBean
+    val ref  = Conexion.ref(s"clientes/${cliente.documento}")//conexión con la base de datos
+    val clienteRecord = cliente.toBean //usamos a clienteBean
     ref.setValue(clienteRecord, new DatabaseReference.CompletionListener() {
         override def onComplete(databaseError: DatabaseError, databaseReference: DatabaseReference) = {
             if(databaseError != null){
@@ -68,7 +69,7 @@ object Cliente{
             }else{
                 print(databaseReference)
             }
-        }
+        }//Lo anterior fue el proceso de insertado de cliente en la base de datos
     })
   }
   //Esta parte se supone que crea un método para devolver un objeto de la base de datos, sin embargo aún no funciona
@@ -108,6 +109,8 @@ class ClienteBean(){
   @BeanProperty var pingresos:String=null
   @BeanProperty var pegresos:String=null
 
+  //Este método me convierte una clase Bean en una normal, para poder manejarlas con fácilidad en scala.
+  //Es usado cuando obtenemos elementos de la base de datos y los tenemos que interpretar como case classes.
   def toCase:Cliente={
       new Cliente(documento,nombre,appelido1,apellido2,pdireccion,pdatosResidencia,pdatosContacto,fechaNacimiento,pingresos.toInt,pegresos.toInt)
   }

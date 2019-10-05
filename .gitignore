@@ -19,3 +19,8 @@ server.pid
 .project
 .classpath
 RUNNING_PID
+ensime-langserver
+.metals/
+pc.stdout
+/project/.bloop
+.bloop/

@@ -1,3 +1,10 @@
+package models
+
+import scala.beans.BeanProperty
+import utils.Conexion
+import com.google.firebase.database._
+import scala.beans.BeanProperty
+
 case class Cliente(val documento:String,val nombre:String,val apellido1:String,val apellido2:String,var pdireccion:String,var pdatosResidencia:String,var pdatosContacto:String,val fechaNacimiento:String,var pingresos:Int, var pegresos:Int){
   //Getters
   //Estas variables decidí empezarlas con p para decir que son privadas, pues BeanProperty me ponia problema si usaba _
@@ -41,45 +48,34 @@ object Cliente{
       true
     }
   }
-}
-package models
-
-import scala.beans.BeanProperty
-import utils.Conexion
-import com.google.firebase.database._
-
-case class Cliente(id: String, nombre: String){
-    def toBean = {
-        val cliente = new ClienteBean()
-        cliente.id = id
-        cliente.nombre = nombre
-        cliente
-    }
-}
-
-class ClienteBean(){
-    @BeanProperty var id: String = null
-    @BeanProperty var nombre: String = null
-
-    def toCase: Cliente = {
-        Cliente(id, nombre)
-    }
-}
-
-case class ClienteNotFoundException(s: String) extends Exception(s)
-
-object Cliente{
-    def create(cliente: Cliente) = {
-        val ref  = Conexion.ref(s"clientes/${cliente.id}")
-        val clienteRecord = cliente.toBean
-        ref.setValue(clienteRecord, new DatabaseReference.CompletionListener() {
-            override def onComplete(databaseError: DatabaseError, databaseReference: DatabaseReference) = {
-                if(databaseError != null){
-                    print(databaseError)
-                }else{
-                    print(databaseReference)
-                }
+  def create(cliente: Cliente) = {
+    val ref  = Conexion.ref(s"clientes/${cliente.id}")
+    val clienteRecord = cliente.toBean
+    ref.setValue(clienteRecord, new DatabaseReference.CompletionListener() {
+        override def onComplete(databaseError: DatabaseError, databaseReference: DatabaseReference) = {
+            if(databaseError != null){
+                print(databaseError)
+            }else{
+                print(databaseReference)
             }
-        })
-    }
+        }
+    })
+  }
 }
+class ClienteBean(){
+  @BeanProperty var documento:String=null
+  @BeanProperty var nombre:String=null
+  @BeanProperty var appelido1:String=null
+  @BeanProperty var apellido2:String=null
+  @BeanProperty var pdireccion:String=null
+  @BeanProperty var pdatosResidencia:String=null
+  @BeanProperty var pdatosContacto:String=null
+  @BeanProperty var fechaNacimiento:String=null
+  @BeanProperty var pingresos:String=null
+  @BeanProperty var pegresos:String=null
+
+  def toCase:Cliente={
+      new Cliente(documento,nombre,appelido1,apellido2,pdireccion,pdatosResidencia,pdatosContacto,fechaNacimiento,pingresos.toInt,pegresos.toInt)
+  }
+}
+

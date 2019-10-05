@@ -855,3 +855,51 @@ INFO    Compilation completed in 33.196s.
 INFO  time: compiled root in 21s
 ERROR Failed to compile 'root'
 ERROR Failed to compile 'root','root-test'
+INFO  time: initialize in 1.7s
+INFO  skipping build import with status 'Installed'
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\Main.scala
+INFO  running embedded 'bloop bsp --protocol tcp --host 127.0.0.1 --port 51367'
+WARN  no build target: C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala
+The server is listening for incoming connections at tcp://127.0.0.1:51367...
+Accepted incoming BSP client connection at tcp://127.0.0.1:51367
+INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\sespi\AppData\Local\scalameta\metals\cache\bsp.trace.json
+request received: build/initialize
+INFO  time: connected to build server in 35s
+BSP initialization handshake complete.
+INFO  time: imported build in 5.16s
+INFO  time: indexed workspace in 43s
+INFO  compiling root (14 scala sources and 1 java source)
+INFO  time: compiled root in 4.11s
+ERROR Failed to compile 'root','root-test'
+INFO  compiling root (14 scala sources and 1 java source)
+INFO  time: compiled root in 1.18s
+ERROR Failed to compile 'root'
+oct 05, 2019 3:25:48 PM scala.meta.internal.pc.CompilerAccess handleError
+GRAVE: null
+java.lang.NullPointerException
+	at scala.meta.internal.pc.HoverProvider.hover(HoverProvider.scala:37)
+
+ERROR code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because the SemanticDB file 'C:\Users\sespi\workspace\Seguros\.bloop\root\scala-2.13\bloop-bsp-clients-classes\classes-Metals-6oXDKZUzRNOfnDrCPpRWhA==\META-INF\semanticdb\app\models\Cliente.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+ERROR code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because the SemanticDB file 'C:\Users\sespi\workspace\Seguros\.bloop\root\scala-2.13\bloop-bsp-clients-classes\classes-Metals-6oXDKZUzRNOfnDrCPpRWhA==\META-INF\semanticdb\app\models\Cliente.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+ERROR code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because the SemanticDB file 'C:\Users\sespi\workspace\Seguros\.bloop\root\scala-2.13\bloop-bsp-clients-classes\classes-Metals-6oXDKZUzRNOfnDrCPpRWhA==\META-INF\semanticdb\app\models\Cliente.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+ERROR code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because the SemanticDB file 'C:\Users\sespi\workspace\Seguros\.bloop\root\scala-2.13\bloop-bsp-clients-classes\classes-Metals-6oXDKZUzRNOfnDrCPpRWhA==\META-INF\semanticdb\app\models\Cliente.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+ERROR code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because the SemanticDB file 'C:\Users\sespi\workspace\Seguros\.bloop\root\scala-2.13\bloop-bsp-clients-classes\classes-Metals-6oXDKZUzRNOfnDrCPpRWhA==\META-INF\semanticdb\app\models\Cliente.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+ERROR code navigation does not work for the file 'C:\Users\sespi\workspace\Seguros\app\models\Cliente.scala' because the SemanticDB file 'C:\Users\sespi\workspace\Seguros\.bloop\root\scala-2.13\bloop-bsp-clients-classes\classes-Metals-6oXDKZUzRNOfnDrCPpRWhA==\META-INF\semanticdb\app\models\Cliente.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+INFO  compiling root (14 scala sources and 1 java source)
+INFO  time: compiled root in 2.22s
+ERROR Failed to compile 'root'
+INFO  compiling root (14 scala sources and 1 java source)
+INFO  time: compiled root in 1.07s
+ERROR Failed to compile 'root'
+INFO  compiling root (14 scala sources and 1 java source)
+INFO  time: compiled root in 10s
+ERROR Failed to compile 'root'
+INFO  compiling root (14 scala sources and 1 java source)
+INFO  time: compiled root in 5.45s
+ERROR Failed to compile 'root'
+INFO  compiling root (14 scala sources and 1 java source)
+INFO  time: compiled root in 4.94s
+ERROR Failed to compile 'root'
+INFO  compiling root (13 scala sources and 1 java source)
+INFO  time: compiled root in 4.6s
+ERROR Failed to compile 'root'

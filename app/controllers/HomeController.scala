@@ -3,7 +3,7 @@ package controllers
 import javax.inject._
 import play.api._
 import play.api.mvc._
-import models.Main
+import models.{Main,Cliente}
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -34,6 +34,17 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
   
   def tutorial() = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.tutorial())
+  }
+  
+  def consola() = {
+    val c1 = Cliente("1","Santiago") //Creo los objetos Cliente
+    val c2 = Cliente("2","Eladio")
+    val c3 = Cliente("3","Ricardo")
+    Cliente.create(c1)              //Este método permite crear un cliente en la base de datos
+    Cliente.create(c2)
+    Cliente.create(c3)
+    Action { implicit request: Request[AnyContent] => //Finalmente abre la página
+    Ok(views.html.consola("Hola Mundo")(c1)(c2)(c3)(List(c1,c2,c3)))} //Aquí mandamos los parámetros que queramos ver en la vista
   }
   
 }

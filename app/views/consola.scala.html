@@ -1,0 +1,25 @@
+@* consola Template File *@
+@(titulo: String)(c1: Cliente)(c2: Cliente)(c3: Cliente)(lista: List[Cliente])
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Consola</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h1>@titulo</h1>
+    <p>@c1</p>
+    <p>@c2.id</p>
+    <p>@c3.nombre</p>
+    <ul>
+	@for(cliente <- lista) {
+  		<li>@cliente.id</li>
+  		<li>@cliente.nombre</li>
+	}
+	</ul>
+</body>
+
+</html>

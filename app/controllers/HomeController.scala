@@ -3,6 +3,7 @@ package controllers
 import javax.inject._
 import play.api._
 import play.api.mvc._
+import models.Main
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -18,8 +19,13 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
    * will be called when the application receives a `GET` request with
    * a path of `/`.
    */
-  def index() = Action { implicit request: Request[AnyContent] =>
+  
+  val url = System.getProperty("user.dir")
+  def index() = {Main
+    Action { implicit request: Request[AnyContent] =>
     Ok(views.html.index())
+  }
+    
   }
   
   def explore() = Action { implicit request: Request[AnyContent] =>

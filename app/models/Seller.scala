@@ -7,7 +7,7 @@ import com.google.firebase.database._
 //Case class de venderdor, tendra los metodos de instancia y la inicializacion de los atributos de instancia
 
 case class Seller(documentoIdentidad: String, nombre: String, apellido1: String, apellido2: String,
-                  numContacto: String, esAdmin: Boolean, credenciales: Credencial) {
+                  numContacto: String, credenciales: Credencial,esAdmin: Boolean = false) {
    def toBean = {
         val seller = new SellerBean()
         seller.documentoIdentidad = documentoIdentidad
@@ -32,12 +32,12 @@ class SellerBean(){
     @BeanProperty var apellido1: String = null
     @BeanProperty var apellido2: String = null
     @BeanProperty var numContacto: String = null
-    @BeanProperty var esAdmin: Boolean = false//Error?
-    @BeanProperty var credencial: models.Credencial//Falta definir bn esto
+    @BeanProperty var esAdmin: Boolean = false
+    @BeanProperty var credencial: models.Credencial = null//Falta definir bn esto
         
    //Convierte clase plana a clase case
     def toCase: Seller = {
-        Seller(documentoIdentidad, nombre, apellido1, apellido2, numContacto, esAdmin, credencial)
+        Seller(documentoIdentidad, nombre, apellido1, apellido2, numContacto, credencial,esAdmin)
     }
 }
 
@@ -51,7 +51,7 @@ case class SellerNotFoundException(s: String) extends Exception(s)
 object Seller{
   
     def create(seller: Seller) = {
-        val ref  = Conexion.ref(s"seller/${seller.documentoIdentidad}")
+        val ref  = Conexion.ref(s"vendedores/${seller.documentoIdentidad}")
         val sellerRecord = seller.toBean
         
         //Inserta en la base de datos con setValue

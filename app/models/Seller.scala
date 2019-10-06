@@ -32,8 +32,8 @@ class SellerBean(){
     @BeanProperty var apellido1: String = null
     @BeanProperty var apellido2: String = null
     @BeanProperty var numContacto: String = null
-    @BeanProperty var esAdmin = Boolean = false//Error?
-    @BeanProperty var credencial = models.Credencial//Falta definir bn esto
+    @BeanProperty var esAdmin: Boolean = false//Error?
+    @BeanProperty var credencial: models.Credencial//Falta definir bn esto
         
    //Convierte clase plana a clase case
     def toCase: Seller = {

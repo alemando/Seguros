@@ -5,9 +5,12 @@ import utils.Conexion
 import com.google.firebase.database._
 
 //Case class de venderdor, tendra los metodos de instancia y la inicializacion de los atributos de instancia
+//Se corrigienron unos atributos para tener consitencia con la BD
 
 case class Seller(documentoIdentidad: String, nombre: String, apellido1: String, apellido2: String,
                   numContacto: String, credenciales: Credencial,esAdmin: Boolean = false) {
+   //Este método me regresa un clienteBean, lo que hace es convetir esta clase case, en una plana
+//para poder ser recibida en la base de datos.
    def toBean = {
         val seller = new SellerBean()
         seller.documentoIdentidad = documentoIdentidad

@@ -9,7 +9,8 @@ import scala.concurrent.Future
 import scala.concurrent.Promise
 
 //Creación de la clase cliente 
-case class Cliente( documento:String, nombre:String, apellido1:String, apellido2:String, pdireccion:String, pdatosResidencia:String, pdatosContacto:String, fechaNacimiento:String, pingresos:Int,  pegresos:Int){
+case class Cliente( documento:String, nombre:String, apellido1:String, apellido2:String, pdireccion:String, 
+pdatosResidencia:String, pdatosContacto:String, fechaNacimiento:String, pingresos:Int,  pegresos:Int){
   /*//Getters
   //Estas variables decidí empezarlas con p para decir que son privadas, pues BeanProperty me ponia problema si usaba _
   def direccion=pdireccion
@@ -68,15 +69,15 @@ class ClienteBean(){
 
 object Cliente{
   //Método apply donde podemos hacer comprobaciones, además muchas instancias de cliente se crean usando este método.
-  def apply(documento:String,nombre:String,apellido1:String,apellido2:String,direccion:String,datosResidencia:String,datosContacto:String,fechaNacimiento:String,ingresos:Int,egresos:Int):Boolean={
+  /*def apply(documento:String, nombre:String, apellido1:String, apellido2:String, direccion:String, 
+  datosResidencia:String, datosContacto:String, fechaNacimiento:String, ingresos:Int, egresos:Int) = {
     if(ingresos<0){
-      false
+      null
     }
     else{
-      var client=Cliente(documento,nombre,apellido1,apellido2,direccion,datosResidencia,datosContacto,fechaNacimiento,ingresos,egresos)
-      true
+      Cliente(documento,nombre,apellido1,apellido2,direccion,datosResidencia,datosContacto,fechaNacimiento,ingresos,egresos)
     }
-  }
+  }*/
   //Me crea un cliete en la base de datos
   def create(cliente: Cliente) = {
     val ref  = Conexion.ref(s"clientes/${cliente.documento}")//conexión con la base de datos

@@ -5,7 +5,8 @@ import utils.Conexion
 import com.google.firebase.database._
 
 
-case class Bien(id: String,documentacionIndentidadCliente: String,nombreCategoria: String,caracteristicas: String,documentos:String = "") {
+case class Bien(id: String, documentacionIndentidadCliente: String, nombreCategoria: String, 
+caracteristicas: String, documentos:String = "") {
    def toBean = {
         val bien = new BienBean()
         bien.id = id

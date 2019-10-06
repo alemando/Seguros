@@ -7,7 +7,8 @@ import com.google.firebase.database._
 //Case class de venderdor, tendra los metodos de instancia y la inicializacion de los atributos de instancia
 //Se corrigienron unos atributos para tener consitencia con la BD
 
-case class Vendedor(documentoIdentidad: String, nombre: String, apellido1: String, apellido2: String, numContacto: String,esAdmin: Boolean = false) {
+case class Vendedor(documentoIdentidad: String, nombre: String, apellido1: String, apellido2: String, 
+numContacto: String,esAdmin: Boolean = false) {
     //Este método me regresa un clienteBean, lo que hace es convetir esta clase case, en una plana
     //para poder ser recibida en la base de datos.
    def toBean = {

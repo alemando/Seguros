@@ -5,13 +5,13 @@ import scala.beans.BeanProperty
 import utils.Conexion
 import com.google.firebase.database._
 
-//Case class de Admin, la cual Hereda de vendedor(seller)
+//class Admin, la cual Hereda de vendedor(seller)
 
-class Admin( docId: String, nom: String, ape1: String, apel2: String, numCon: String, esAdm: Boolean = true) extends
+class Admin(docId: String, nom: String, ape1: String, apel2: String, numCon: String, esAdm: Boolean = true) extends
 Vendedor(docId,nom,ape1,apel2,numCon,esAdm){
   //Este método me regresa un clienteBean, lo que hace es convetir esta clase case, en una plana
   //para poder ser recibida en la base de datos.
-   def toBean = {
+    override def toBean = {
         val admin = new AdminBean()
         admin.documentoIdentidad = documentoIdentidad
         admin.nombre = nombre
@@ -31,7 +31,7 @@ case class AdminNotFoundException(s: String) extends Exception(s)
 class AdminBean() extends VendedorBean{
         
    //Convierte clase plana a clase case
-    def toCase: Admin = {
+    override def toCase: Admin = {
         new Admin(documentoIdentidad, nombre, apellido1, apellido2, numContacto,esAdmin)
     }
 }

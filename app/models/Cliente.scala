@@ -31,7 +31,7 @@ case class Cliente(val documento:String,val nombre:String,val apellido1:String,v
     val cliente= new ClienteBean()
     cliente.documento=documento
     cliente.nombre=nombre
-    cliente.appelido1=apellido1
+    cliente.apellido1=apellido1
     cliente.apellido2=apellido2
     cliente.pdireccion=pdireccion
     cliente.pdatosResidencia=pdatosResidencia

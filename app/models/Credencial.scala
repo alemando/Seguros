@@ -41,7 +41,7 @@ case class CredencialNotFoundException(s: String) extends Exception(s)
 object Credencial{
   
     def create(credencial: Credencial) = {
-        val ref  = Conexion.ref(s"credencial/${credencial.documentoIdentidadVendedor}")
+        val ref  = Conexion.ref(s"credenciales/${credencial.documentoIdentidadVendedor}")
         val credencialRecord = credencial.toBean
         
         //Inserta en la base de datos con setValue

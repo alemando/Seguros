@@ -1,7 +1,7 @@
 package models
 
 object Main{
-  val adminPrueba = new Admin("12315456", "Juanes", "Cendales", "Sora", "112002", true)
+  val adminPrueba = new Admin("12315456", "Juanes", "Cendales", "Sora", "112002")
   val aseguradoraPrueba = Aseguradora("12318","SURA", "31648874")
   val bienPrueba = Bien("1", "12345811", "Vehiculo", "Bonito, Azul", "N/A")
   val categoriaPrueba = Categoria("Vehiculo")

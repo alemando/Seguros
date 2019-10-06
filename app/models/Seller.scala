@@ -5,16 +5,19 @@ import utils.Conexion
 import com.google.firebase.database._
 
 //Case class de venderdor, tendra los metodos de instancia y la inicializacion de los atributos de instancia
+//Se corrigienron unos atributos para tener consitencia con la BD
 
-case class Seller(id: String, name: String, last_name1: String, last_name2: String,
-                  number_contact: String) {
+case class Seller(private documentoIdentidad: String,private nombre: String, apellido1: String, apellido2: String, numContacto: String,esAdmin: Boolean) {  
+  //Este método me regresa un clienteBean, lo que hace es convetir esta clase case, en una plana
+  //para poder ser recibida en la base de datos.
    def toBean = {
         val seller = new SellerBean()
-        seller.id = id
-        seller.name = name
-        seller.last_name1 = last_name1
-        seller.last_name2 = last_name2
-        seller.number_contact = number_contact
+        seller.documentoIdentidad = documentoIdentidad
+        seller.nombre = nombre
+        seller.apellido1 = apellido1
+        seller.apellido2 = apellido2
+        seller.numContacto = numContacto
+        seller.esAdmin = esAdmin
         seller
     }
 }
@@ -25,15 +28,16 @@ case class Seller(id: String, name: String, last_name1: String, last_name2: Stri
 class SellerBean(){
     
   //Autogenera los setter y getter con el Bean Property
-    @BeanProperty var id: String = null
-    @BeanProperty var name: String = null
-    @BeanProperty var last_name1: String = null
-    @BeanProperty var last_name2: String = null
-    @BeanProperty var number_contact: String = null
+    @BeanProperty var documentoIdentidad: String = null
+    @BeanProperty var nombre: String = null
+    @BeanProperty var apellido1: String = null
+    @BeanProperty var apellido2: String = null
+    @BeanProperty var numContacto: String = null
+    @BeanProperty var esAdmin: Boolean = null
     
    //Convierte clase plana a clase case
     def toCase: Seller = {
-        Seller(id, name, last_name1, last_name2, number_contact)
+        Seller(documentoIdentidad, nombre, apellido1, apellido2, numContacto,esAdmin)
     }
 }
 
@@ -47,7 +51,7 @@ case class SellerNotFoundException(s: String) extends Exception(s)
 object Seller{
   
     def create(seller: Seller) = {
-        val ref  = Conexion.ref(s"seller/${seller.id}")
+        val ref  = Conexion.ref(s"seller/${seller.documentoIdentidad}")
         val sellerRecord = seller.toBean
         
         //Inserta en la base de datos con setValue

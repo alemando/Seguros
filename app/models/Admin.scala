@@ -4,6 +4,10 @@ import scala.util.matching.Regex
 import scala.beans.BeanProperty
 import utils.Conexion
 import com.google.firebase.database._
+import scala.beans.BeanProperty
+import com.google.firebase.FirebaseException
+import scala.concurrent.Future
+import scala.concurrent.Promise
 
 //class Admin, la cual Hereda de vendedor
 

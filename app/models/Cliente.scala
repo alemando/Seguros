@@ -94,30 +94,33 @@ object Cliente{
     })
   }
   //Cliente(documento,nombre,apellido1,apellido2,direccion,datosResidencia,datosContacto,fechaNacimiento,ingresos,egresos)
-  //Falta el de fecha
-  def verificacion(documento:String,nombre:String,apellido1:String,apellido2:String,numContacto:String,ingresos:String,egresos:String): (Boolean,String) = {
+  def verificacion(documento:String,nombre:String,apellido1:String,apellido2:String,numContacto:String,fechaNacimiento:String,ingresos:String,egresos:String): (Boolean,String) = {
     //expresion regular para verificar si todo son numeros
     val numberPattern: Regex = "^[\\d\\s]+$".r
     //expresion regular para verificar si todo son lertas
     val letterPattern: Regex = "^[a-zA-Z\\s]+$".r
+    //expresion regular para verificar si cumple con el formato de fecha
+    val datePatter: Regex = "^(?:3[01]|[12][0-9]|0?[1-9])([\\-/.])(0?[1-9]|1[1-2])\\1\\d{4}$".r
     //variables que guardan en su caso el match con la expresion regular
     val matchesDocumento = numberPattern.findAllIn(documento)
     val matchesContacto = numberPattern.findAllIn(numContacto)
     val matchesIngresos = numberPattern.findAllIn(ingresos)
     val matchesEgresos = numberPattern.findAllIn(egresos)
-    val
+    val matchesFechaNacimiento = datePatter.findAllIn(fechaNacimiento)
     // si el tamaño del match es 0 significa que no encontro match con la expresion regular.
     if (matchesDocumento.size == 0 || matchesContacto.size == 0 || matchesIngresos.size == 0 || matchesEgresos.size==0){
         return(false,"Esto no es un numero o no es positivo el numero")
     }
     val matchesnombre = letterPattern.findAllIn(nombre)
-    val matchesapellido1 = letterPattern.findAllIn(apellido1)
+    val matchesappellido1 = letterPattern.findAllIn(apellido1)
     val matchesappellido2 = letterPattern.findAllIn(apellido2)
 
-    if (matchesnombre.size == 0 || matchesapp1.size == 0 || matchesapp2.size == 0){
+    if (matchesnombre.size == 0 || matchesappellido1.size == 0 || matchesappellido2.size == 0){
         return(false,"Esto no es un caracter")
     }
-
+    if(matchesFechaNacimiento.size==0){
+      return(false,"Formato de fecha no válida")
+    }
     return(true, "correcto")
 
 }

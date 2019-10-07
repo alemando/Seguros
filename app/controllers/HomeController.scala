@@ -36,4 +36,10 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     Ok(views.html.tutorial())
   }
   
+  
+  def SellerYes() = Action {implicit request: Request[AnyContent] =>
+    Ok(views.html.SellerYes())
+    
+  }
+  
 }

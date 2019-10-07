@@ -65,6 +65,8 @@ object Admin{
       val numberPattern: Regex = "^[\\d\\s]+$".r
       //expresion regular para verificar si todo son lertas
       val letterPattern: Regex = "^[a-zA-Z\\s]+$".r
+      //expresion regular para verificar si es una fecha
+      val datePatter: Regex = "^(?:3[01]|[12][0-9]|0?[1-9])([\\-/.])(0?[1-9]|1[1-2])\\1\\d{4}$".r
       //variables que guardan en su caso el match con la expresion regular
       val matchesid = numberPattern.findAllIn(documentoIdentidad)
       val matchesnum = numberPattern.findAllIn(numContacto)

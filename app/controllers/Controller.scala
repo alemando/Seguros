@@ -23,7 +23,7 @@ class Controller @Inject()(cc: ControllerComponents) extends AbstractController(
     {
       val paramVal = request.body.asFormUrlEncoded.map{args =>
         val documento = args("documento").head
-        val clientePrueba = Cliente(documento, "prueba", "prueba", "Franco", "Calle 11", "Nose", "Nose", "10/28/1999", 140000,10000)
+        val clientePrueba = Cliente(documento, "prueba", "prueba", "Franco", "Calle 11", "Nose", "Nose", "10/28/1999", "140000","10000")
         Cliente.create(clientePrueba)
       }
       

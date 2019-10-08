@@ -1,5 +1,5 @@
 @* SellerYes Template File *@
-@(param: Any)
+@(cliente: Option[Cliente])
 
 <!DOCTYPE html>
 <html lang = "e">
@@ -10,8 +10,7 @@
 </head>
 
 <body>
-	<h1> Hola que hace, di yes vendedor</h1>
-	<p>	Esta pagina es para mostrar los datos creados de vendedor o Seller</p>
+	<h1> Cliente: @cliente.get.nombre</h1>
 </body>
 
 </html>

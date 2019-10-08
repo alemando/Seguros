@@ -140,12 +140,14 @@ object Cliente{
           p.setException(ClienteNotFoundException(s"El documento del cliente no fue encontrado"))
         }
       }
-      override def onCancelled(databaseError:DatabaseError)={
-        p.setException(FirebaseException(databaseError.getMessage))
+      override def onCancelled(databaseError: DatabaseError)={
+        println(databaseError.getMessage)                         //En caso de cancelación de la búsqueda
       }
     })
-    p
+    val clienteFuture = clienteRecibido.future                    //Lo parsea a un Future
+    Thread.sleep(1000)                                            //Tiempo de espera para la respuesta de sus exámenes
+    val clienteOption :Option[Cliente] = {if(clienteFuture.isCompleted){clienteFuture.value.get.toOption}else{None}}
+    clienteOption                                                 //Se parsea a option y se devuleve lo que se entrega
   }
-}""""*/
 }
 //Cliente Bean sirve para volver normal a una clase case y poder meterla a la base de datos

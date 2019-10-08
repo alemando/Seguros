@@ -16,4 +16,6 @@ object Main{
   Cliente.create(clientePrueba)
   Credencial.create(credencialPrueba)
   Vendedor.create(vendedorPrueba)
+
+  val clienteBD : Option[Cliente] = Cliente.obtenerPorCedula("12345811")
 }

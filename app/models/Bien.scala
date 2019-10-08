@@ -3,6 +3,10 @@ package models
 import scala.beans.BeanProperty
 import utils.Conexion
 import com.google.firebase.database._
+import scala.beans.BeanProperty
+import com.google.firebase.FirebaseException
+import scala.concurrent.Future
+import scala.concurrent.Promise
 
 
 case class Bien(id: String, documentacionIndentidadCliente: String, nombreCategoria: String, 
@@ -59,5 +63,27 @@ object Bien{
                 }
             }
         })
-    }    
+    }
+    
+    def obtenerPorId(id: String): Option[Bien] = {
+      val ref = Conexion.ref(s"bienes/$id")                   //Se establece la conexión
+      val bienRecibido = Promise[Bien]                        //Se "promete" la entrega de un objeto Bien
+      ref.addListenerForSingleValueEvent(new ValueEventListener(){  //Empieza el método de la Conexión para extraer un dato
+        override def onDataChange(snapshot: DataSnapshot) = {
+          val bienBD: BienBean =snapshot.getValue(classOf[BienBean])
+          if(bienBD != null){                                    //Comprueba que si haya recibido el Bien en formato plano
+            bienRecibido.success(bienBD.toCase)               //To Case para parsear el formato plano
+          } else{
+            bienRecibido.failure(BienNotFoundException(s"Bien $id no encontrado")) //En caso de error
+          }
+        }
+        override def onCancelled(databaseError: DatabaseError)={
+          println(databaseError.getMessage)                         //En caso de cancelación de la búsqueda
+        }
+      })
+      val bienFuture = bienRecibido.future                    //Lo parsea a un Future
+      Thread.sleep(1000)                                            //Tiempo de espera para la respuesta de sus exámenes
+      val bienOption :Option[Bien] = {if(bienFuture.isCompleted){bienFuture.value.get.toOption}else{None}}
+      bienOption                                                 //Se parsea a option y se devuleve lo que se entrega
+  }
 }

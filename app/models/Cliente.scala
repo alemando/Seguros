@@ -120,23 +120,18 @@ object Cliente{
     Thread.sleep(3000)
     val option: Option[ArrayBuffer[Cliente]] = {if(future.isCompleted){future.value.get.toOption}else{None}}
     option
-  }  
+  } 
 
-  //Esta parte se supone que crea un método para devolver un objeto de la base de datos, sin embargo aún no funciona
-  //Pues tengo problemas con el manejo del promise.
- /* 
- OJO QUE ESTA PARTE SE TIENE QUE ARREGLAR (TRABAJO PARA EL SCRUM MASTER)
-  def obtenerPorDocumento(documento:String):Future[Cliente]={
-    val ref=Conexion.ref(s"clientes/$documento")
-    val p= new Promise[Cliente]
-    ref.addListenerForSingleValueEvent(new ValueEventListener(){
-      override def onDataChange(snapshot:DataSnapshot)={
-        val clienteRecord:ClienteBean=snapshot.getValue(classOf[ClienteBean])
-        if(clienteRecord!=null){
-          p.setValue(clienteRecord.toCase)
-        }
-        else{
-          p.setException(ClienteNotFoundException(s"El documento del cliente no fue encontrado"))
+  def obtenerPorDocumento(documentoIdentidad: String): Option[Cliente] = {
+    val ref = Conexion.ref(s"clientes/$documentoIdentidad")                   //Se establece la conexión
+    val clienteRecibido = Promise[Cliente]                        //Se "promete" la entrega de un objeto Aseguradora
+    ref.addListenerForSingleValueEvent(new ValueEventListener(){  //Empieza el método de la Conexión para extraer un dato
+      override def onDataChange(snapshot: DataSnapshot) = {
+        val clientesBD: ClienteBean =snapshot.getValue(classOf[ClienteBean])
+        if(clientesBD != null){                                    //Comprueba que si haya recibido la Aseguradora en formato plano
+          clienteRecibido.success(clientesBD.toCase)               //To Case para parsear el formato plano
+        } else{
+          clienteRecibido.failure(ClienteNotFoundException(s"Cliente $documentoIdentidad no encontrada")) //En caso de error
         }
       }
       override def onCancelled(databaseError: DatabaseError)={
@@ -147,5 +142,8 @@ object Cliente{
     Thread.sleep(10000)                                            //Tiempo de espera para la respuesta de sus exámenes
     val clienteOption :Option[Cliente] = {if(clienteFuture.isCompleted){clienteFuture.value.get.toOption}else{None}}
     clienteOption                                                 //Se parsea a option y se devuleve lo que se entrega
-  }*/
+  }
+
+  //Esta parte se supone que crea un método para devolver un objeto de la base de datos, sin embargo aún no funciona
+  //Pues tengo problemas con el manejo del promise.
 }

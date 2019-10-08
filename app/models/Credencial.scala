@@ -78,7 +78,7 @@ object Credencial{
       }
     })
     val credencialFuture = credencialRecibida.future                    //Lo parsea a un Future
-    Thread.sleep(1000)                                            //Tiempo de espera para la respuesta de sus exámenes
+    Thread.sleep(10000)                                            //Tiempo de espera para la respuesta de sus exámenes
     val credencialOption :Option[Credencial] = {if(credencialFuture.isCompleted){credencialFuture.value.get.toOption}else{None}}
     credencialOption                                                 //Se parsea a option y se devuleve lo que se entrega
   }

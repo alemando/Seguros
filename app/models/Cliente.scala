@@ -145,7 +145,7 @@ object Cliente{
       }
     })
     val clienteFuture = clienteRecibido.future                    //Lo parsea a un Future
-    Thread.sleep(1000)                                            //Tiempo de espera para la respuesta de sus exámenes
+    Thread.sleep(10000)                                            //Tiempo de espera para la respuesta de sus exámenes
     val clienteOption :Option[Cliente] = {if(clienteFuture.isCompleted){clienteFuture.value.get.toOption}else{None}}
     clienteOption                                                 //Se parsea a option y se devuleve lo que se entrega
   }

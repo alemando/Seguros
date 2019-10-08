@@ -24,3 +24,5 @@ ensime-langserver
 pc.stdout
 /project/.bloop
 .bloop/
+.metals/metals.log
+.metals/metals.h2.db

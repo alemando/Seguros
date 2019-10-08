@@ -7,6 +7,7 @@ import scala.beans.BeanProperty
 import com.google.firebase.FirebaseException
 import scala.concurrent.Future
 import scala.concurrent.Promise
+import scala.collection.mutable.ArrayBuffer
 
 case class Categoria(nombre: String){
     def toBean = {
@@ -69,5 +70,26 @@ object Categoria{
     Thread.sleep(10000)                                            //Tiempo de espera para la respuesta de sus exámenes
     val categoriaOption :Option[Categoria] = {if(categoriaFuture.isCompleted){categoriaFuture.value.get.toOption}else{None}}
     categoriaOption                                                 //Se parsea a option y se devuleve lo que se entrega
+  }
+  //Método para obtener una lista de categorías
+  //El funcionamiento de este método es similar al método que obtiene un categoria de manera individual pero usa el método
+  //orderByChild para obtener un listado
+  def obtenerCategorias(propiedad: String = "nombre"):Option[ArrayBuffer[Categoria]]={
+    val promesa:Promise[ArrayBuffer[Categoria]]= Promise[ArrayBuffer[Categoria]]
+    val ref = Conexion.ref("categorias")
+    ref.orderByChild(propiedad).addListenerForSingleValueEvent(new ValueEventListener(){
+      override def onDataChange(snapshot: DataSnapshot) = {
+        val listaCategorias: ArrayBuffer[Categoria] = ArrayBuffer()
+        snapshot.getChildren.forEach(listaCategorias += _.getValue(classOf[CategoriaBean]).toCase) //Se usa un foreach para iterar en cada elemento traído y luego se guarda en un ArrayBuffer
+        promesa.success(listaCategorias)
+      }
+      override def onCancelled(databaseError: DatabaseError) = {
+        println(databaseError.getMessage)
+      }
+    })
+    val future: Future[ArrayBuffer[Categoria]]=promesa.future
+    Thread.sleep(3000)
+    val option: Option[ArrayBuffer[Categoria]] = {if(future.isCompleted){future.value.get.toOption}else{None}}
+    option
   }
 }

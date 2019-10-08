@@ -8,25 +8,11 @@ import com.google.firebase.FirebaseException
 import scala.concurrent.Future
 import scala.concurrent.Promise
 import scala.util.matching.Regex
-
+import scala.collection.mutable.ArrayBuffer
 //Creación de la clase cliente 
 case class Cliente( documento:String, nombre:String, apellido1:String, apellido2:String, pdireccion:String, 
 pdatosResidencia:String, pdatosContacto:String, fechaNacimiento:String, pingresos:String,  pegresos:String){
-  /*//Getters
-  //Estas variables decidí empezarlas con p para decir que son privadas, pues BeanProperty me ponia problema si usaba _
-  def direccion=pdireccion
-  def datosResidencia=pdatosResidencia
-  def datosContacto=pdatosContacto
-  def ingresos=pingresos
-  def egresos=pegresos
-  
-  //Setters
-  def setDireccion_=(direccion:String)=pdireccion
-  def setResidencia_=(datosResidencia:String)=pdatosResidencia
-  def setDatosContacto_=(datosContacto:String)=pdatosContacto
-  def setIngresos_=(ingresos:Int)=pingresos
-  def setEgresos_=(egresos:Int)=pegresos
-  
+
   //Este método me regresa un clienteBean, lo que hace es convetir esta clase case, en una plana
   //para poder ser recibida en la base de datos.*/
   def toBean={
@@ -47,6 +33,7 @@ pdatosResidencia:String, pdatosContacto:String, fechaNacimiento:String, pingreso
 //Excepcion dada si no se encuentra el cliente en la base de datos
 case class ClienteNotFoundException(s:String) extends Exception(s)
 
+//Cliente Bean sirve para volver normal a una clase case y poder meterla a la base de datos
 class ClienteBean(){
   @BeanProperty var documento:String=null
   @BeanProperty var nombre:String=null
@@ -69,16 +56,6 @@ class ClienteBean(){
 //companion object, las comprobaciones las podemos hacer aquí
 
 object Cliente{
-  //Método apply donde podemos hacer comprobaciones, además muchas instancias de cliente se crean usando este método.
-  /*def apply(documento:String, nombre:String, apellido1:String, apellido2:String, direccion:String, 
-  datosResidencia:String, datosContacto:String, fechaNacimiento:String, ingresos:Int, egresos:Int) = {
-    if(ingresos<0){
-      null
-    }
-    else{
-      Cliente(documento,nombre,apellido1,apellido2,direccion,datosResidencia,datosContacto,fechaNacimiento,ingresos,egresos)
-    }
-  }*/
   //Me crea un cliete en la base de datos
   def create(cliente: Cliente) = {
     val ref  = Conexion.ref(s"clientes/${cliente.documento}")//conexión con la base de datos
@@ -122,12 +99,34 @@ object Cliente{
       return(false,"Formato de fecha no válida")
     }
     return(true, "correcto")
+  }
+  //Método para obtener una lista de clientes
+  //El funcionamiento de este método es similar al método que obtiene un cliente de manera individual pero usa el método
+  //orderByChild para obtener un listado
+  def obtenerClientes(propiedad: String = "documento"):Option[ArrayBuffer[Cliente]]={
+    val promesa:Promise[ArrayBuffer[Cliente]]= Promise[ArrayBuffer[Cliente]]
+    val ref = Conexion.ref("clientes")
+    ref.orderByChild(propiedad).addListenerForSingleValueEvent(new ValueEventListener(){
+      override def onDataChange(snapshot: DataSnapshot) = {
+        val listaClientes: ArrayBuffer[Cliente] = ArrayBuffer()
+        snapshot.getChildren.forEach(listaClientes += _.getValue(classOf[ClienteBean]).toCase) //Se usa un foreach para iterar en cada elemento traído y luego se guarda en un ArrayBuffer
+        promesa.success(listaClientes)
+      }
+      override def onCancelled(databaseError: DatabaseError) = {
+        println(databaseError.getMessage)
+      }
+    })
+    val future: Future[ArrayBuffer[Cliente]]=promesa.future
+    Thread.sleep(3000)
+    val option: Option[ArrayBuffer[Cliente]] = {if(future.isCompleted){future.value.get.toOption}else{None}}
+    option
+  }  
 
-}
   //Esta parte se supone que crea un método para devolver un objeto de la base de datos, sin embargo aún no funciona
   //Pues tengo problemas con el manejo del promise.
-  /*
-  def get(documento:String):Future[Cliente]={
+ /* 
+ OJO QUE ESTA PARTE SE TIENE QUE ARREGLAR (TRABAJO PARA EL SCRUM MASTER)
+  def obtenerPorDocumento(documento:String):Future[Cliente]={
     val ref=Conexion.ref(s"clientes/$documento")
     val p= new Promise[Cliente]
     ref.addListenerForSingleValueEvent(new ValueEventListener(){
@@ -148,6 +147,5 @@ object Cliente{
     Thread.sleep(10000)                                            //Tiempo de espera para la respuesta de sus exámenes
     val clienteOption :Option[Cliente] = {if(clienteFuture.isCompleted){clienteFuture.value.get.toOption}else{None}}
     clienteOption                                                 //Se parsea a option y se devuleve lo que se entrega
-  }
+  }*/
 }
-//Cliente Bean sirve para volver normal a una clase case y poder meterla a la base de datos

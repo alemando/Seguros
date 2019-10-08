@@ -66,7 +66,7 @@ object Categoria{
       }
     })
     val categoriaFuture = categoriaRecibida.future                    //Lo parsea a un Future
-    Thread.sleep(1000)                                            //Tiempo de espera para la respuesta de sus exámenes
+    Thread.sleep(10000)                                            //Tiempo de espera para la respuesta de sus exámenes
     val categoriaOption :Option[Categoria] = {if(categoriaFuture.isCompleted){categoriaFuture.value.get.toOption}else{None}}
     categoriaOption                                                 //Se parsea a option y se devuleve lo que se entrega
   }

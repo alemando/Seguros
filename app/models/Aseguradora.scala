@@ -7,7 +7,7 @@ import scala.beans.BeanProperty
 import com.google.firebase.FirebaseException
 import scala.concurrent.Future
 import scala.concurrent.Promise
-
+import scala.collection.mutable.ArrayBuffer
 
 case class Aseguradora(nit: String, nombre: String,contacto:String){
     def toBean = {
@@ -72,8 +72,30 @@ object Aseguradora{
       }
     })
     val aseguradoraFuture = aseguradoraRecibida.future                    //Lo parsea a un Future
-    Thread.sleep(1000)                                            //Tiempo de espera para la respuesta de sus exámenes
+    Thread.sleep(10000)                                            //Tiempo de espera para la respuesta de sus exámenes
     val aseguradoraOption :Option[Aseguradora] = {if(aseguradoraFuture.isCompleted){aseguradoraFuture.value.get.toOption}else{None}}
     aseguradoraOption                                                 //Se parsea a option y se devuleve lo que se entrega
+  }
+
+  //Método para obtener una lista de aseguradoras
+  //El funcionamiento de este método es similar al método que obtiene un aseguradora de manera individual pero usa el método
+  //orderByChild para obtener un listado
+  def obtenerAseguradoras(propiedad: String = "nit"):Option[ArrayBuffer[Aseguradora]]={
+    val promesa:Promise[ArrayBuffer[Aseguradora]]= Promise[ArrayBuffer[Aseguradora]]
+    val ref = Conexion.ref("aseguradoras")
+    ref.orderByChild(propiedad).addListenerForSingleValueEvent(new ValueEventListener(){
+      override def onDataChange(snapshot: DataSnapshot) = {
+        val listaAseguradoras: ArrayBuffer[Aseguradora] = ArrayBuffer()
+        snapshot.getChildren.forEach(listaAseguradoras += _.getValue(classOf[AseguradoraBean]).toCase) //Se usa un foreach para iterar en cada elemento traído y luego se guarda en un ArrayBuffer
+        promesa.success(listaAseguradoras)
+      }
+      override def onCancelled(databaseError: DatabaseError) = {
+        println(databaseError.getMessage)
+      }
+    })
+    val future: Future[ArrayBuffer[Aseguradora]]=promesa.future
+    Thread.sleep(3000)
+    val option: Option[ArrayBuffer[Aseguradora]] = {if(future.isCompleted){future.value.get.toOption}else{None}}
+    option
   }
 }

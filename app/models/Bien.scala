@@ -82,7 +82,7 @@ object Bien{
         }
       })
       val bienFuture = bienRecibido.future                    //Lo parsea a un Future
-      Thread.sleep(1000)                                            //Tiempo de espera para la respuesta de sus exámenes
+      Thread.sleep(10000)                                            //Tiempo de espera para la respuesta de sus exámenes
       val bienOption :Option[Bien] = {if(bienFuture.isCompleted){bienFuture.value.get.toOption}else{None}}
       bienOption                                                 //Se parsea a option y se devuleve lo que se entrega
   }

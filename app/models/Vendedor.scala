@@ -78,7 +78,8 @@ object Vendedor{
       override def onDataChange(snapshot: DataSnapshot) = {
         val vendedorBD: VendedorBean =snapshot.getValue(classOf[VendedorBean])
         if(vendedorBD != null){                                    //Comprueba que si haya recibido el Vendedor en formato plano
-          vendedorRecibido.success(vendedorBD.toCase)               //To Case para parsear el formato plano
+          vendedorRecibido.success(vendedorBD.toCase)              //To Case para parsear el formato plano
+          
         } else{
           vendedorRecibido.failure(VendedorNotFoundException(s"Vendedor $cedula no encontrado")) //En caso de error
         }
@@ -88,7 +89,7 @@ object Vendedor{
       }
     })
     val vendedorFuture = vendedorRecibido.future                    //Lo parsea a un Future
-    Thread.sleep(1000)                                            //Tiempo de espera para la respuesta de sus exámenes
+    Thread.sleep(10000)                                            //Tiempo de espera para la respuesta de sus exámenes
     val vendedorOption :Option[Vendedor] = {if(vendedorFuture.isCompleted){vendedorFuture.value.get.toOption}else{None}}
     vendedorOption                                                 //Se parsea a option y se devuleve lo que se entrega
   }

@@ -15,4 +15,14 @@ class ClienteController @Inject()(cc: ControllerComponents) extends AbstractCont
     Ok(views.html.clientes())
   }
   
+  def crearCliente() = Action {request: Request[AnyContent] =>
+    val postVals = request.body.asFormUrlEncoded
+    postVals.map {args =>
+      val nit = args("nit").head
+      val nombre = args("nombre").head
+      val contacto = args("contacto").head
+      Ok(views.html.prueba(nit)(nombre)(contacto))
+      
+    }.getOrElse(Ok(views.html.aseguradoras()))
+  }
 }

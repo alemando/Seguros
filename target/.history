@@ -8,3 +8,7 @@ compile
 run
 compile
 run
+sbt run
+sbt run;
+sbt run;;
+sbt run

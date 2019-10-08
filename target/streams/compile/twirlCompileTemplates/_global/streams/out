@@ -1,0 +1,3 @@
+[0m[[0m[31merror[0m] [0m[0m[Error] D:\INGENIERIA DE SISTEMAS\Ingenieria de Requisitos\Seguros\app\views\clientes.scala.html:302[0m
+[0m[[0m[31merror[0m] [0m[0m}: Expected '}' but found 'EOF'[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mtwirlCompileTemplates[0m) Twirl compilation failed[0m

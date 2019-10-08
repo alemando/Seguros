@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/juanm/Documents/documentosImportantes/semestre 6/Requisitos/Seguros/conf/routes
-// @DATE:Tue Oct 08 14:52:42 COT 2019
+// @SOURCE:D:/INGENIERIA DE SISTEMAS/Ingenieria de Requisitos/Seguros/conf/routes
+// @DATE:Tue Oct 08 16:09:31 COT 2019
 
 
 package router {

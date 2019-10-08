@@ -3,6 +3,7 @@ package controllers
 import javax.inject._
 import play.api._
 import play.api.mvc._
+import models.{Main,Cliente}
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -23,11 +24,10 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
   }
   
   def explore() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.explore())
+    Ok(views.html.aseguradoras())
   }
   
   def tutorial() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.tutorial())
+    Ok(views.html.aseguradoras())
   }
-  
 }

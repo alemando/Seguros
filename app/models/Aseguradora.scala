@@ -3,6 +3,10 @@ package models
 import scala.beans.BeanProperty
 import utils.Conexion
 import com.google.firebase.database._
+import scala.beans.BeanProperty
+import com.google.firebase.FirebaseException
+import scala.concurrent.Future
+import scala.concurrent.Promise
 
 
 case class Aseguradora(nit: String, nombre: String,contacto:String){
@@ -49,4 +53,27 @@ object Aseguradora{
             }
         })
     }
+    
+    //Método para obtener una Aseguradora por su nit (Clave primaria)
+  def obtenerPorNit(nit: String): Option[Aseguradora] = {
+    val ref = Conexion.ref(s"aseguradoras/$nit")                   //Se establece la conexión
+    val aseguradoraRecibida = Promise[Aseguradora]                        //Se "promete" la entrega de un objeto Aseguradora
+    ref.addListenerForSingleValueEvent(new ValueEventListener(){  //Empieza el método de la Conexión para extraer un dato
+      override def onDataChange(snapshot: DataSnapshot) = {
+        val aseguradoraBD: AseguradoraBean =snapshot.getValue(classOf[AseguradoraBean])
+        if(aseguradoraBD != null){                                    //Comprueba que si haya recibido la Aseguradora en formato plano
+          aseguradoraRecibida.success(aseguradoraBD.toCase)               //To Case para parsear el formato plano
+        } else{
+          aseguradoraRecibida.failure(AseguradoraNotFoundException(s"Aseguradora $nit no encontrada")) //En caso de error
+        }
+      }
+      override def onCancelled(databaseError: DatabaseError)={
+        println(databaseError.getMessage)                         //En caso de cancelación de la búsqueda
+      }
+    })
+    val aseguradoraFuture = aseguradoraRecibida.future                    //Lo parsea a un Future
+    Thread.sleep(1000)                                            //Tiempo de espera para la respuesta de sus exámenes
+    val aseguradoraOption :Option[Aseguradora] = {if(aseguradoraFuture.isCompleted){aseguradoraFuture.value.get.toOption}else{None}}
+    aseguradoraOption                                                 //Se parsea a option y se devuleve lo que se entrega
+  }
 }

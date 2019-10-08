@@ -46,10 +46,6 @@ class VendedorBean(){
     }
 }
 
-
-
-
-
 //Object donde estaran los metodos y atributos de clase
 
 object Vendedor{

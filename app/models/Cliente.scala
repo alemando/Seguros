@@ -93,28 +93,27 @@ object Cliente{
     })
   }
   
-  //Esta parte se supone que crea un método para devolver un objeto de la base de datos, sin embargo aún no funciona
-  //Pues tengo problemas con el manejo del promise.
-  /*
-  def get(documento:String):Future[Cliente]={
-    val ref=Conexion.ref(s"clientes/$documento")
-    val p= new Promise[Cliente]
-    ref.addListenerForSingleValueEvent(new ValueEventListener(){
-      override def onDataChange(snapshot:DataSnapshot)={
-        val clienteRecord:ClienteBean=snapshot.getValue(classOf[ClienteBean])
-        if(clienteRecord!=null){
-          p.setValue(clienteRecord.toCase)
-        }
-        else{
-          p.setException(ClienteNotFoundException(s"El documento del cliente no fue encontrado"))
+  //Método para obtener un Cliente por su cédula (Clave primaria)
+  def obtenerPorCedula(cedula: String): Option[Cliente] = {
+    val ref = Conexion.ref(s"clientes/$cedula")                   //Se establece la conexión
+    val clienteRecibido = Promise[Cliente]                        //Se "promete" la entrega de un objeto Cliente
+    ref.addListenerForSingleValueEvent(new ValueEventListener(){  //Empieza el método de la Conexión para extraer un dato
+      override def onDataChange(snapshot: DataSnapshot) = {
+        val clienteBD: ClienteBean =snapshot.getValue(classOf[ClienteBean])
+        if(clienteBD != null){                                    //Comprueba que si haya recibido el Cliente en formato plano
+          clienteRecibido.success(clienteBD.toCase)               //To Case para parsear el formato plano
+        } else{
+          clienteRecibido.failure(ClienteNotFoundException(s"Cliente $cedula no encontrado")) //En caso de error
         }
       }
-      override def onCancelled(databaseError:DatabaseError)={
-        p.setException(FirebaseException(databaseError.getMessage))
+      override def onCancelled(databaseError: DatabaseError)={
+        println(databaseError.getMessage)                         //En caso de cancelación de la búsqueda
       }
     })
-    p
+    val clienteFuture = clienteRecibido.future                    //Lo parsea a un Future
+    Thread.sleep(1000)                                            //Tiempo de espera para la respuesta de sus exámenes
+    val clienteOption :Option[Cliente] = {if(clienteFuture.isCompleted){clienteFuture.value.get.toOption}else{None}}
+    clienteOption                                                 //Se parsea a option y se devuleve lo que se entrega
   }
-}""""*/
 }
 //Cliente Bean sirve para volver normal a una clase case y poder meterla a la base de datos

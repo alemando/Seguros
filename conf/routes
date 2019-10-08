@@ -6,16 +6,16 @@
 # An example controller showing a sample home page
 GET     /                                   controllers.HomeController.index
 
-GET     /clientes                           controlleres.AsyncController.verClientes
+GET     /clientes                           controllers.AsyncController.verClientes
 POST    /clientes/save                      controllers.Controller.guardarCliente
 
-GET     /aseguradoras                       controlleres.AsyncController.verClientes
+GET     /aseguradoras                       controllers.AsyncController.verClientes
 POST    /aseguradoras/save                  controllers.Controller.guardarAseguradora
 
-GET     /categorias                         controlleres.Controller.verCategoria
+GET     /categorias                         controllers.Controller.verCategoria
 POST    /categorias/save                    controllers.Controller.guardarCategoria
 
-GET     /bienes                             controlleres.Controller.verBienes
+GET     /bienes                             controllers.Controller.verBienes
 POST    /bienes/save                        controllers.Controller.guardarBien
 
 # Map static resources from the /public folder to the /assets URL path

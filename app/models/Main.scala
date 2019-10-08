@@ -2,7 +2,7 @@ package models
 import scala.collection.mutable.ArrayBuffer
 
 object Main{
-  val adminPrueba = new Admin("12315456", "Juanes", "Cendales", "Sora", "112002")
+  /*val adminPrueba = new Admin("12315456", "Juanes", "Cendales", "Sora", "112002")
   val aseguradoraPrueba = Aseguradora("12318","SURA", "31648874")
   val bienPrueba = Bien("1", "12345811", "Vehiculo", "Bonito, Azul", "N/A")
   val categoriaPrueba = Categoria("Vehiculo")
@@ -18,13 +18,12 @@ object Main{
   Credencial.create(credencialPrueba)
   Vendedor.create(vendedorPrueba)
 
-  val clienteBD : Option[Cliente] = Cliente.obtenerPorCedula("12345811")
   val aseguradoraBD: Option[Aseguradora] = Aseguradora.obtenerPorNit("12318")
   val bienBD: Option[Bien] = Bien.obtenerPorId("1")
   val credencialBD : Option[Credencial] = Credencial.obtenerPorCedulaVendedor("123456789")
   val vendedorBD : Option[Vendedor] = Vendedor.obtenerPorCedula("123456789")
   val categoriaBD : Option[Categoria] = Categoria.obtenerPorNombre("Vehiculo")
 
-  val listaAseguradoras : Option[ArrayBuffer[Aseguradora]] = Aseguradora.obtenerAseguradoras()
+  val listaAseguradoras : Option[ArrayBuffer[Aseguradora]] = Aseguradora.obtenerAseguradoras()*/
   
 }

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+  <title>Aseguradoras | Inequidad Seguros</title>
+  <meta name='description' content='Seguros Inequidad | Clientes'>
+  <meta name='author' content='Seguros Inequidad | Clientes'>
+
+  <!-- Favicon -->
+  <link rel='shortcut icon' href='@routes.Assets.versioned("images/favicon.ico")'>
+
+  <!-- Switchery css -->
+  <link href='@routes.Assets.versioned("plugins/switchery/switchery.min.css")' rel='stylesheet' />
+
+  <!-- Bootstrap CSS -->
+  <link href='@routes.Assets.versioned("css/bootstrap.min.css")' rel='stylesheet' type='text/css' />
+
+  <!-- Font Awesome CSS -->
+  <link href='@routes.Assets.versioned("font-awesome/css/font-awesome.min.css")' rel='stylesheet' type='text/css' />
+
+  <!-- Custom CSS -->
+  <link href='@routes.Assets.versioned("css/sweetalert2.min.css")' rel='stylesheet' type='text/css' />   
+  <link href='@routes.Assets.versioned("css/style.css")' rel='stylesheet' type='text/css' />	
+
+  <!-- BEGIN CSS for this page -->
+  <!-- DataTable -->
+  <link rel='stylesheet' type='text/css' href='https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css'/>    
+  <style> 
+    td.details-control {
+        background: url('@routes.Assets.versioned("plugins/datatables/img/details_open.png")') no-repeat center center;
+        cursor: pointer;
+    }
+    tr.shown td.details-control {
+        background: url('@routes.Assets.versioned("plugins/datatables/img/details_close.png")') no-repeat center center;
+    }
+</style>    
+<!-- END CSS for this page -->
+
+</head>
+
+<body class='adminbody'>
+
+    <div id='main'>
+
+       <!-- top bar navigation -->
+       <div class='headerbar'>
+
+          <!-- LOGO -->
+          <div class='headerbar-left'>
+             <a href='index.html' class='logo'><img alt='logo' src='@routes.Assets.versioned("images/logo.png")' /> <span>Admin</span></a>
+         </div>
+
+         <nav class='navbar-custom'>
+
+            <ul class='list-inline float-right mb-0'>
+                <li class='list-inline-item dropdown notif'>
+                    <a class='nav-link dropdown-toggle nav-user' data-toggle='dropdown' href='#' role='button' aria-haspopup='false' aria-expanded='false'>
+                        <img src='@routes.Assets.versioned("images/avatars/admin.png")' alt='Profile image' class='avatar-rounded'>
+                    </a>
+                    <div class='dropdown-menu dropdown-menu-right profile-dropdown'>
+                        <!-- item-->
+                        <div class='dropdown-item noti-title'>
+                            <h5 class='text-overflow'><small>Hola, Admin</small> </h5>
+                        </div>
+
+                        <!-- item-->
+                        <a href='pro-profile.html' class='dropdown-item notify-item'>
+                            <i class='fa fa-user'></i> <span>Perfil</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href='#' class='dropdown-item notify-item'>
+                            <i class='fa fa-power-off'></i> <span>Cerrar Sesion</span>
+                        </a>
+                    </div>
+                </li>
+
+            </ul>
+
+            <ul class='list-inline menu-left mb-0'>
+                <li class='float-left'>
+                    <button class='button-menu-mobile open-left'>
+                        <i class='fa fa-fw fa-bars'></i>
+                    </button>
+                </li>                        
+            </ul>
+
+        </nav>
+
+    </div>
+    <!-- End Navigation -->
+
+
+    <!-- Left Sidebar -->
+    <div class='left main-sidebar'>
+
+      <div class='sidebar-inner leftscroll'>
+
+         <div id='sidebar-menu'>
+
+             <ul>
+
+               <li class='submenu'>
+                  <a href='index.html'><i class='fa fa-fw fa-bars'></i><span> Home </span> </a>
+              </li>
+
+              <li class='submenu'>
+                <a href='#'><i class='fa fa-fw fa-tv'></i> <span> Clientes</span> <span class='menu-arrow'></span></a>
+                <ul class='list-unstyled'>
+                    <li><a href='clientes.html'>Ver Clientes</a></li>
+                </ul>
+            </li>
+            <li class='submenu'>
+                <a href='#' class='active'><i class='fa fa-fw fa-tv'></i> <span> Aseguradoras</span> <span class='menu-arrow'></span></a>
+                <ul class='list-unstyled'>
+                    <li class='active'><a href='clientes.html'>Ver Aseguradoras</a></li>
+                </ul>
+            </li>
+
+        </ul>
+
+        <div class='clearfix'></div>
+
+    </div>
+
+    <div class='clearfix'></div>
+
+</div>
+
+</div>
+<!-- End Sidebar -->
+
+
+<div class='content-page'>
+	
+  <!-- Start content -->
+  <div class='content'>
+
+     <div class='container-fluid'>
+
+
+         <div class='row'>
+           <div class='col-xl-12'>
+             <div class='breadcrumb-holder'>
+               <h1 class='main-title float-left'>Aseguradoras</h1>
+               <ol class='breadcrumb float-right'>
+                  <li class='breadcrumb-item'>Aseguradoras</li>
+                  <li class='breadcrumb-item active'>Ver Aseguradores</li>
+              </ol>
+              <div class='clearfix'></div>
+          </div>
+      </div>
+  </div>
+  <!-- end row -->
+
+
+  <div class='row'>
+   <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'>                      
+    <div class='card mb-3'>
+        <div class='card-header'>
+            <div class='row'>
+                <div class='col-xs-6 col-sm-6 col-md-8 col-lg-10 col-xl-10'>
+                    <h3><i class='fa fa-users'></i> Aseguradoras disponibles</h3>
+                </div>
+                <div class='col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2'>
+                    <a role='button' href='#' id='añadir-cliente' class='btn btn-success float-right' data-target='#añadirAseguradora' data-toggle='modal'>Añadir Aseguradora<span class='btn-label btn-label-right'><i class='fa fa-user-circle'></i></span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class='card-body'>
+            <div class='table-responsive'>
+                <table id='tabla-aseguradoras' class='table table-bordered table-hover display'>
+                    <thead>
+                        <tr>
+                            <th>nombre</th>
+                            <th>NIT</th>
+                            <th>Contacto</th>
+                            <th></th>
+                        </tr>
+                    </thead>                                        
+                    <tbody>
+                        <tr>
+                            <td>Ejemplo borrar nom</td>
+                            <td>Ejemplo borrar NIT</td>
+                            <td>Ejemplo borrar con</td>
+                            <th><center><a role='button' href='#' class='btn btn-primary editar-aseguradora'><i class='fa fa-pencil'></i></a> <a role='button' href='#' class='btn btn-danger eliminar-aseguradora'><i class='fa fa-trash-o'></i></a></center></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>                                                      
+    </div><!-- end card-->                  
+</div>
+</div>
+
+
+
+</div>
+<!-- END container-fluid -->
+
+</div>
+<!-- END content -->
+
+</div>
+<!-- END content-page -->
+
+<footer class='footer'>
+  <span class='text-right'>
+      Copyright <a target='_blank' href='#'>Seguros Inequidad</a>
+  </span>
+  <span class='float-right'>
+      Powered by <a target='_blank' href='https://www.pikeadmin.com'><b>Pike Admin</b></a>
+  </span>
+</footer>
+
+</div>
+<!-- Modal Añadir aseguradora-->
+<div class='modal fade' id='añadirAseguradora' tabindex='-1' role='dialog' aria-labelledby='customModal' aria-hidden='true'>
+    <div class='modal-dialog' role='document'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='titleAñadirAseguradora'>Añadir a un nueva aseguradora</h5>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+            <div class='modal-body'>
+                <form autocomplete='off' action='#' id='form-añadirAseguradora'>
+                    <div class='form-group'>
+                        <label>NIT<span class='text-danger'>*</span></label>
+                        <input type='text' class='form-control' id='input-nit-aseguradora' placeholder='NIT' required autocomplete='off'>
+                    </div>
+                    <div class='form-group'>
+                        <label>Nombre<span class='text-danger'>*</span></label>
+                        <input type='text' class='form-control' id='input-nombre-aseguradora' placeholder='Nombre' required autocomplete='off'>
+                    </div>
+                    <div class='form-group'>
+                        <label>Contacto<span class='text-danger'>*</span></label>
+                        <input type='text' class='form-control' id='input-contacto-aseguradora' placeholder='Contacto' required autocomplete='off'>
+                    </div>   
+                </div>
+                <div class='modal-footer'>
+                    <button type='button' class='btn btn-secondary' data-dismiss='modal' id='cancelar-añadirAseguradora'>Cancelar</button>
+                    <button type='submit' class='btn btn-success'>Registrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Editar -->
+<div class='modal fade' id='modal-editar-aseguradora' tabindex='-1' role='dialog' aria-labelledby='customModal' aria-hidden='true'>
+    <div class='modal-dialog' role='document'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='titleEditarCliente'>Editar Aseguradora: <span id='id-aseguradora'></span></h5>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+            <div class='modal-body'>
+                <form autocomplete='off' action='#' id='form-añadirAseguradora'>
+                    <div class='form-group'>
+                        <label>Documento<span class='text-danger'>*</span></label>
+                        <input type='text' class='form-control' id='input-documento-cliente-editar' placeholder='Documento' required autocomplete='off'>
+                    </div>
+                    <div class='form-group'>
+                        <label>Nombre<span class='text-danger'>*</span></label>
+                        <input type='text' class='form-control' id='input-nombre-cliente-editar' placeholder='Nombre' required autocomplete='off'>
+                    </div>
+                    <div class='form-row'>
+                        <label>Apellido 1 <span class='text-danger'>*</span></label>
+                        <input type='text' class='form-control' id='input-apellido1-cliente-editar' placeholder='Primer Apellido' required>
+                    </div>  
+                </div>
+                <div class='modal-footer'>
+                    <button type='button' class='btn btn-secondary' data-dismiss='modal' id='cancelar-editarCliente'>Cancelar</button>
+                    <button type='submit' class='btn btn-success'>Editar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END main -->
+
+<script src='@routes.Assets.versioned("js/sweetalert2.min.js")'></script>
+<script src='@routes.Assets.versioned("js/modernizr.min.js")'></script>
+<script src='@routes.Assets.versioned("js/jquery.min.js")'></script>
+<script src='@routes.Assets.versioned("js/moment.min.js")'></script>
+
+<script src='@routes.Assets.versioned("js/popper.min.js")'></script>
+<script src='@routes.Assets.versioned("js/bootstrap.min.js")'></script>
+
+<script src='@routes.Assets.versioned("js/detect.js")'></script>
+<script src='@routes.Assets.versioned("js/fastclick.js")'></script>
+<script src='@routes.Assets.versioned("js/jquery.blockUI.js")'></script>
+<script src='@routes.Assets.versioned("js/jquery.nicescroll.js")'></script>
+<script src='@routes.Assets.versioned("js/jquery.scrollTo.min.js")'></script>
+<script src='@routes.Assets.versioned("plugins/switchery/switchery.min.js")'></script>
+
+<!-- App js -->
+<script src='@routes.Assets.versioned("js/pikeadmin.js")'></script>
+
+
+<!-- Datatable js -->
+<script src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'></script>
+<script src='https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js'></script>
+<!-- BEGIN Java Script for this page -->
+<script src='@routes.Assets.versioned("js/pagesJS/aseguradoras.js")'></script>
+<!-- END Java Script for this page -->
+
+</body>
+</html>

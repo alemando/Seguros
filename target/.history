@@ -1,7 +1,23 @@
 compile
+<<<<<<< HEAD
 eclipse
 run
 exit
 compile
 run
 exit
+=======
+run
+compile
+run
+compile
+run
+compile
+run
+compile
+run
+sbt run
+sbt run;
+sbt run;;
+sbt run
+>>>>>>> 6178ee8a346d160e0e5a44173b80f3231da7421f

@@ -12,7 +12,7 @@ import play.api.mvc._
 class ClienteController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
   
   def principal() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.clientes())
+    Ok(views.html.clientes("Aseguradoras")(request))
   }
   
   

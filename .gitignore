@@ -7,7 +7,6 @@ bin/
 /modules
 /project/project
 /project/target
-
 tmp/
 test-result
 server.pid

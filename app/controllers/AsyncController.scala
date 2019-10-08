@@ -12,7 +12,7 @@ import scala.concurrent.{ExecutionContext, Future, Promise}
 class AsyncController @Inject()(cc: ControllerComponents, actorSystem: ActorSystem)(implicit exec: ExecutionContext) extends AbstractController(cc) {
 
   def verClientes = Action.async {
-    getFutureMessage(10.second).map { msg => Ok(msg) }
+    getFutureMessage(10.second).map { msg => Ok(views.html.clientes()) }
   }
   
   def verAseguradoras = Action.async {

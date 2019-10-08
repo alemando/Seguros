@@ -3,6 +3,10 @@ package models
 import scala.beans.BeanProperty
 import utils.Conexion
 import com.google.firebase.database._
+import scala.beans.BeanProperty
+import com.google.firebase.FirebaseException
+import scala.concurrent.Future
+import scala.concurrent.Promise
 
 //Case class de venderdor, tendra los metodos de instancia y la inicializacion de los atributos de instancia
 //Se corrigienron unos atributos para tener consitencia con la BD
@@ -64,5 +68,28 @@ object Vendedor{
                 }
             }
         })
-    }    
+    }
+    
+    //Método para obtener un Vendedor por su cédula (Clave primaria)
+  def obtenerPorCedula(cedula: String): Option[Vendedor] = {
+    val ref = Conexion.ref(s"vendedores/$cedula")                   //Se establece la conexión
+    val vendedorRecibido = Promise[Vendedor]                        //Se "promete" la entrega de un objeto Vendedor
+    ref.addListenerForSingleValueEvent(new ValueEventListener(){  //Empieza el método de la Conexión para extraer un dato
+      override def onDataChange(snapshot: DataSnapshot) = {
+        val vendedorBD: VendedorBean =snapshot.getValue(classOf[VendedorBean])
+        if(vendedorBD != null){                                    //Comprueba que si haya recibido el Vendedor en formato plano
+          vendedorRecibido.success(vendedorBD.toCase)               //To Case para parsear el formato plano
+        } else{
+          vendedorRecibido.failure(VendedorNotFoundException(s"Vendedor $cedula no encontrado")) //En caso de error
+        }
+      }
+      override def onCancelled(databaseError: DatabaseError)={
+        println(databaseError.getMessage)                         //En caso de cancelación de la búsqueda
+      }
+    })
+    val vendedorFuture = vendedorRecibido.future                    //Lo parsea a un Future
+    Thread.sleep(1000)                                            //Tiempo de espera para la respuesta de sus exámenes
+    val vendedorOption :Option[Vendedor] = {if(vendedorFuture.isCompleted){vendedorFuture.value.get.toOption}else{None}}
+    vendedorOption                                                 //Se parsea a option y se devuleve lo que se entrega
+  }
 }

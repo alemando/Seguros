@@ -20,7 +20,15 @@ class Controller @Inject()(cc: ControllerComponents) extends AbstractController(
    * a path of `/`.
    */
   def guardarCliente() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.index())
+    {
+      val paramVal = request.body.asFormUrlEncoded.map{args =>
+        val documento = args("documento").head
+        val clientePrueba = Cliente(documento, "prueba", "prueba", "Franco", "Calle 11", "Nose", "Nose", "10/28/1999", 140000,10000)
+        Cliente.create(clientePrueba)
+      }
+      
+      Ok("1")
+    }
   }
   
   def guardarAseguradora() = Action { implicit request: Request[AnyContent] =>

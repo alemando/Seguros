@@ -32,7 +32,7 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
   }
   
   def SellerYes() = Action {implicit request: Request[AnyContent] =>
-    Ok(views.html.SellerYes())
+    Ok(views.html.SellerYes("Hola"))
     
   }
   

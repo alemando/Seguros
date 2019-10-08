@@ -3,6 +3,10 @@ package models
 import scala.beans.BeanProperty
 import utils.Conexion
 import com.google.firebase.database._
+import scala.beans.BeanProperty
+import com.google.firebase.FirebaseException
+import scala.concurrent.Future
+import scala.concurrent.Promise
 
 
 case class Credencial(documentoIdentidadVendedor: String, usuario: String,contrasena: String) {
@@ -54,5 +58,28 @@ object Credencial{
                 }
             }
         })
-    }    
+    }
+    
+        //Método para obtener un Vendedor por su cédula (Clave primaria)
+  def obtenerPorCedulaVendedor(cedula: String): Option[Credencial] = {
+    val ref = Conexion.ref(s"credenciales/$cedula")                   //Se establece la conexión
+    val credencialRecibida = Promise[Credencial]                        //Se "promete" la entrega de un objeto Credencial
+    ref.addListenerForSingleValueEvent(new ValueEventListener(){  //Empieza el método de la Conexión para extraer un dato
+      override def onDataChange(snapshot: DataSnapshot) = {
+        val credencialBD: CredencialBean =snapshot.getValue(classOf[CredencialBean])
+        if(credencialBD != null){                                    //Comprueba que si haya recibido el Vendedor en formato plano
+          credencialRecibida.success(credencialBD.toCase)               //To Case para parsear el formato plano
+        } else{
+          credencialRecibida.failure(CredencialNotFoundException(s"Credencial del vendedor $cedula no encontrada")) //En caso de error
+        }
+      }
+      override def onCancelled(databaseError: DatabaseError)={
+        println(databaseError.getMessage)                         //En caso de cancelación de la búsqueda
+      }
+    })
+    val credencialFuture = credencialRecibida.future                    //Lo parsea a un Future
+    Thread.sleep(10000)                                            //Tiempo de espera para la respuesta de sus exámenes
+    val credencialOption :Option[Credencial] = {if(credencialFuture.isCompleted){credencialFuture.value.get.toOption}else{None}}
+    credencialOption                                                 //Se parsea a option y se devuleve lo que se entrega
+  }
 }

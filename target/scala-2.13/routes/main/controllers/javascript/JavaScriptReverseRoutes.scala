@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/user/Documents/GitHub/Seguros/conf/routes
-// @DATE:Wed Oct 09 15:44:50 COT 2019
+// @DATE:Wed Oct 09 15:53:55 COT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -18,7 +18,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:9
+    // @LINE:8
     def verClientes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AsyncController.verClientes",
       """
@@ -32,19 +32,9 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:8
-    def verAseguradoras: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.AsyncController.verAseguradoras",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + """"})
-        }
-      """
-    )
-  
   }
 
-  // @LINE:26
+  // @LINE:21
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -52,7 +42,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:26
+    // @LINE:21
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -64,7 +54,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:11
+  // @LINE:9
   class ReverseController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -72,7 +62,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:23
+    // @LINE:18
     def guardarBien: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Controller.guardarBien",
       """
@@ -82,7 +72,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:17
+    // @LINE:14
     def verCategoria: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Controller.verCategoria",
       """
@@ -92,7 +82,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:15
+    // @LINE:12
     def guardarAseguradora: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Controller.guardarAseguradora",
       """
@@ -102,7 +92,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:11
+    // @LINE:9
     def guardarCliente: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Controller.guardarCliente",
       """
@@ -112,7 +102,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:21
+    // @LINE:17
     def verBienes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Controller.verBienes",
       """
@@ -122,7 +112,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:19
+    // @LINE:15
     def guardarCategoria: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Controller.guardarCategoria",
       """

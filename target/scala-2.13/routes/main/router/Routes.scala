@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/user/Documents/GitHub/Seguros/conf/routes
-// @DATE:Wed Oct 09 15:44:50 COT 2019
+// @DATE:Wed Oct 09 15:53:55 COT 2019
 
 package router
 
@@ -15,9 +15,9 @@ class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:8
   AsyncController_0: controllers.AsyncController,
-  // @LINE:11
+  // @LINE:9
   Controller_2: controllers.Controller,
-  // @LINE:26
+  // @LINE:21
   Assets_1: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -26,9 +26,9 @@ class Routes(
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:8
     AsyncController_0: controllers.AsyncController,
-    // @LINE:11
+    // @LINE:9
     Controller_2: controllers.Controller,
-    // @LINE:26
+    // @LINE:21
     Assets_1: controllers.Assets
   ) = this(errorHandler, AsyncController_0, Controller_2, Assets_1, "/")
 
@@ -43,7 +43,6 @@ class Routes(
   }
 
   def documentation = List(
-    ("""GET""", this.prefix, """controllers.AsyncController.verAseguradoras"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """clientes""", """controllers.AsyncController.verClientes"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """clientes/save""", """controllers.Controller.guardarCliente"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """aseguradoras""", """controllers.AsyncController.verClientes"""),
@@ -61,28 +60,10 @@ class Routes(
 
 
   // @LINE:8
-  private[this] lazy val controllers_AsyncController_verAseguradoras0_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix)))
-  )
-  private[this] lazy val controllers_AsyncController_verAseguradoras0_invoker = createInvoker(
-    AsyncController_0.verAseguradoras,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.AsyncController",
-      "verAseguradoras",
-      Nil,
-      "GET",
-      this.prefix + """""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:9
-  private[this] lazy val controllers_AsyncController_verClientes1_route = Route("GET",
+  private[this] lazy val controllers_AsyncController_verClientes0_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("clientes")))
   )
-  private[this] lazy val controllers_AsyncController_verClientes1_invoker = createInvoker(
+  private[this] lazy val controllers_AsyncController_verClientes0_invoker = createInvoker(
     AsyncController_0.verClientes,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -96,11 +77,11 @@ class Routes(
     )
   )
 
-  // @LINE:11
-  private[this] lazy val controllers_Controller_guardarCliente2_route = Route("POST",
+  // @LINE:9
+  private[this] lazy val controllers_Controller_guardarCliente1_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("clientes/save")))
   )
-  private[this] lazy val controllers_Controller_guardarCliente2_invoker = createInvoker(
+  private[this] lazy val controllers_Controller_guardarCliente1_invoker = createInvoker(
     Controller_2.guardarCliente,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -110,15 +91,15 @@ class Routes(
       "POST",
       this.prefix + """clientes/save""",
       """""",
-      Seq("""nocsrf""")
+      Seq()
     )
   )
 
-  // @LINE:13
-  private[this] lazy val controllers_AsyncController_verClientes3_route = Route("GET",
+  // @LINE:11
+  private[this] lazy val controllers_AsyncController_verClientes2_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("aseguradoras")))
   )
-  private[this] lazy val controllers_AsyncController_verClientes3_invoker = createInvoker(
+  private[this] lazy val controllers_AsyncController_verClientes2_invoker = createInvoker(
     AsyncController_0.verClientes,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -132,11 +113,11 @@ class Routes(
     )
   )
 
-  // @LINE:15
-  private[this] lazy val controllers_Controller_guardarAseguradora4_route = Route("POST",
+  // @LINE:12
+  private[this] lazy val controllers_Controller_guardarAseguradora3_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("aseguradoras/save")))
   )
-  private[this] lazy val controllers_Controller_guardarAseguradora4_invoker = createInvoker(
+  private[this] lazy val controllers_Controller_guardarAseguradora3_invoker = createInvoker(
     Controller_2.guardarAseguradora,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -146,15 +127,15 @@ class Routes(
       "POST",
       this.prefix + """aseguradoras/save""",
       """""",
-      Seq("""nocsrf""")
+      Seq()
     )
   )
 
-  // @LINE:17
-  private[this] lazy val controllers_Controller_verCategoria5_route = Route("GET",
+  // @LINE:14
+  private[this] lazy val controllers_Controller_verCategoria4_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("categorias")))
   )
-  private[this] lazy val controllers_Controller_verCategoria5_invoker = createInvoker(
+  private[this] lazy val controllers_Controller_verCategoria4_invoker = createInvoker(
     Controller_2.verCategoria,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -168,11 +149,11 @@ class Routes(
     )
   )
 
-  // @LINE:19
-  private[this] lazy val controllers_Controller_guardarCategoria6_route = Route("POST",
+  // @LINE:15
+  private[this] lazy val controllers_Controller_guardarCategoria5_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("categorias/save")))
   )
-  private[this] lazy val controllers_Controller_guardarCategoria6_invoker = createInvoker(
+  private[this] lazy val controllers_Controller_guardarCategoria5_invoker = createInvoker(
     Controller_2.guardarCategoria,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -182,15 +163,15 @@ class Routes(
       "POST",
       this.prefix + """categorias/save""",
       """""",
-      Seq("""nocsrf""")
+      Seq()
     )
   )
 
-  // @LINE:21
-  private[this] lazy val controllers_Controller_verBienes7_route = Route("GET",
+  // @LINE:17
+  private[this] lazy val controllers_Controller_verBienes6_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("bienes")))
   )
-  private[this] lazy val controllers_Controller_verBienes7_invoker = createInvoker(
+  private[this] lazy val controllers_Controller_verBienes6_invoker = createInvoker(
     Controller_2.verBienes,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -204,11 +185,11 @@ class Routes(
     )
   )
 
-  // @LINE:23
-  private[this] lazy val controllers_Controller_guardarBien8_route = Route("POST",
+  // @LINE:18
+  private[this] lazy val controllers_Controller_guardarBien7_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("bienes/save")))
   )
-  private[this] lazy val controllers_Controller_guardarBien8_invoker = createInvoker(
+  private[this] lazy val controllers_Controller_guardarBien7_invoker = createInvoker(
     Controller_2.guardarBien,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -218,15 +199,15 @@ class Routes(
       "POST",
       this.prefix + """bienes/save""",
       """""",
-      Seq("""nocsrf""")
+      Seq()
     )
   )
 
-  // @LINE:26
-  private[this] lazy val controllers_Assets_versioned9_route = Route("GET",
+  // @LINE:21
+  private[this] lazy val controllers_Assets_versioned8_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned9_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned8_invoker = createInvoker(
     Assets_1.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -244,63 +225,57 @@ class Routes(
   def routes: PartialFunction[RequestHeader, Handler] = {
   
     // @LINE:8
-    case controllers_AsyncController_verAseguradoras0_route(params@_) =>
+    case controllers_AsyncController_verClientes0_route(params@_) =>
       call { 
-        controllers_AsyncController_verAseguradoras0_invoker.call(AsyncController_0.verAseguradoras)
+        controllers_AsyncController_verClientes0_invoker.call(AsyncController_0.verClientes)
       }
   
     // @LINE:9
-    case controllers_AsyncController_verClientes1_route(params@_) =>
+    case controllers_Controller_guardarCliente1_route(params@_) =>
       call { 
-        controllers_AsyncController_verClientes1_invoker.call(AsyncController_0.verClientes)
+        controllers_Controller_guardarCliente1_invoker.call(Controller_2.guardarCliente)
       }
   
     // @LINE:11
-    case controllers_Controller_guardarCliente2_route(params@_) =>
+    case controllers_AsyncController_verClientes2_route(params@_) =>
       call { 
-        controllers_Controller_guardarCliente2_invoker.call(Controller_2.guardarCliente)
+        controllers_AsyncController_verClientes2_invoker.call(AsyncController_0.verClientes)
       }
   
-    // @LINE:13
-    case controllers_AsyncController_verClientes3_route(params@_) =>
+    // @LINE:12
+    case controllers_Controller_guardarAseguradora3_route(params@_) =>
       call { 
-        controllers_AsyncController_verClientes3_invoker.call(AsyncController_0.verClientes)
+        controllers_Controller_guardarAseguradora3_invoker.call(Controller_2.guardarAseguradora)
+      }
+  
+    // @LINE:14
+    case controllers_Controller_verCategoria4_route(params@_) =>
+      call { 
+        controllers_Controller_verCategoria4_invoker.call(Controller_2.verCategoria)
       }
   
     // @LINE:15
-    case controllers_Controller_guardarAseguradora4_route(params@_) =>
+    case controllers_Controller_guardarCategoria5_route(params@_) =>
       call { 
-        controllers_Controller_guardarAseguradora4_invoker.call(Controller_2.guardarAseguradora)
+        controllers_Controller_guardarCategoria5_invoker.call(Controller_2.guardarCategoria)
       }
   
     // @LINE:17
-    case controllers_Controller_verCategoria5_route(params@_) =>
+    case controllers_Controller_verBienes6_route(params@_) =>
       call { 
-        controllers_Controller_verCategoria5_invoker.call(Controller_2.verCategoria)
+        controllers_Controller_verBienes6_invoker.call(Controller_2.verBienes)
       }
   
-    // @LINE:19
-    case controllers_Controller_guardarCategoria6_route(params@_) =>
+    // @LINE:18
+    case controllers_Controller_guardarBien7_route(params@_) =>
       call { 
-        controllers_Controller_guardarCategoria6_invoker.call(Controller_2.guardarCategoria)
+        controllers_Controller_guardarBien7_invoker.call(Controller_2.guardarBien)
       }
   
     // @LINE:21
-    case controllers_Controller_verBienes7_route(params@_) =>
-      call { 
-        controllers_Controller_verBienes7_invoker.call(Controller_2.verBienes)
-      }
-  
-    // @LINE:23
-    case controllers_Controller_guardarBien8_route(params@_) =>
-      call { 
-        controllers_Controller_guardarBien8_invoker.call(Controller_2.guardarBien)
-      }
-  
-    // @LINE:26
-    case controllers_Assets_versioned9_route(params@_) =>
+    case controllers_Assets_versioned8_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned9_invoker.call(Assets_1.versioned(path, file))
+        controllers_Assets_versioned8_invoker.call(Assets_1.versioned(path, file))
       }
   }
 }

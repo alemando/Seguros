@@ -59,7 +59,7 @@ $(document).ready(function() {
             }).then((result) => {
               if (result.value) {
                 $.ajax({
-                    url: '#',
+                    url: 'aseguradoras/save',
                     type: 'POST',
                     data: {"documento":data[0]},
                     success:function(data){  

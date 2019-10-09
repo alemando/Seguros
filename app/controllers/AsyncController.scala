@@ -13,12 +13,12 @@ import models.Cliente
 @Singleton
 class AsyncController @Inject()(cc: ControllerComponents, actorSystem: ActorSystem)(implicit exec: ExecutionContext) extends AbstractController(cc) {
 
-  def verClientes = Action.async {
-    getFutureClientes(3.second).map { msg => Ok(views.html.clientes(msg)) }
+  def verClientes = Action.async {implicit request: Request[AnyContent] =>
+    getFutureClientes(3.second).map { msg => Ok(views.html.clientes("Clientes")(msg)(request))}
   }
   
-  def verAseguradoras = Action.async {
-    getFutureMessage(3.second).map { msg => Ok(msg) }
+  def verAseguradoras = Action.async {implicit request: Request[AnyContent] =>
+    getFutureMessage(3.second).map { msg => Ok(views.html.aseguradoras("Aseguradoras")(msg)(request))}
   }
   
   private def getFutureMessage(delayTime: FiniteDuration): Future[String] = {

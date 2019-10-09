@@ -1,35 +1,24 @@
 // @GENERATOR:play-routes-compiler
-<<<<<<< HEAD
 // @SOURCE:C:/Users/Usuario/Desktop/seguros/conf/routes
-// @DATE:Tue Oct 08 17:35:11 COT 2019
-=======
-// @SOURCE:D:/INGENIERIA DE SISTEMAS/Ingenieria de Requisitos/Seguros/conf/routes
-// @DATE:Tue Oct 08 16:09:31 COT 2019
->>>>>>> 6178ee8a346d160e0e5a44173b80f3231da7421f
+// @DATE:Tue Oct 08 19:32:38 COT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
 
 import _root_.controllers.Assets.Asset
 
-// @LINE:7
+// @LINE:8
 package controllers.javascript {
 
-<<<<<<< HEAD
   // @LINE:8
   class ReverseAsyncController(_prefix: => String) {
-=======
-  // @LINE:10
-  class ReverseClienteController(_prefix: => String) {
->>>>>>> 6178ee8a346d160e0e5a44173b80f3231da7421f
 
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-<<<<<<< HEAD
-    // @LINE:8
+    // @LINE:9
     def verClientes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AsyncController.verClientes",
       """
@@ -39,31 +28,13 @@ package controllers.javascript {
             return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "clientes"})
           }
         
-=======
-    // @LINE:10
-    def principal: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.ClienteController.principal",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "clientes"})
->>>>>>> 6178ee8a346d160e0e5a44173b80f3231da7421f
         }
       """
     )
   
-  }
-
-  // @LINE:7
-  class ReverseHomeController(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:7
-    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.index",
+    // @LINE:8
+    def verAseguradoras: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AsyncController.verAseguradoras",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + """"})
@@ -71,10 +42,9 @@ package controllers.javascript {
       """
     )
   
-<<<<<<< HEAD
   }
 
-  // @LINE:21
+  // @LINE:24
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -82,7 +52,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:21
+    // @LINE:24
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -94,7 +64,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:9
+  // @LINE:11
   class ReverseController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -102,7 +72,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:18
+    // @LINE:21
     def guardarBien: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Controller.guardarBien",
       """
@@ -112,64 +82,37 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:14
+    // @LINE:17
     def verCategoria: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Controller.verCategoria",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "categorias"})
-=======
-    // @LINE:9
-    def tutorial: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.tutorial",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "tutorial"})
->>>>>>> 6178ee8a346d160e0e5a44173b80f3231da7421f
         }
       """
     )
   
-<<<<<<< HEAD
-    // @LINE:12
+    // @LINE:15
     def guardarAseguradora: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Controller.guardarAseguradora",
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "aseguradoras/save"})
-=======
-    // @LINE:8
-    def explore: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.explore",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "explore"})
->>>>>>> 6178ee8a346d160e0e5a44173b80f3231da7421f
         }
       """
     )
   
-<<<<<<< HEAD
-    // @LINE:9
+    // @LINE:11
     def guardarCliente: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Controller.guardarCliente",
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "clientes/save"})
-=======
-    // @LINE:11
-    def SellerYes: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.SellerYes",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "SellerYes"})
->>>>>>> 6178ee8a346d160e0e5a44173b80f3231da7421f
         }
       """
     )
   
-<<<<<<< HEAD
-    // @LINE:17
+    // @LINE:20
     def verBienes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Controller.verBienes",
       """
@@ -179,30 +122,12 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:15
+    // @LINE:18
     def guardarCategoria: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Controller.guardarCategoria",
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "categorias/save"})
-=======
-  }
-
-  // @LINE:15
-  class ReverseAssets(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:15
-    def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Assets.versioned",
-      """
-        function(file1) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[play.api.mvc.PathBindable[Asset]].javascriptUnbind + """)("file", file1)})
->>>>>>> 6178ee8a346d160e0e5a44173b80f3231da7421f
         }
       """
     )

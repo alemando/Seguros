@@ -15,16 +15,17 @@ import play.api.templates.PlayMagic._
 import play.api.mvc._
 import play.api.data._
 
-object aseguradoras extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
+object aseguradoras extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[String,Any,RequestHeader,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/():play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(name: String)(param:Any)(implicit request: RequestHeader):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.4*/("""
-"""),format.raw/*2.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*1.60*/("""
+"""),_display_(/*2.2*/defining(play.core.PlayVersion.current)/*2.41*/ { version =>_display_(Seq[Any](format.raw/*2.54*/("""
+"""),format.raw/*3.1*/("""<!DOCTYPE html>
 <html lang='en'>
 <head>
   <meta charset='utf-8'>
@@ -35,34 +36,34 @@ Seq[Any](format.raw/*1.4*/("""
   <meta name='author' content='Seguros Inequidad | Clientes'>
 
   <!-- Favicon -->
-  <link rel='shortcut icon' href='"""),_display_(/*13.36*/routes/*13.42*/.Assets.versioned("images/favicon.ico")),format.raw/*13.81*/("""'>
+  <link rel='shortcut icon' href='"""),_display_(/*14.36*/routes/*14.42*/.Assets.versioned("images/favicon.ico")),format.raw/*14.81*/("""'>
 
   <!-- Switchery css -->
-  <link href='"""),_display_(/*16.16*/routes/*16.22*/.Assets.versioned("plugins/switchery/switchery.min.css")),format.raw/*16.78*/("""' rel='stylesheet' />
+  <link href='"""),_display_(/*17.16*/routes/*17.22*/.Assets.versioned("plugins/switchery/switchery.min.css")),format.raw/*17.78*/("""' rel='stylesheet' />
 
   <!-- Bootstrap CSS -->
-  <link href='"""),_display_(/*19.16*/routes/*19.22*/.Assets.versioned("css/bootstrap.min.css")),format.raw/*19.64*/("""' rel='stylesheet' type='text/css' />
+  <link href='"""),_display_(/*20.16*/routes/*20.22*/.Assets.versioned("css/bootstrap.min.css")),format.raw/*20.64*/("""' rel='stylesheet' type='text/css' />
 
   <!-- Font Awesome CSS -->
-  <link href='"""),_display_(/*22.16*/routes/*22.22*/.Assets.versioned("font-awesome/css/font-awesome.min.css")),format.raw/*22.80*/("""' rel='stylesheet' type='text/css' />
+  <link href='"""),_display_(/*23.16*/routes/*23.22*/.Assets.versioned("font-awesome/css/font-awesome.min.css")),format.raw/*23.80*/("""' rel='stylesheet' type='text/css' />
   
 
   <!-- Custom CSS -->
-  <link href='"""),_display_(/*26.16*/routes/*26.22*/.Assets.versioned("css/sweetalert2.min.css")),format.raw/*26.66*/("""' rel='stylesheet' type='text/css' />   
-  <link href='"""),_display_(/*27.16*/routes/*27.22*/.Assets.versioned("css/style.css")),format.raw/*27.56*/("""' rel='stylesheet' type='text/css' />	
+  <link href='"""),_display_(/*27.16*/routes/*27.22*/.Assets.versioned("css/sweetalert2.min.css")),format.raw/*27.66*/("""' rel='stylesheet' type='text/css' />   
+  <link href='"""),_display_(/*28.16*/routes/*28.22*/.Assets.versioned("css/style.css")),format.raw/*28.56*/("""' rel='stylesheet' type='text/css' />	
 
   <!-- BEGIN CSS for this page -->
   <!-- DataTable -->
   <link rel='stylesheet' type='text/css' href='https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css'/>    
   <style> 
-    td.details-control """),format.raw/*33.24*/("""{"""),format.raw/*33.25*/("""
-        """),format.raw/*34.9*/("""background: url('"""),_display_(/*34.27*/routes/*34.33*/.Assets.versioned("plugins/datatables/img/details_open.png")),format.raw/*34.93*/("""') no-repeat center center;
+    td.details-control """),format.raw/*34.24*/("""{"""),format.raw/*34.25*/("""
+        """),format.raw/*35.9*/("""background: url('"""),_display_(/*35.27*/routes/*35.33*/.Assets.versioned("plugins/datatables/img/details_open.png")),format.raw/*35.93*/("""') no-repeat center center;
         cursor: pointer;
-    """),format.raw/*36.5*/("""}"""),format.raw/*36.6*/("""
-    """),format.raw/*37.5*/("""tr.shown td.details-control """),format.raw/*37.33*/("""{"""),format.raw/*37.34*/("""
-        """),format.raw/*38.9*/("""background: url('"""),_display_(/*38.27*/routes/*38.33*/.Assets.versioned("plugins/datatables/img/details_close.png")),format.raw/*38.94*/("""') no-repeat center center;
-    """),format.raw/*39.5*/("""}"""),format.raw/*39.6*/("""
-"""),format.raw/*40.1*/("""</style>    
+    """),format.raw/*37.5*/("""}"""),format.raw/*37.6*/("""
+    """),format.raw/*38.5*/("""tr.shown td.details-control """),format.raw/*38.33*/("""{"""),format.raw/*38.34*/("""
+        """),format.raw/*39.9*/("""background: url('"""),_display_(/*39.27*/routes/*39.33*/.Assets.versioned("plugins/datatables/img/details_close.png")),format.raw/*39.94*/("""') no-repeat center center;
+    """),format.raw/*40.5*/("""}"""),format.raw/*40.6*/("""
+"""),format.raw/*41.1*/("""</style>    
 <!-- END CSS for this page -->
 
 </head>
@@ -72,91 +73,13 @@ Seq[Any](format.raw/*1.4*/("""
     <div id='main'>
 
        <!-- top bar navigation -->
-       <div class='headerbar'>
-
-          <!-- LOGO -->
-          <div class='headerbar-left'>
-             <a href='index.html' class='logo'><img alt='logo' src='"""),_display_(/*54.70*/routes/*54.76*/.Assets.versioned("images/logo.png")),format.raw/*54.112*/("""' /> <span>Admin</span></a>
-         </div>
-
-         <nav class='navbar-custom'>
-
-            <ul class='list-inline float-right mb-0'>
-                <li class='list-inline-item dropdown notif'>
-                    <a class='nav-link dropdown-toggle nav-user' data-toggle='dropdown' href='#' role='button' aria-haspopup='false' aria-expanded='false'>
-                        <img src='"""),_display_(/*62.36*/routes/*62.42*/.Assets.versioned("images/avatars/admin.png")),format.raw/*62.87*/("""' alt='Profile image' class='avatar-rounded'>
-                    </a>
-                    <div class='dropdown-menu dropdown-menu-right profile-dropdown'>
-                        <!-- item-->
-                        <div class='dropdown-item noti-title'>
-                            <h5 class='text-overflow'><small>Hola, Admin</small> </h5>
-                        </div>
-
-                        <!-- item-->
-                        <a href='pro-profile.html' class='dropdown-item notify-item'>
-                            <i class='fa fa-user'></i> <span>Perfil</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href='#' class='dropdown-item notify-item'>
-                            <i class='fa fa-power-off'></i> <span>Cerrar Sesion</span>
-                        </a>
-                    </div>
-                </li>
-
-            </ul>
-
-            <ul class='list-inline menu-left mb-0'>
-                <li class='float-left'>
-                    <button class='button-menu-mobile open-left'>
-                        <i class='fa fa-fw fa-bars'></i>
-                    </button>
-                </li>                        
-            </ul>
-
-        </nav>
-
-    </div>
-    <!-- End Navigation -->
+       """),_display_(/*51.9*/header()),format.raw/*51.17*/("""
+    """),format.raw/*52.5*/("""<!-- End Navigation -->
 
 
     <!-- Left Sidebar -->
-    <div class='left main-sidebar'>
-
-      <div class='sidebar-inner leftscroll'>
-
-         <div id='sidebar-menu'>
-
-             <ul>
-
-               <li class='submenu'>
-                  <a href='index.html'><i class='fa fa-fw fa-bars'></i><span> Home </span> </a>
-              </li>
-
-              <li class='submenu'>
-                <a href='#'><i class='fa fa-fw fa-tv'></i> <span> Clientes</span> <span class='menu-arrow'></span></a>
-                <ul class='list-unstyled'>
-                    <li><a href='clientes.html'>Ver Clientes</a></li>
-                </ul>
-            </li>
-            <li class='submenu'>
-                <a href='#' class='active'><i class='fa fa-fw fa-tv'></i> <span> Aseguradoras</span> <span class='menu-arrow'></span></a>
-                <ul class='list-unstyled'>
-                    <li class='active'><a href='clientes.html'>Ver Aseguradoras</a></li>
-                </ul>
-            </li>
-
-        </ul>
-
-        <div class='clearfix'></div>
-
-    </div>
-
-    <div class='clearfix'></div>
-
-</div>
-</div>
-<!-- End Sidebar -->
+    """),_display_(/*56.6*/leftSidebar(name)),format.raw/*56.23*/("""
+"""),format.raw/*57.1*/("""<!-- End Sidebar -->
 
 
 <div class='content-page'>
@@ -234,16 +157,9 @@ Seq[Any](format.raw/*1.4*/("""
 </div>
 <!-- END content-page -->
 
-<footer class='footer'>
-  <span class='text-right'>
-      Copyright <a target='_blank' href='#'>Seguros Inequidad</a>
-  </span>
-  <span class='float-right'>
-      Powered by <a target='_blank' href='https://www.pikeadmin.com'><b>Pike Admin</b></a>
-  </span>
-</footer>
+"""),_display_(/*135.2*/footer()),format.raw/*135.10*/("""
 
-</div>
+"""),format.raw/*137.1*/("""</div>
 <!-- Modal Añadir aseguradora-->
 <div class='modal fade' id='añadirAseguradora' tabindex='-1' role='dialog' aria-labelledby='customModal' aria-hidden='true'>
     <div class='modal-dialog' role='document'>
@@ -255,7 +171,6 @@ Seq[Any](format.raw/*1.4*/("""
                 </button>
             </div>
             <div class='modal-body'>
-<<<<<<< HEAD
                 <form autocomplete='off' action="prueba" id='form-añadirAseguradora' method="post">
                     <div class='form-group'>
                         <label>NIT<span class='text-danger'>*</span></label>
@@ -268,20 +183,6 @@ Seq[Any](format.raw/*1.4*/("""
                     <div class='form-group'>
                         <label>Contacto<span class='text-danger'>*</span></label>
                         <input type='text' class='form-control' id='input-contacto-aseguradora' placeholder='Contacto' required autocomplete='off' name="contacto">
-=======
-                <form autocomplete='off' action='#' id='form-añadirAseguradora'>
-                    <div class='form-group'>
-                        <label>NIT<span class='text-danger'>*</span></label>
-                        <input type='text' class='form-control' id='input-nit-aseguradora' placeholder='NIT' required autocomplete='off'>
-                    </div>
-                    <div class='form-group'>
-                        <label>Nombre<span class='text-danger'>*</span></label>
-                        <input type='text' class='form-control' id='input-nombre-aseguradora' placeholder='Nombre' required autocomplete='off'>
-                    </div>
-                    <div class='form-group'>
-                        <label>Contacto<span class='text-danger'>*</span></label>
-                        <input type='text' class='form-control' id='input-contacto-aseguradora' placeholder='Contacto' required autocomplete='off'>
->>>>>>> 6178ee8a346d160e0e5a44173b80f3231da7421f
                     </div>   
                 </div>
                 <div class='modal-footer'>
@@ -327,41 +228,42 @@ Seq[Any](format.raw/*1.4*/("""
 </div>
 <!-- END main -->
 
-<script src='"""),_display_(/*290.15*/routes/*290.21*/.Assets.versioned("js/sweetalert2.min.js")),format.raw/*290.63*/("""'></script>
-<script src='"""),_display_(/*291.15*/routes/*291.21*/.Assets.versioned("js/modernizr.min.js")),format.raw/*291.61*/("""'></script>
-<script src='"""),_display_(/*292.15*/routes/*292.21*/.Assets.versioned("js/jquery.min.js")),format.raw/*292.58*/("""'></script>
-<script src='"""),_display_(/*293.15*/routes/*293.21*/.Assets.versioned("js/moment.min.js")),format.raw/*293.58*/("""'></script>
+<script src='"""),_display_(/*206.15*/routes/*206.21*/.Assets.versioned("js/sweetalert2.min.js")),format.raw/*206.63*/("""'></script>
+<script src='"""),_display_(/*207.15*/routes/*207.21*/.Assets.versioned("js/modernizr.min.js")),format.raw/*207.61*/("""'></script>
+<script src='"""),_display_(/*208.15*/routes/*208.21*/.Assets.versioned("js/jquery.min.js")),format.raw/*208.58*/("""'></script>
+<script src='"""),_display_(/*209.15*/routes/*209.21*/.Assets.versioned("js/moment.min.js")),format.raw/*209.58*/("""'></script>
 
-<script src='"""),_display_(/*295.15*/routes/*295.21*/.Assets.versioned("js/popper.min.js")),format.raw/*295.58*/("""'></script>
-<script src='"""),_display_(/*296.15*/routes/*296.21*/.Assets.versioned("js/bootstrap.min.js")),format.raw/*296.61*/("""'></script>
+<script src='"""),_display_(/*211.15*/routes/*211.21*/.Assets.versioned("js/popper.min.js")),format.raw/*211.58*/("""'></script>
+<script src='"""),_display_(/*212.15*/routes/*212.21*/.Assets.versioned("js/bootstrap.min.js")),format.raw/*212.61*/("""'></script>
 
-<script src='"""),_display_(/*298.15*/routes/*298.21*/.Assets.versioned("js/detect.js")),format.raw/*298.54*/("""'></script>
-<script src='"""),_display_(/*299.15*/routes/*299.21*/.Assets.versioned("js/fastclick.js")),format.raw/*299.57*/("""'></script>
-<script src='"""),_display_(/*300.15*/routes/*300.21*/.Assets.versioned("js/jquery.blockUI.js")),format.raw/*300.62*/("""'></script>
-<script src='"""),_display_(/*301.15*/routes/*301.21*/.Assets.versioned("js/jquery.nicescroll.js")),format.raw/*301.65*/("""'></script>
-<script src='"""),_display_(/*302.15*/routes/*302.21*/.Assets.versioned("js/jquery.scrollTo.min.js")),format.raw/*302.67*/("""'></script>
-<script src='"""),_display_(/*303.15*/routes/*303.21*/.Assets.versioned("plugins/switchery/switchery.min.js")),format.raw/*303.76*/("""'></script>
+<script src='"""),_display_(/*214.15*/routes/*214.21*/.Assets.versioned("js/detect.js")),format.raw/*214.54*/("""'></script>
+<script src='"""),_display_(/*215.15*/routes/*215.21*/.Assets.versioned("js/fastclick.js")),format.raw/*215.57*/("""'></script>
+<script src='"""),_display_(/*216.15*/routes/*216.21*/.Assets.versioned("js/jquery.blockUI.js")),format.raw/*216.62*/("""'></script>
+<script src='"""),_display_(/*217.15*/routes/*217.21*/.Assets.versioned("js/jquery.nicescroll.js")),format.raw/*217.65*/("""'></script>
+<script src='"""),_display_(/*218.15*/routes/*218.21*/.Assets.versioned("js/jquery.scrollTo.min.js")),format.raw/*218.67*/("""'></script>
+<script src='"""),_display_(/*219.15*/routes/*219.21*/.Assets.versioned("plugins/switchery/switchery.min.js")),format.raw/*219.76*/("""'></script>
 
 <!-- App js -->
-<script src='"""),_display_(/*306.15*/routes/*306.21*/.Assets.versioned("js/pikeadmin.js")),format.raw/*306.57*/("""'></script>
+<script src='"""),_display_(/*222.15*/routes/*222.21*/.Assets.versioned("js/pikeadmin.js")),format.raw/*222.57*/("""'></script>
 
 
 <!-- Datatable js -->
 <script src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'></script>
 <script src='https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js'></script>
 <!-- BEGIN Java Script for this page -->
-<script src='"""),_display_(/*313.15*/routes/*313.21*/.Assets.versioned("js/pagesJS/aseguradoras.js")),format.raw/*313.68*/("""'></script>
+<script src='"""),_display_(/*229.15*/routes/*229.21*/.Assets.versioned("js/pagesJS/aseguradoras.js")),format.raw/*229.68*/("""'></script>
 <!-- END Java Script for this page -->
 
 </body>
-</html>"""))
+</html>
+""")))}))
       }
     }
   }
 
-  def render(): play.twirl.api.HtmlFormat.Appendable = apply()
+  def render(name:String,param:Any,request:RequestHeader): play.twirl.api.HtmlFormat.Appendable = apply(name)(param)(request)
 
-  def f:(() => play.twirl.api.HtmlFormat.Appendable) = () => apply()
+  def f:((String) => (Any) => (RequestHeader) => play.twirl.api.HtmlFormat.Appendable) = (name) => (param) => (request) => apply(name)(param)(request)
 
   def ref: this.type = this
 
@@ -370,18 +272,11 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-<<<<<<< HEAD
-                  DATE: 2019-10-08T16:38:30.978
+                  DATE: 2019-10-08T19:14:15.656
                   SOURCE: C:/Users/Usuario/Desktop/seguros/app/views/aseguradoras.scala.html
-                  HASH: 708181bc9d1c271fda388b6c7b9d3b74f2cc296a
-                  MATRIX: 729->1|825->3|853->5|1264->389|1279->395|1339->434|1413->481|1428->487|1505->543|1598->609|1613->615|1676->657|1788->742|1803->748|1882->806|1992->889|2007->895|2072->939|2156->996|2171->1002|2226->1036|2513->1295|2542->1296|2579->1306|2624->1324|2639->1330|2720->1390|2806->1449|2834->1450|2867->1456|2923->1484|2952->1485|2989->1495|3034->1513|3049->1519|3131->1580|3191->1613|3219->1614|3248->1616|3589->1930|3604->1936|3662->1972|4086->2369|4101->2375|4167->2420|13782->12007|13798->12013|13862->12055|13917->12082|13933->12088|13995->12128|14050->12155|14066->12161|14125->12198|14180->12225|14196->12231|14255->12268|14312->12297|14328->12303|14387->12340|14442->12367|14458->12373|14520->12413|14577->12442|14593->12448|14648->12481|14703->12508|14719->12514|14777->12550|14832->12577|14848->12583|14911->12624|14966->12651|14982->12657|15048->12701|15103->12728|15119->12734|15187->12780|15242->12807|15258->12813|15335->12868|15409->12914|15425->12920|15483->12956|15787->13232|15803->13238|15872->13285
-=======
-                  DATE: 2019-10-08T16:09:32.220
-                  SOURCE: D:/INGENIERIA DE SISTEMAS/Ingenieria de Requisitos/Seguros/app/views/aseguradoras.scala.html
-                  HASH: 9b8a0ef518083ae61fc80269db97ccf9f0be4887
-                  MATRIX: 729->1|825->3|853->5|1264->389|1279->395|1339->434|1413->481|1428->487|1505->543|1598->609|1613->615|1676->657|1788->742|1803->748|1882->806|1992->889|2007->895|2072->939|2156->996|2171->1002|2226->1036|2513->1295|2542->1296|2579->1306|2624->1324|2639->1330|2720->1390|2806->1449|2834->1450|2867->1456|2923->1484|2952->1485|2989->1495|3034->1513|3049->1519|3131->1580|3191->1613|3219->1614|3248->1616|3589->1930|3604->1936|3662->1972|4086->2369|4101->2375|4167->2420|13722->11947|13738->11953|13802->11995|13857->12022|13873->12028|13935->12068|13990->12095|14006->12101|14065->12138|14120->12165|14136->12171|14195->12208|14252->12237|14268->12243|14327->12280|14382->12307|14398->12313|14460->12353|14517->12382|14533->12388|14588->12421|14643->12448|14659->12454|14717->12490|14772->12517|14788->12523|14851->12564|14906->12591|14922->12597|14988->12641|15043->12668|15059->12674|15127->12720|15182->12747|15198->12753|15275->12808|15349->12854|15365->12860|15423->12896|15727->13172|15743->13178|15812->13225
->>>>>>> 6178ee8a346d160e0e5a44173b80f3231da7421f
-                  LINES: 21->1|26->1|27->2|38->13|38->13|38->13|41->16|41->16|41->16|44->19|44->19|44->19|47->22|47->22|47->22|51->26|51->26|51->26|52->27|52->27|52->27|58->33|58->33|59->34|59->34|59->34|59->34|61->36|61->36|62->37|62->37|62->37|63->38|63->38|63->38|63->38|64->39|64->39|65->40|79->54|79->54|79->54|87->62|87->62|87->62|315->290|315->290|315->290|316->291|316->291|316->291|317->292|317->292|317->292|318->293|318->293|318->293|320->295|320->295|320->295|321->296|321->296|321->296|323->298|323->298|323->298|324->299|324->299|324->299|325->300|325->300|325->300|326->301|326->301|326->301|327->302|327->302|327->302|328->303|328->303|328->303|331->306|331->306|331->306|338->313|338->313|338->313
+                  HASH: 44b55785452ba0d37581f1468c9ef44486a31ac0
+                  MATRIX: 754->1|907->59|935->62|982->101|1032->114|1060->116|1471->500|1486->506|1546->545|1620->592|1635->598|1712->654|1805->720|1820->726|1883->768|1995->853|2010->859|2089->917|2199->1000|2214->1006|2279->1050|2363->1107|2378->1113|2433->1147|2720->1406|2749->1407|2786->1417|2831->1435|2846->1441|2927->1501|3013->1560|3041->1561|3074->1567|3130->1595|3159->1596|3196->1606|3241->1624|3256->1630|3338->1691|3398->1724|3426->1725|3455->1727|3635->1881|3664->1889|3697->1895|3784->1956|3822->1973|3851->1975|6674->4771|6704->4779|6736->4783|10864->8883|10880->8889|10944->8931|10999->8958|11015->8964|11077->9004|11132->9031|11148->9037|11207->9074|11262->9101|11278->9107|11337->9144|11394->9173|11410->9179|11469->9216|11524->9243|11540->9249|11602->9289|11659->9318|11675->9324|11730->9357|11785->9384|11801->9390|11859->9426|11914->9453|11930->9459|11993->9500|12048->9527|12064->9533|12130->9577|12185->9604|12201->9610|12269->9656|12324->9683|12340->9689|12417->9744|12491->9790|12507->9796|12565->9832|12869->10108|12885->10114|12954->10161
+                  LINES: 21->1|26->1|27->2|27->2|27->2|28->3|39->14|39->14|39->14|42->17|42->17|42->17|45->20|45->20|45->20|48->23|48->23|48->23|52->27|52->27|52->27|53->28|53->28|53->28|59->34|59->34|60->35|60->35|60->35|60->35|62->37|62->37|63->38|63->38|63->38|64->39|64->39|64->39|64->39|65->40|65->40|66->41|76->51|76->51|77->52|81->56|81->56|82->57|160->135|160->135|162->137|231->206|231->206|231->206|232->207|232->207|232->207|233->208|233->208|233->208|234->209|234->209|234->209|236->211|236->211|236->211|237->212|237->212|237->212|239->214|239->214|239->214|240->215|240->215|240->215|241->216|241->216|241->216|242->217|242->217|242->217|243->218|243->218|243->218|244->219|244->219|244->219|247->222|247->222|247->222|254->229|254->229|254->229
                   -- GENERATED --
               */
           

@@ -32,22 +32,22 @@ class Controller @Inject()(cc: ControllerComponents) extends AbstractController(
   }
   
   def guardarAseguradora() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.aseguradoras())
+    Ok(views.html.aseguradoras("Aseguradoras")("sd")(request))
   }
   
   def verCategoria() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.aseguradoras())
+    Ok(views.html.aseguradoras("Aseguradoras")("sd")(request))
   }
 
   def guardarCategoria() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.aseguradoras())
+    Ok(views.html.aseguradoras("Aseguradoras")("sd")(request))
   }
 
   def verBienes() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.aseguradoras())
+    Ok(views.html.aseguradoras("Aseguradoras")("sd")(request))
   }
 
   def guardarBien() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.aseguradoras())
+    Ok(views.html.aseguradoras("Aseguradoras")("sd")(request))
   }
 }

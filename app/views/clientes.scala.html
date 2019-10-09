@@ -1,19 +1,4 @@
-<<<<<<< HEAD
-@(param :Any)
-<!DOCTYPE html>
-<html lang="en">
-<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-		<title>Pike Admin - Free Bootstrap 4 Admin Template</title>
-		<meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin">
-		<meta name="author" content="Pike Web Development - https://www.pikephp.com">
-
-		<!-- Favicon -->
-		<link rel="shortcut icon" href='@routes.Assets.versioned("images/favicon.ico")'>
-=======
-@(name: String)(implicit request: RequestHeader)
+@(name: String)(param:Any)(implicit request: RequestHeader)
 @defining(play.core.PlayVersion.current) { version =>
     <!DOCTYPE html>
     <html lang="en">
@@ -145,7 +130,6 @@
                                             </div><!-- end card-->                  
                                         </div>
     							</div>
->>>>>>> 6178ee8a346d160e0e5a44173b80f3231da7421f
 
 
 
@@ -158,117 +142,8 @@
         </div>
     	<!-- END content-page -->
         
-<<<<<<< HEAD
-			<ul>
 
-					<li class="submenu">
-						<a href="index.html"><i class="fa fa-fw fa-bars"></i><span> Home </span> </a>
-                    </li>
-										
-                    <li class="submenu">
-                        <a href="#" class="active"><i class="fa fa-fw fa-tv"></i> <span> Clientes</span> <span class="menu-arrow"></span></a>
-                            <ul class="list-unstyled">
-                                <li class="active"><a href="clientes.html">Ver Clientes</a></li>
-                            </ul>
-                    </li>
-					
-            </ul>
-
-            <div class="clearfix"></div>
-
-			</div>
-        
-			<div class="clearfix"></div>
-
-		</div>
-
-	</div>
-	
-	<!-- End Sidebar -->
-
-
-    <div class="content-page">
-	
-		<!-- Start content -->
-        <div class="content">
-            
-			<div class="container-fluid">
-
-					
-							<div class="row">
-									<div class="col-xl-12">
-											<div class="breadcrumb-holder">
-													<h1 class="main-title float-left">Clientes</h1>
-													<ol class="breadcrumb float-right">
-														<li class="breadcrumb-item">Clientes</li>
-														<li class="breadcrumb-item active">Ver Clientes</li>
-													</ol>
-													<div class="clearfix"></div>
-											</div>
-									</div>
-							</div>
-							<!-- end row -->
-
-							
-							<div class="row">
-									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">                      
-                                        <div class="card mb-3">
-                                            <div class="card-header">
-                                                <div class="row">
-                                                    <div class="col-xs-6 col-sm-6 col-md-8 col-lg-10 col-xl-10">
-                                                        <h3><i class="fa fa-users"></i> Clientes disponibles</h3>
-                                                    </div>
-                                                    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-                                                        <a role="button" href="#" id="añadir-cliente" class="btn btn-success float-right" data-target="#añadirCliente" data-toggle="modal">Añadir Cliente<span class="btn-label btn-label-right"><i class="fa fa-user-circle"></i></span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                
-                                            <div class="card-body">
-                                                <div class="table-responsive">
-                                                <table id="tabla-clientes" class="table table-bordered table-hover display">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Documento</th>
-                                                            <th>Nombres</th>
-                                                            <th>Contacto</th>
-                                                            <th>Residencia</th>
-                                                            <th>Fecha Nacimiento</th>
-                                                            <th>Ingresos</th>
-                                                            <th>Egresos</th>
-                                                            <th></th>
-                                                        </tr>
-                                                    </thead>                                        
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Ejemplo borrar doc</td>
-                                                            <td>Ejemplo borrar nom</td>
-                                                            <td>Ejemplo borrar con</td>
-                                                            <td>Ejemplo borrar res</td>
-                                                            <td>Ejemplo borrar fn</td>
-                                                            <td>Ejemplo borrar ing</td>
-                                                            <td>Ejemplo borrar egr</td>
-                                                            <th><center><a role="button" href="#" class="btn btn-primary editar-cliente"><i class="fa fa-pencil"></i></a> <a role="button" href="#" class="btn btn-danger eliminar-cliente"><i class="fa fa-trash-o"></i></a></center></th>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                </div>
-                                                
-                                            </div>                                                      
-                                        </div><!-- end card-->                  
-                                    </div>
-							</div>
-
-
-
-            </div>
-			<!-- END container-fluid -->
-
-		</div>
-		<!-- END content -->
-=======
     	@footer()
->>>>>>> 6178ee8a346d160e0e5a44173b80f3231da7421f
 
     </div>
     <!-- Modal -->

@@ -9,17 +9,18 @@ import scala.concurrent.duration._
 import scala.concurrent.{ExecutionContext, Future, Promise}
 import scala.collection.mutable.ArrayBuffer
 import models.Cliente
+import models.Aseguradora
 
 
 @Singleton
 class AsyncController @Inject()(cc: ControllerComponents, actorSystem: ActorSystem)(implicit exec: ExecutionContext) extends AbstractController(cc) {
 
   def verClientes = Action.async {implicit request: Request[AnyContent] =>
-    getFutureClientes(10.second).map { msg => Ok(views.html.clientes("Clientes")(msg)(request))}
+    getFutureClientes(6.second).map { msg => Ok(views.html.clientes("Clientes")(msg)(request))}
   }
   
   def verAseguradoras = Action.async {implicit request: Request[AnyContent] =>
-    getFutureMessage(3.second).map { msg => Ok(views.html.aseguradoras("Aseguradoras")(msg)(request))}
+    getFutureAseguradoras(3.second).map { msg => Ok(views.html.aseguradoras("Aseguradoras")(msg)(request))}
   }
   
   private def getFutureMessage(delayTime: FiniteDuration): Future[String] = {
@@ -35,6 +36,15 @@ class AsyncController @Inject()(cc: ControllerComponents, actorSystem: ActorSyst
     actorSystem.scheduler.scheduleOnce(delayTime) {
       val Clientes :ArrayBuffer[Cliente]= Cliente.obtenerClientes().getOrElse(ArrayBuffer()) 
       promise.success(Clientes)
+    }(actorSystem.dispatcher) // run scheduled tasks using the actor system's dispatcher
+    promise.future
+  }
+  
+  private def getFutureAseguradoras(delayTime: FiniteDuration): Future[ArrayBuffer[Aseguradora]] = {
+    val promise: Promise[ArrayBuffer[Aseguradora]] = Promise[ArrayBuffer[Aseguradora]]()
+    actorSystem.scheduler.scheduleOnce(delayTime) {
+      val Aseguradoras :ArrayBuffer[Aseguradora]= Aseguradora.obtenerAseguradoras().get 
+      promise.success(Aseguradoras)
     }(actorSystem.dispatcher) // run scheduled tasks using the actor system's dispatcher
     promise.future
   }

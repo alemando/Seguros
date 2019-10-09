@@ -4,6 +4,7 @@ import javax.inject._
 import play.api._
 import play.api.mvc._
 import models._
+import scala.collection.mutable.ArrayBuffer
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -38,24 +39,24 @@ class Controller @Inject()(cc: ControllerComponents) extends AbstractController(
       Ok("1")
     }
   }
-
+  val aseguradoras: ArrayBuffer[Aseguradora] = null
   def guardarAseguradora() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.aseguradoras("Aseguradoras")("sd")(request))
+    Ok("1")
   }
   
   def verCategoria() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.aseguradoras("Aseguradoras")("sd")(request))
+    Ok("1")
   }
 
   def guardarCategoria() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.aseguradoras("Aseguradoras")("sd")(request))
+    Ok("1")
   }
 
   def verBienes() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.aseguradoras("Aseguradoras")("sd")(request))
+    Ok("1")
   }
 
   def guardarBien() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.aseguradoras("Aseguradoras")("sd")(request))
+    Ok("1")
   }
 }

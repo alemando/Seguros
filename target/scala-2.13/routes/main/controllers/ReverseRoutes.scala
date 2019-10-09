@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Usuario/Desktop/seguros/conf/routes
-// @DATE:Wed Oct 09 10:11:08 COT 2019
+// @DATE:Wed Oct 09 15:39:31 COT 2019
 
 import play.api.mvc.Call
 

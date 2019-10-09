@@ -14,18 +14,19 @@ import views.html._
 import play.api.templates.PlayMagic._
 import play.api.mvc._
 import play.api.data._
+/*1.2*/import scala.collection.mutable.ArrayBuffer
 
-object aseguradoras extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[String,Any,RequestHeader,play.twirl.api.HtmlFormat.Appendable] {
+object aseguradoras extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[String,ArrayBuffer[Aseguradora],RequestHeader,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(name: String)(param:Any)(implicit request: RequestHeader):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*2.2*/(name: String)(aseguradoras:ArrayBuffer[Aseguradora])(implicit request: RequestHeader):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.60*/("""
-"""),_display_(/*2.2*/defining(play.core.PlayVersion.current)/*2.41*/ { version =>_display_(Seq[Any](format.raw/*2.54*/("""
-"""),format.raw/*3.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*2.88*/("""
+"""),_display_(/*3.2*/defining(play.core.PlayVersion.current)/*3.41*/ { version =>_display_(Seq[Any](format.raw/*3.54*/("""
+"""),format.raw/*4.1*/("""<!DOCTYPE html>
 <html lang='en'>
 <head>
   <meta charset='utf-8'>
@@ -36,34 +37,34 @@ Seq[Any](format.raw/*1.60*/("""
   <meta name='author' content='Seguros Inequidad | Clientes'>
 
   <!-- Favicon -->
-  <link rel='shortcut icon' href='"""),_display_(/*14.36*/routes/*14.42*/.Assets.versioned("images/favicon.ico")),format.raw/*14.81*/("""'>
+  <link rel='shortcut icon' href='"""),_display_(/*15.36*/routes/*15.42*/.Assets.versioned("images/favicon.ico")),format.raw/*15.81*/("""'>
 
   <!-- Switchery css -->
-  <link href='"""),_display_(/*17.16*/routes/*17.22*/.Assets.versioned("plugins/switchery/switchery.min.css")),format.raw/*17.78*/("""' rel='stylesheet' />
+  <link href='"""),_display_(/*18.16*/routes/*18.22*/.Assets.versioned("plugins/switchery/switchery.min.css")),format.raw/*18.78*/("""' rel='stylesheet' />
 
   <!-- Bootstrap CSS -->
-  <link href='"""),_display_(/*20.16*/routes/*20.22*/.Assets.versioned("css/bootstrap.min.css")),format.raw/*20.64*/("""' rel='stylesheet' type='text/css' />
+  <link href='"""),_display_(/*21.16*/routes/*21.22*/.Assets.versioned("css/bootstrap.min.css")),format.raw/*21.64*/("""' rel='stylesheet' type='text/css' />
 
   <!-- Font Awesome CSS -->
-  <link href='"""),_display_(/*23.16*/routes/*23.22*/.Assets.versioned("font-awesome/css/font-awesome.min.css")),format.raw/*23.80*/("""' rel='stylesheet' type='text/css' />
+  <link href='"""),_display_(/*24.16*/routes/*24.22*/.Assets.versioned("font-awesome/css/font-awesome.min.css")),format.raw/*24.80*/("""' rel='stylesheet' type='text/css' />
   
 
   <!-- Custom CSS -->
-  <link href='"""),_display_(/*27.16*/routes/*27.22*/.Assets.versioned("css/sweetalert2.min.css")),format.raw/*27.66*/("""' rel='stylesheet' type='text/css' />   
-  <link href='"""),_display_(/*28.16*/routes/*28.22*/.Assets.versioned("css/style.css")),format.raw/*28.56*/("""' rel='stylesheet' type='text/css' />	
+  <link href='"""),_display_(/*28.16*/routes/*28.22*/.Assets.versioned("css/sweetalert2.min.css")),format.raw/*28.66*/("""' rel='stylesheet' type='text/css' />   
+  <link href='"""),_display_(/*29.16*/routes/*29.22*/.Assets.versioned("css/style.css")),format.raw/*29.56*/("""' rel='stylesheet' type='text/css' />	
 
   <!-- BEGIN CSS for this page -->
   <!-- DataTable -->
   <link rel='stylesheet' type='text/css' href='https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css'/>    
   <style> 
-    td.details-control """),format.raw/*34.24*/("""{"""),format.raw/*34.25*/("""
-        """),format.raw/*35.9*/("""background: url('"""),_display_(/*35.27*/routes/*35.33*/.Assets.versioned("plugins/datatables/img/details_open.png")),format.raw/*35.93*/("""') no-repeat center center;
+    td.details-control """),format.raw/*35.24*/("""{"""),format.raw/*35.25*/("""
+        """),format.raw/*36.9*/("""background: url('"""),_display_(/*36.27*/routes/*36.33*/.Assets.versioned("plugins/datatables/img/details_open.png")),format.raw/*36.93*/("""') no-repeat center center;
         cursor: pointer;
-    """),format.raw/*37.5*/("""}"""),format.raw/*37.6*/("""
-    """),format.raw/*38.5*/("""tr.shown td.details-control """),format.raw/*38.33*/("""{"""),format.raw/*38.34*/("""
-        """),format.raw/*39.9*/("""background: url('"""),_display_(/*39.27*/routes/*39.33*/.Assets.versioned("plugins/datatables/img/details_close.png")),format.raw/*39.94*/("""') no-repeat center center;
-    """),format.raw/*40.5*/("""}"""),format.raw/*40.6*/("""
-"""),format.raw/*41.1*/("""</style>    
+    """),format.raw/*38.5*/("""}"""),format.raw/*38.6*/("""
+    """),format.raw/*39.5*/("""tr.shown td.details-control """),format.raw/*39.33*/("""{"""),format.raw/*39.34*/("""
+        """),format.raw/*40.9*/("""background: url('"""),_display_(/*40.27*/routes/*40.33*/.Assets.versioned("plugins/datatables/img/details_close.png")),format.raw/*40.94*/("""') no-repeat center center;
+    """),format.raw/*41.5*/("""}"""),format.raw/*41.6*/("""
+"""),format.raw/*42.1*/("""</style>    
 <!-- END CSS for this page -->
 
 </head>
@@ -73,13 +74,13 @@ Seq[Any](format.raw/*1.60*/("""
     <div id='main'>
 
        <!-- top bar navigation -->
-       """),_display_(/*51.9*/header()),format.raw/*51.17*/("""
-    """),format.raw/*52.5*/("""<!-- End Navigation -->
+       """),_display_(/*52.9*/header()),format.raw/*52.17*/("""
+    """),format.raw/*53.5*/("""<!-- End Navigation -->
 
 
     <!-- Left Sidebar -->
-    """),_display_(/*56.6*/leftSidebar(name)),format.raw/*56.23*/("""
-"""),format.raw/*57.1*/("""<!-- End Sidebar -->
+    """),_display_(/*57.6*/leftSidebar(name)),format.raw/*57.23*/("""
+"""),format.raw/*58.1*/("""<!-- End Sidebar -->
 
 
 <div class='content-page'>
@@ -131,13 +132,15 @@ Seq[Any](format.raw/*1.60*/("""
                         </tr>
                     </thead>                                        
                     <tbody>
-                        <tr>
-                            <td>Ejemplo borrar nom</td>
-                            <td>Ejemplo borrar NIT</td>
-                            <td>Ejemplo borrar con</td>
+                    """),_display_(/*110.22*/for(i <- aseguradoras) yield /*110.44*/{_display_(Seq[Any](format.raw/*110.45*/("""
+                        """),format.raw/*111.25*/("""<tr>
+                            <td>"""),_display_(/*112.34*/i/*112.35*/.nombre),format.raw/*112.42*/("""</td>
+                            <td>"""),_display_(/*113.34*/i/*113.35*/.nit),format.raw/*113.39*/("""</td>
+                            <td>"""),_display_(/*114.34*/i/*114.35*/.contacto),format.raw/*114.44*/("""</td>
                             <th><center><a role='button' href='#' class='btn btn-primary editar-aseguradora'><i class='fa fa-pencil'></i></a> <a role='button' href='#' class='btn btn-danger eliminar-aseguradora'><i class='fa fa-trash-o'></i></a></center></th>
                         </tr>
-                    </tbody>
+                    """)))}),format.raw/*117.22*/("""
+                    """),format.raw/*118.21*/("""</tbody>
                 </table>
             </div>
 
@@ -157,9 +160,9 @@ Seq[Any](format.raw/*1.60*/("""
 </div>
 <!-- END content-page -->
 
-"""),_display_(/*135.2*/footer()),format.raw/*135.10*/("""
+"""),_display_(/*138.2*/footer()),format.raw/*138.10*/("""
 
-"""),format.raw/*137.1*/("""</div>
+"""),format.raw/*140.1*/("""</div>
 <!-- Modal Añadir aseguradora-->
 <div class='modal fade' id='añadirAseguradora' tabindex='-1' role='dialog' aria-labelledby='customModal' aria-hidden='true'>
     <div class='modal-dialog' role='document'>
@@ -228,30 +231,30 @@ Seq[Any](format.raw/*1.60*/("""
 </div>
 <!-- END main -->
 
-<script src='"""),_display_(/*206.15*/routes/*206.21*/.Assets.versioned("js/sweetalert2.min.js")),format.raw/*206.63*/("""'></script>
-<script src='"""),_display_(/*207.15*/routes/*207.21*/.Assets.versioned("js/modernizr.min.js")),format.raw/*207.61*/("""'></script>
-<script src='"""),_display_(/*208.15*/routes/*208.21*/.Assets.versioned("js/jquery.min.js")),format.raw/*208.58*/("""'></script>
-<script src='"""),_display_(/*209.15*/routes/*209.21*/.Assets.versioned("js/moment.min.js")),format.raw/*209.58*/("""'></script>
+<script src='"""),_display_(/*209.15*/routes/*209.21*/.Assets.versioned("js/sweetalert2.min.js")),format.raw/*209.63*/("""'></script>
+<script src='"""),_display_(/*210.15*/routes/*210.21*/.Assets.versioned("js/modernizr.min.js")),format.raw/*210.61*/("""'></script>
+<script src='"""),_display_(/*211.15*/routes/*211.21*/.Assets.versioned("js/jquery.min.js")),format.raw/*211.58*/("""'></script>
+<script src='"""),_display_(/*212.15*/routes/*212.21*/.Assets.versioned("js/moment.min.js")),format.raw/*212.58*/("""'></script>
 
-<script src='"""),_display_(/*211.15*/routes/*211.21*/.Assets.versioned("js/popper.min.js")),format.raw/*211.58*/("""'></script>
-<script src='"""),_display_(/*212.15*/routes/*212.21*/.Assets.versioned("js/bootstrap.min.js")),format.raw/*212.61*/("""'></script>
+<script src='"""),_display_(/*214.15*/routes/*214.21*/.Assets.versioned("js/popper.min.js")),format.raw/*214.58*/("""'></script>
+<script src='"""),_display_(/*215.15*/routes/*215.21*/.Assets.versioned("js/bootstrap.min.js")),format.raw/*215.61*/("""'></script>
 
-<script src='"""),_display_(/*214.15*/routes/*214.21*/.Assets.versioned("js/detect.js")),format.raw/*214.54*/("""'></script>
-<script src='"""),_display_(/*215.15*/routes/*215.21*/.Assets.versioned("js/fastclick.js")),format.raw/*215.57*/("""'></script>
-<script src='"""),_display_(/*216.15*/routes/*216.21*/.Assets.versioned("js/jquery.blockUI.js")),format.raw/*216.62*/("""'></script>
-<script src='"""),_display_(/*217.15*/routes/*217.21*/.Assets.versioned("js/jquery.nicescroll.js")),format.raw/*217.65*/("""'></script>
-<script src='"""),_display_(/*218.15*/routes/*218.21*/.Assets.versioned("js/jquery.scrollTo.min.js")),format.raw/*218.67*/("""'></script>
-<script src='"""),_display_(/*219.15*/routes/*219.21*/.Assets.versioned("plugins/switchery/switchery.min.js")),format.raw/*219.76*/("""'></script>
+<script src='"""),_display_(/*217.15*/routes/*217.21*/.Assets.versioned("js/detect.js")),format.raw/*217.54*/("""'></script>
+<script src='"""),_display_(/*218.15*/routes/*218.21*/.Assets.versioned("js/fastclick.js")),format.raw/*218.57*/("""'></script>
+<script src='"""),_display_(/*219.15*/routes/*219.21*/.Assets.versioned("js/jquery.blockUI.js")),format.raw/*219.62*/("""'></script>
+<script src='"""),_display_(/*220.15*/routes/*220.21*/.Assets.versioned("js/jquery.nicescroll.js")),format.raw/*220.65*/("""'></script>
+<script src='"""),_display_(/*221.15*/routes/*221.21*/.Assets.versioned("js/jquery.scrollTo.min.js")),format.raw/*221.67*/("""'></script>
+<script src='"""),_display_(/*222.15*/routes/*222.21*/.Assets.versioned("plugins/switchery/switchery.min.js")),format.raw/*222.76*/("""'></script>
 
 <!-- App js -->
-<script src='"""),_display_(/*222.15*/routes/*222.21*/.Assets.versioned("js/pikeadmin.js")),format.raw/*222.57*/("""'></script>
+<script src='"""),_display_(/*225.15*/routes/*225.21*/.Assets.versioned("js/pikeadmin.js")),format.raw/*225.57*/("""'></script>
 
 
 <!-- Datatable js -->
 <script src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'></script>
 <script src='https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js'></script>
 <!-- BEGIN Java Script for this page -->
-<script src='"""),_display_(/*229.15*/routes/*229.21*/.Assets.versioned("js/pagesJS/aseguradoras.js")),format.raw/*229.68*/("""'></script>
+<script src='"""),_display_(/*232.15*/routes/*232.21*/.Assets.versioned("js/pagesJS/aseguradoras.js")),format.raw/*232.68*/("""'></script>
 <!-- END Java Script for this page -->
 
 </body>
@@ -261,9 +264,9 @@ Seq[Any](format.raw/*1.60*/("""
     }
   }
 
-  def render(name:String,param:Any,request:RequestHeader): play.twirl.api.HtmlFormat.Appendable = apply(name)(param)(request)
+  def render(name:String,aseguradoras:ArrayBuffer[Aseguradora],request:RequestHeader): play.twirl.api.HtmlFormat.Appendable = apply(name)(aseguradoras)(request)
 
-  def f:((String) => (Any) => (RequestHeader) => play.twirl.api.HtmlFormat.Appendable) = (name) => (param) => (request) => apply(name)(param)(request)
+  def f:((String) => (ArrayBuffer[Aseguradora]) => (RequestHeader) => play.twirl.api.HtmlFormat.Appendable) = (name) => (aseguradoras) => (request) => apply(name)(aseguradoras)(request)
 
   def ref: this.type = this
 
@@ -272,11 +275,11 @@ Seq[Any](format.raw/*1.60*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2019-10-08T22:19:40.684
+                  DATE: 2019-10-09T15:39:33.331
                   SOURCE: C:/Users/Usuario/Desktop/seguros/app/views/aseguradoras.scala.html
-                  HASH: 44b55785452ba0d37581f1468c9ef44486a31ac0
-                  MATRIX: 754->1|907->59|935->62|982->101|1032->114|1060->116|1471->500|1486->506|1546->545|1620->592|1635->598|1712->654|1805->720|1820->726|1883->768|1995->853|2010->859|2089->917|2199->1000|2214->1006|2279->1050|2363->1107|2378->1113|2433->1147|2720->1406|2749->1407|2786->1417|2831->1435|2846->1441|2927->1501|3013->1560|3041->1561|3074->1567|3130->1595|3159->1596|3196->1606|3241->1624|3256->1630|3338->1691|3398->1724|3426->1725|3455->1727|3635->1881|3664->1889|3697->1895|3784->1956|3822->1973|3851->1975|6674->4771|6704->4779|6736->4783|10864->8883|10880->8889|10944->8931|10999->8958|11015->8964|11077->9004|11132->9031|11148->9037|11207->9074|11262->9101|11278->9107|11337->9144|11394->9173|11410->9179|11469->9216|11524->9243|11540->9249|11602->9289|11659->9318|11675->9324|11730->9357|11785->9384|11801->9390|11859->9426|11914->9453|11930->9459|11993->9500|12048->9527|12064->9533|12130->9577|12185->9604|12201->9610|12269->9656|12324->9683|12340->9689|12417->9744|12491->9790|12507->9796|12565->9832|12869->10108|12885->10114|12954->10161
-                  LINES: 21->1|26->1|27->2|27->2|27->2|28->3|39->14|39->14|39->14|42->17|42->17|42->17|45->20|45->20|45->20|48->23|48->23|48->23|52->27|52->27|52->27|53->28|53->28|53->28|59->34|59->34|60->35|60->35|60->35|60->35|62->37|62->37|63->38|63->38|63->38|64->39|64->39|64->39|64->39|65->40|65->40|66->41|76->51|76->51|77->52|81->56|81->56|82->57|160->135|160->135|162->137|231->206|231->206|231->206|232->207|232->207|232->207|233->208|233->208|233->208|234->209|234->209|234->209|236->211|236->211|236->211|237->212|237->212|237->212|239->214|239->214|239->214|240->215|240->215|240->215|241->216|241->216|241->216|242->217|242->217|242->217|243->218|243->218|243->218|244->219|244->219|244->219|247->222|247->222|247->222|254->229|254->229|254->229
+                  HASH: 5e524969e75a519afed0255e02908fa9a334a5fc
+                  MATRIX: 432->1|826->47|1007->133|1035->136|1082->175|1132->188|1160->190|1571->574|1586->580|1646->619|1720->666|1735->672|1812->728|1905->794|1920->800|1983->842|2095->927|2110->933|2189->991|2299->1074|2314->1080|2379->1124|2463->1181|2478->1187|2533->1221|2820->1480|2849->1481|2886->1491|2931->1509|2946->1515|3027->1575|3113->1634|3141->1635|3174->1641|3230->1669|3259->1670|3296->1680|3341->1698|3356->1704|3438->1765|3498->1798|3526->1799|3555->1801|3735->1955|3764->1963|3797->1969|3884->2030|3922->2047|3951->2049|5977->4047|6016->4069|6056->4070|6111->4096|6178->4135|6189->4136|6218->4143|6286->4183|6297->4184|6323->4188|6391->4228|6402->4229|6433->4238|6785->4558|6836->4580|7169->4886|7199->4894|7231->4898|11359->8998|11375->9004|11439->9046|11494->9073|11510->9079|11572->9119|11627->9146|11643->9152|11702->9189|11757->9216|11773->9222|11832->9259|11889->9288|11905->9294|11964->9331|12019->9358|12035->9364|12097->9404|12154->9433|12170->9439|12225->9472|12280->9499|12296->9505|12354->9541|12409->9568|12425->9574|12488->9615|12543->9642|12559->9648|12625->9692|12680->9719|12696->9725|12764->9771|12819->9798|12835->9804|12912->9859|12986->9905|13002->9911|13060->9947|13364->10223|13380->10229|13449->10276
+                  LINES: 17->1|22->2|27->2|28->3|28->3|28->3|29->4|40->15|40->15|40->15|43->18|43->18|43->18|46->21|46->21|46->21|49->24|49->24|49->24|53->28|53->28|53->28|54->29|54->29|54->29|60->35|60->35|61->36|61->36|61->36|61->36|63->38|63->38|64->39|64->39|64->39|65->40|65->40|65->40|65->40|66->41|66->41|67->42|77->52|77->52|78->53|82->57|82->57|83->58|135->110|135->110|135->110|136->111|137->112|137->112|137->112|138->113|138->113|138->113|139->114|139->114|139->114|142->117|143->118|163->138|163->138|165->140|234->209|234->209|234->209|235->210|235->210|235->210|236->211|236->211|236->211|237->212|237->212|237->212|239->214|239->214|239->214|240->215|240->215|240->215|242->217|242->217|242->217|243->218|243->218|243->218|244->219|244->219|244->219|245->220|245->220|245->220|246->221|246->221|246->221|247->222|247->222|247->222|250->225|250->225|250->225|257->232|257->232|257->232
                   -- GENERATED --
               */
           

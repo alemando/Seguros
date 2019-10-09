@@ -38,16 +38,16 @@ Seq[Any](format.raw/*1.16*/("""
                     </li>
 										
                     <li class="submenu">
-                        <a href="#" """),_display_(/*16.38*/if(name=="Clientes")/*16.58*/{_display_(Seq[Any](format.raw/*16.59*/(""" """),format.raw/*16.60*/("""class="active" """)))}),format.raw/*16.76*/("""><i class="fa fa-fw fa-tv"></i> <span> Clientes</span> <span class="menu-arrow"></span></a>
+                        <a href="/clientes" """),_display_(/*16.46*/if(name=="Clientes")/*16.66*/{_display_(Seq[Any](format.raw/*16.67*/(""" """),format.raw/*16.68*/("""class="active" """)))}),format.raw/*16.84*/("""><i class="fa fa-fw fa-tv"></i> <span> Clientes</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
-                                <li """),_display_(/*18.38*/if(name=="Clientes")/*18.58*/{_display_(Seq[Any](format.raw/*18.59*/(""" """),format.raw/*18.60*/("""class="active" """)))}),format.raw/*18.76*/("""><a href="clientes.html">Ver Clientes</a></li>
+                                <li """),_display_(/*18.38*/if(name=="Clientes")/*18.58*/{_display_(Seq[Any](format.raw/*18.59*/(""" """),format.raw/*18.60*/("""class="active" """)))}),format.raw/*18.76*/("""><a href="/clientes">Ver Clientes</a></li>
                             </ul>
                     </li>
 
                     <li class='submenu'>
-                        <a href='#' """),_display_(/*23.38*/if(name=="Aseguradoras")/*23.62*/{_display_(Seq[Any](format.raw/*23.63*/(""" """),format.raw/*23.64*/("""class="active" """)))}),format.raw/*23.80*/("""><i class='fa fa-fw fa-tv'></i> <span> Aseguradoras</span> <span class='menu-arrow'></span></a>
+                        <a href='/' """),_display_(/*23.38*/if(name=="Aseguradoras")/*23.62*/{_display_(Seq[Any](format.raw/*23.63*/(""" """),format.raw/*23.64*/("""class="active" """)))}),format.raw/*23.80*/("""><i class='fa fa-fw fa-tv'></i> <span> Aseguradoras</span> <span class='menu-arrow'></span></a>
                         <ul class='list-unstyled'>
-                            <li """),_display_(/*25.34*/if(name=="Aseguradoras")/*25.58*/{_display_(Seq[Any](format.raw/*25.59*/(""" """),format.raw/*25.60*/("""class="active" """)))}),format.raw/*25.76*/("""><a href='clientes.html'>Ver Aseguradoras </a></li>
+                            <li """),_display_(/*25.34*/if(name=="Aseguradoras")/*25.58*/{_display_(Seq[Any](format.raw/*25.59*/(""" """),format.raw/*25.60*/("""class="active" """)))}),format.raw/*25.76*/("""><a href='/'>Ver Aseguradoras </a></li>
                         </ul>
                     </li>
 					
@@ -78,10 +78,10 @@ Seq[Any](format.raw/*1.16*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2019-10-08T22:19:40.980
+                  DATE: 2019-10-09T15:53:43.657
                   SOURCE: C:/Users/Usuario/Desktop/seguros/app/views/leftSidebar.scala.html
-                  HASH: 4f2004d2b16923df7856b4f1ceceae5d93e985ed
-                  MATRIX: 735->1|844->15|872->18|919->57|969->70|998->73|1384->432|1413->452|1452->453|1481->454|1528->470|1741->656|1770->676|1809->677|1838->678|1885->694|2103->885|2136->909|2175->910|2204->911|2251->927|2460->1109|2493->1133|2532->1134|2561->1135|2608->1151
+                  HASH: 4638c59da0320963eef216221ba0bc7dd6fe3715
+                  MATRIX: 735->1|844->15|872->18|919->57|969->70|998->73|1392->440|1421->460|1460->461|1489->462|1536->478|1749->664|1778->684|1817->685|1846->686|1893->702|2107->889|2140->913|2179->914|2208->915|2255->931|2464->1113|2497->1137|2536->1138|2565->1139|2612->1155
                   LINES: 21->1|26->1|27->2|27->2|27->2|28->3|41->16|41->16|41->16|41->16|41->16|43->18|43->18|43->18|43->18|43->18|48->23|48->23|48->23|48->23|48->23|50->25|50->25|50->25|50->25|50->25
                   -- GENERATED --
               */

@@ -23,8 +23,7 @@ object footer extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Htm
       {
 
 
-Seq[Any](format.raw/*1.4*/("""
-"""),_display_(/*2.2*/defining(play.core.PlayVersion.current)/*2.41*/ { version =>_display_(Seq[Any](format.raw/*2.54*/("""
+Seq[Any](_display_(/*2.2*/defining(play.core.PlayVersion.current)/*2.41*/ { version =>_display_(Seq[Any](format.raw/*2.54*/("""
 """),format.raw/*3.1*/("""<footer class="footer">
 	<span class="text-right">
 	Copyright <a target="_blank" href="#">Seguros Inequidad</a>
@@ -49,11 +48,11 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2019-10-08T22:19:40.904
-                  SOURCE: C:/Users/Usuario/Desktop/seguros/app/views/footer.scala.html
-                  HASH: 0f0ccdca694f9e5602c7fd5bd55233f7533d0dff
-                  MATRIX: 723->1|819->3|847->6|894->45|944->58|972->60
-                  LINES: 21->1|26->1|27->2|27->2|27->2|28->3
+                  DATE: 2019-10-09T11:16:08.398
+                  SOURCE: C:/Users/MSI-PC/git/Seguros/app/views/footer.scala.html
+                  HASH: 9961b41e06aa0d0b93c1715ec831cf889e251e0a
+                  MATRIX: 723->1|819->5|866->44|916->57|943->58
+                  LINES: 21->1|26->2|26->2|26->2|27->3
                   -- GENERATED --
               */
           

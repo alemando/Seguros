@@ -23,8 +23,7 @@ object leftSidebar extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.ap
       {
 
 
-Seq[Any](format.raw/*1.16*/("""
-"""),_display_(/*2.2*/defining(play.core.PlayVersion.current)/*2.41*/ { version =>_display_(Seq[Any](format.raw/*2.54*/("""
+Seq[Any](_display_(/*2.2*/defining(play.core.PlayVersion.current)/*2.41*/ { version =>_display_(Seq[Any](format.raw/*2.54*/("""
 	"""),format.raw/*3.2*/("""<div class="left main-sidebar">
 	
 		<div class="sidebar-inner leftscroll">
@@ -78,11 +77,11 @@ Seq[Any](format.raw/*1.16*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2019-10-08T22:19:40.980
-                  SOURCE: C:/Users/Usuario/Desktop/seguros/app/views/leftSidebar.scala.html
-                  HASH: 4f2004d2b16923df7856b4f1ceceae5d93e985ed
-                  MATRIX: 735->1|844->15|872->18|919->57|969->70|998->73|1384->432|1413->452|1452->453|1481->454|1528->470|1741->656|1770->676|1809->677|1838->678|1885->694|2103->885|2136->909|2175->910|2204->911|2251->927|2460->1109|2493->1133|2532->1134|2561->1135|2608->1151
-                  LINES: 21->1|26->1|27->2|27->2|27->2|28->3|41->16|41->16|41->16|41->16|41->16|43->18|43->18|43->18|43->18|43->18|48->23|48->23|48->23|48->23|48->23|50->25|50->25|50->25|50->25|50->25
+                  DATE: 2019-10-09T11:16:08.416
+                  SOURCE: C:/Users/MSI-PC/git/Seguros/app/views/leftSidebar.scala.html
+                  HASH: f3f714217cc5ef154a21822c63c865b6b7bb0373
+                  MATRIX: 735->1|843->17|890->56|940->69|968->71|1341->417|1370->437|1409->438|1438->439|1485->455|1696->639|1725->659|1764->660|1793->661|1840->677|2053->863|2086->887|2125->888|2154->889|2201->905|2408->1085|2441->1109|2480->1110|2509->1111|2556->1127
+                  LINES: 21->1|26->2|26->2|26->2|27->3|40->16|40->16|40->16|40->16|40->16|42->18|42->18|42->18|42->18|42->18|47->23|47->23|47->23|47->23|47->23|49->25|49->25|49->25|49->25|49->25
                   -- GENERATED --
               */
           

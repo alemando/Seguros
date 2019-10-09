@@ -187,44 +187,44 @@ Seq[Any](format.raw/*2.80*/("""
                     <form autocomplete="off" action="#" id="form-añadirCliente">
                         <div class="form-group">
                             <label>Documento<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="input-documento-cliente" placeholder="Documento" required autocomplete="off">
+                            <input name="documento" type="text" class="form-control" id="input-documento-cliente" placeholder="Documento" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Nombre<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control"	 id="input-nombre-cliente" placeholder="Nombre" required autocomplete="off">
+                            <input name="nombre" type="text" class="form-control"	 id="input-nombre-cliente" placeholder="Nombre" required autocomplete="off">
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Apellido 1 <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="input-apellido1-cliente" placeholder="Primer Apellido" required>
+                                <input name="apellido1" type="text" class="form-control" id="input-apellido1-cliente" placeholder="Primer Apellido" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Apellido 2 <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="input-apellido2-cliente" placeholder="Segundo Apellido" required>
+                                <input name="apellido2" type="text" class="form-control" id="input-apellido2-cliente" placeholder="Segundo Apellido" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Direccion<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="input-direccion-cliente" placeholder="Direccion" required autocomplete="off">
+                                <input name="direccion" type="text" class="form-control" id="input-direccion-cliente" placeholder="Direccion" required autocomplete="off">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Telefono <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="input-telefono-cliente" placeholder="Telefono" required>
+                                <input name="telefono" type="text" class="form-control" id="input-telefono-cliente" placeholder="Telefono" required>
                             </div>
                         </div> 
                         <div class="form-group">
                             <label>Fecha Nacimiento<span class="text-danger">*</span></label>
-                            <input type="date" class="form-control" id="input-nacimiento-cliente" placeholder="Fecha Nacimiento" required autocomplete="off">
+                            <input name="fechaNacimiento" type="date" class="form-control" id="input-nacimiento-cliente" placeholder="Fecha Nacimiento" required autocomplete="off">
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Ingresos<span class="text-danger">*</span></label>
-                                <input type="number" class="form-control" id="input-ingresos-cliente" placeholder="Ingresos" required autocomplete="off">
+                                <input name="ingresos" type="number" class="form-control" id="input-ingresos-cliente" placeholder="Ingresos" required autocomplete="off">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Egresos <span class="text-danger">*</span></label>
-                                <input type="number" class="form-control" id="input-egresos-cliente" placeholder="Egresos" required>
+                                <input name="egresos" type="number" class="form-control" id="input-egresos-cliente" placeholder="Egresos" required>
                             </div>
                         </div>    
                     </div>
@@ -384,10 +384,10 @@ Seq[Any](format.raw/*2.80*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2019-10-09T09:36:38.274
-                  SOURCE: C:/Users/Usuario/Desktop/seguros/app/views/clientes.scala.html
-                  HASH: df7e149a463bf7982c3ce3601509c448973316c0
-                  MATRIX: 432->1|818->47|991->125|1019->128|1066->167|1116->180|1148->186|1644->655|1659->661|1719->700|1801->755|1816->761|1893->817|2000->897|2015->903|2078->945|2204->1044|2219->1050|2298->1108|2424->1207|2439->1213|2504->1257|2595->1321|2610->1327|2677->1373|2765->1434|2780->1440|2835->1474|3170->1781|3199->1782|3241->1796|3286->1814|3301->1820|3382->1880|3481->1951|3510->1952|3552->1966|3608->1994|3637->1995|3679->2009|3724->2027|3739->2033|3821->2094|3890->2135|3919->2136|3961->2150|4159->2322|4188->2330|4222->2337|4321->2410|4359->2427|4393->2434|7956->5969|8004->6000|8044->6001|8135->6063|8309->6209|8330->6220|8362->6230|8466->6306|8487->6317|8516->6324|8620->6400|8641->6411|8678->6426|8782->6502|8803->6513|8836->6524|8940->6600|8961->6611|8999->6627|9103->6703|9124->6714|9156->6724|9260->6800|9281->6811|9312->6820|9840->7316|9991->7438|10646->8066|10676->8074|10712->8082|22151->19493|22167->19499|22231->19541|22290->19572|22306->19578|22368->19618|22427->19649|22443->19655|22502->19692|22561->19723|22577->19729|22636->19766|22697->19799|22713->19805|22772->19842|22831->19873|22847->19879|22909->19919|22970->19952|22986->19958|23041->19991|23100->20022|23116->20028|23174->20064|23233->20095|23249->20101|23312->20142|23371->20173|23387->20179|23453->20223|23512->20254|23528->20260|23596->20306|23655->20337|23671->20343|23748->20398|23830->20452|23846->20458|23904->20494|24201->20763|24217->20769|24282->20812|24399->20898
+                  DATE: 2019-10-09T15:44:51.359
+                  SOURCE: C:/Users/user/Documents/GitHub/Seguros/app/views/clientes.scala.html
+                  HASH: 413ffa11e0f57f1a2c24a94a67badb6a30bb9399
+                  MATRIX: 432->1|818->47|991->125|1019->128|1066->167|1116->180|1148->186|1644->655|1659->661|1719->700|1801->755|1816->761|1893->817|2000->897|2015->903|2078->945|2204->1044|2219->1050|2298->1108|2424->1207|2439->1213|2504->1257|2595->1321|2610->1327|2677->1373|2765->1434|2780->1440|2835->1474|3170->1781|3199->1782|3241->1796|3286->1814|3301->1820|3382->1880|3481->1951|3510->1952|3552->1966|3608->1994|3637->1995|3679->2009|3724->2027|3739->2033|3821->2094|3890->2135|3919->2136|3961->2150|4159->2322|4188->2330|4222->2337|4321->2410|4359->2427|4393->2434|7956->5969|8004->6000|8044->6001|8135->6063|8309->6209|8330->6220|8362->6230|8466->6306|8487->6317|8516->6324|8620->6400|8641->6411|8678->6426|8782->6502|8803->6513|8836->6524|8940->6600|8961->6611|8999->6627|9103->6703|9124->6714|9156->6724|9260->6800|9281->6811|9312->6820|9840->7316|9991->7438|10646->8066|10676->8074|10712->8082|22303->19645|22319->19651|22383->19693|22442->19724|22458->19730|22520->19770|22579->19801|22595->19807|22654->19844|22713->19875|22729->19881|22788->19918|22849->19951|22865->19957|22924->19994|22983->20025|22999->20031|23061->20071|23122->20104|23138->20110|23193->20143|23252->20174|23268->20180|23326->20216|23385->20247|23401->20253|23464->20294|23523->20325|23539->20331|23605->20375|23664->20406|23680->20412|23748->20458|23807->20489|23823->20495|23900->20550|23982->20604|23998->20610|24056->20646|24353->20915|24369->20921|24434->20964|24551->21050
                   LINES: 17->1|22->2|27->2|28->3|28->3|28->3|29->4|40->15|40->15|40->15|43->18|43->18|43->18|46->21|46->21|46->21|49->24|49->24|49->24|52->27|52->27|52->27|53->28|53->28|53->28|54->29|54->29|54->29|60->35|60->35|61->36|61->36|61->36|61->36|63->38|63->38|64->39|64->39|64->39|65->40|65->40|65->40|65->40|66->41|66->41|67->42|77->52|77->52|78->53|82->57|82->57|83->58|139->114|139->114|139->114|140->115|142->117|142->117|142->117|143->118|143->118|143->118|144->119|144->119|144->119|145->120|145->120|145->120|146->121|146->121|146->121|147->122|147->122|147->122|148->123|148->123|148->123|151->126|152->127|173->148|173->148|175->150|343->318|343->318|343->318|344->319|344->319|344->319|345->320|345->320|345->320|346->321|346->321|346->321|348->323|348->323|348->323|349->324|349->324|349->324|351->326|351->326|351->326|352->327|352->327|352->327|353->328|353->328|353->328|354->329|354->329|354->329|355->330|355->330|355->330|356->331|356->331|356->331|359->334|359->334|359->334|365->340|365->340|365->340|370->345
                   -- GENERATED --
               */

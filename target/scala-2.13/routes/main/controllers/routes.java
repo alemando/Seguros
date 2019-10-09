@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/juanm/Documents/documentosImportantes/semestre 6/Requisitos/Seguros/conf/routes
-// @DATE:Wed Oct 09 00:25:22 COT 2019
+// @DATE:Wed Oct 09 00:37:00 COT 2019
 
 package controllers;
 

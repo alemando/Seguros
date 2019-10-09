@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/juanm/Documents/documentosImportantes/semestre 6/Requisitos/Seguros/conf/routes
-// @DATE:Wed Oct 09 00:25:22 COT 2019
+// @DATE:Wed Oct 09 00:37:00 COT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -68,19 +68,9 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:11
-    def SellerYes: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.SellerYes",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "SellerYes"})
-        }
-      """
-    )
-  
   }
 
-  // @LINE:15
+  // @LINE:14
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -88,7 +78,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:15
+    // @LINE:14
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """

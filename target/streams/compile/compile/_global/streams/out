@@ -1,59 +1,11 @@
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\controllers\HomeController.scala:40:28: adaptation of an empty argument list by inserting () is deprecated: leaky (Object-receiving) target makes this especially dangerous[0m
-[0m[[0m[33mwarn[0m] [0m[0m        signature: SellerYes.apply(param: Any): play.twirl.api.HtmlFormat.Appendable[0m
-[0m[[0m[33mwarn[0m] [0m[0m  given arguments: <none>[0m
-[0m[[0m[33mwarn[0m] [0m[0m after adaptation: SellerYes((): Unit)[0m
-[0m[[0m[33mwarn[0m] [0m[0m    Ok(views.html.SellerYes())[0m
-[0m[[0m[33mwarn[0m] [0m[0m                           ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\models\Aseguradora.scala:5:19: object firebase is not a member of package com.google[0m
-[0m[[0m[31merror[0m] [0m[0mimport com.google.firebase.database._[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\models\Admin.scala:6:19: object firebase is not a member of package com.google[0m
-[0m[[0m[31merror[0m] [0m[0mimport com.google.firebase.database._[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\models\Vendedor.scala:5:19: object firebase is not a member of package com.google[0m
-[0m[[0m[31merror[0m] [0m[0mimport com.google.firebase.database._[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\utils\Conexion.scala:6:19: object firebase is not a member of package com.google[0m
-[0m[[0m[31merror[0m] [0m[0mimport com.google.firebase.database._[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\utils\Conexion.scala:22:28: not found: type DatabaseReference[0m
-[0m[[0m[31merror[0m] [0m[0m    def ref(path: String): DatabaseReference = database.getReference(path)[0m
-[0m[[0m[31merror[0m] [0m[0m                           ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\models\Bien.scala:5:19: object firebase is not a member of package com.google[0m
-[0m[[0m[31merror[0m] [0m[0mimport com.google.firebase.database._[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\models\Categoria.scala:5:19: object firebase is not a member of package com.google[0m
-[0m[[0m[31merror[0m] [0m[0mimport com.google.firebase.database._[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\models\Cliente.scala:5:19: object firebase is not a member of package com.google[0m
-[0m[[0m[31merror[0m] [0m[0mimport com.google.firebase.database._[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\models\Cliente.scala:7:19: object firebase is not a member of package com.google[0m
-[0m[[0m[31merror[0m] [0m[0mimport com.google.firebase.FirebaseException[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\models\Credencial.scala:5:19: object firebase is not a member of package com.google[0m
-[0m[[0m[31merror[0m] [0m[0mimport com.google.firebase.database._[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\utils\Conexion.scala:4:19: object firebase is not a member of package com.google[0m
-[0m[[0m[31merror[0m] [0m[0mimport com.google.firebase.FirebaseApp[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\utils\Conexion.scala:5:19: object firebase is not a member of package com.google[0m
-[0m[[0m[31merror[0m] [0m[0mimport com.google.firebase.FirebaseOptions[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\utils\Conexion.scala:7:19: object auth is not a member of package com.google[0m
-[0m[[0m[31merror[0m] [0m[0mimport com.google.auth.oauth2.GoogleCredentials[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\utils\Conexion.scala:15:31: not found: value FirebaseOptions[0m
-[0m[[0m[31merror[0m] [0m[0m    private val options = new FirebaseOptions.Builder()[0m
-[0m[[0m[31merror[0m] [0m[0m                              ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\utils\Conexion.scala:17:25: not found: value GoogleCredentials[0m
-[0m[[0m[31merror[0m] [0m[0m        .setCredentials(GoogleCredentials.fromStream(credentials))[0m
-[0m[[0m[31merror[0m] [0m[0m                        ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\utils\Conexion.scala:20:5: not found: value FirebaseApp[0m
-[0m[[0m[31merror[0m] [0m[0m    FirebaseApp.initializeApp(options)[0m
-[0m[[0m[31merror[0m] [0m[0m    ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\app\utils\Conexion.scala:21:28: not found: value FirebaseDatabase[0m
-[0m[[0m[31merror[0m] [0m[0m    private val database = FirebaseDatabase.getInstance()[0m
-[0m[[0m[31merror[0m] [0m[0m                           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\INGENIERIA DE SISTEMAS\Ingenieria de Requisitos\Seguros\app\views\leftSidebar.scala.html:16:47: symbol literal is deprecated; use Symbol("Clientes") instead[0m
+[0m[[0m[33mwarn[0m] [0m[0m                        <a href="#" @if(name=='Clientes'){ class="active" }><i class="fa fa-fw fa-tv"></i> <span> Clientes</span> <span class="menu-arrow"></span></a>[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                              ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\INGENIERIA DE SISTEMAS\Ingenieria de Requisitos\Seguros\app\views\leftSidebar.scala.html:16:56: unclosed character literal (or use " for string literal "Clientes")[0m
+[0m[[0m[31merror[0m] [0m[0m                        <a href="#" @if(name=='Clientes'){ class="active" }><i class="fa fa-fw fa-tv"></i> <span> Clientes</span> <span class="menu-arrow"></span></a>[0m
+[0m[[0m[31merror[0m] [0m[0m                                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\INGENIERIA DE SISTEMAS\Ingenieria de Requisitos\Seguros\app\views\leftSidebar.scala.html:40:2: ')' expected but '}' found.[0m
+[0m[[0m[31merror[0m] [0m[0m}[0m
+[0m[[0m[31merror[0m] [0m[0m ^[0m
 [0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
-[0m[[0m[31merror[0m] [0m[0m17 errors found[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

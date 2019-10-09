@@ -18,12 +18,13 @@ import play.api.data._
 object aseguradoras extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply():play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/():play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*1.4*/("""
+"""),format.raw/*2.1*/("""<!DOCTYPE html>
 <html lang='en'>
 <head>
   <meta charset='utf-8'>
@@ -34,33 +35,34 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
   <meta name='author' content='Seguros Inequidad | Clientes'>
 
   <!-- Favicon -->
-  <link rel='shortcut icon' href='"""),_display_(/*12.36*/routes/*12.42*/.Assets.versioned("images/favicon.ico")),format.raw/*12.81*/("""'>
+  <link rel='shortcut icon' href='"""),_display_(/*13.36*/routes/*13.42*/.Assets.versioned("images/favicon.ico")),format.raw/*13.81*/("""'>
 
   <!-- Switchery css -->
-  <link href='"""),_display_(/*15.16*/routes/*15.22*/.Assets.versioned("plugins/switchery/switchery.min.css")),format.raw/*15.78*/("""' rel='stylesheet' />
+  <link href='"""),_display_(/*16.16*/routes/*16.22*/.Assets.versioned("plugins/switchery/switchery.min.css")),format.raw/*16.78*/("""' rel='stylesheet' />
 
   <!-- Bootstrap CSS -->
-  <link href='"""),_display_(/*18.16*/routes/*18.22*/.Assets.versioned("css/bootstrap.min.css")),format.raw/*18.64*/("""' rel='stylesheet' type='text/css' />
+  <link href='"""),_display_(/*19.16*/routes/*19.22*/.Assets.versioned("css/bootstrap.min.css")),format.raw/*19.64*/("""' rel='stylesheet' type='text/css' />
 
   <!-- Font Awesome CSS -->
-  <link href='"""),_display_(/*21.16*/routes/*21.22*/.Assets.versioned("font-awesome/css/font-awesome.min.css")),format.raw/*21.80*/("""' rel='stylesheet' type='text/css' />
+  <link href='"""),_display_(/*22.16*/routes/*22.22*/.Assets.versioned("font-awesome/css/font-awesome.min.css")),format.raw/*22.80*/("""' rel='stylesheet' type='text/css' />
+  
 
   <!-- Custom CSS -->
-  <link href='"""),_display_(/*24.16*/routes/*24.22*/.Assets.versioned("css/sweetalert2.min.css")),format.raw/*24.66*/("""' rel='stylesheet' type='text/css' />   
-  <link href='"""),_display_(/*25.16*/routes/*25.22*/.Assets.versioned("css/style.css")),format.raw/*25.56*/("""' rel='stylesheet' type='text/css' />	
+  <link href='"""),_display_(/*26.16*/routes/*26.22*/.Assets.versioned("css/sweetalert2.min.css")),format.raw/*26.66*/("""' rel='stylesheet' type='text/css' />   
+  <link href='"""),_display_(/*27.16*/routes/*27.22*/.Assets.versioned("css/style.css")),format.raw/*27.56*/("""' rel='stylesheet' type='text/css' />	
 
   <!-- BEGIN CSS for this page -->
   <!-- DataTable -->
   <link rel='stylesheet' type='text/css' href='https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css'/>    
   <style> 
-    td.details-control """),format.raw/*31.24*/("""{"""),format.raw/*31.25*/("""
-        """),format.raw/*32.9*/("""background: url('"""),_display_(/*32.27*/routes/*32.33*/.Assets.versioned("plugins/datatables/img/details_open.png")),format.raw/*32.93*/("""') no-repeat center center;
+    td.details-control """),format.raw/*33.24*/("""{"""),format.raw/*33.25*/("""
+        """),format.raw/*34.9*/("""background: url('"""),_display_(/*34.27*/routes/*34.33*/.Assets.versioned("plugins/datatables/img/details_open.png")),format.raw/*34.93*/("""') no-repeat center center;
         cursor: pointer;
-    """),format.raw/*34.5*/("""}"""),format.raw/*34.6*/("""
-    """),format.raw/*35.5*/("""tr.shown td.details-control """),format.raw/*35.33*/("""{"""),format.raw/*35.34*/("""
-        """),format.raw/*36.9*/("""background: url('"""),_display_(/*36.27*/routes/*36.33*/.Assets.versioned("plugins/datatables/img/details_close.png")),format.raw/*36.94*/("""') no-repeat center center;
-    """),format.raw/*37.5*/("""}"""),format.raw/*37.6*/("""
-"""),format.raw/*38.1*/("""</style>    
+    """),format.raw/*36.5*/("""}"""),format.raw/*36.6*/("""
+    """),format.raw/*37.5*/("""tr.shown td.details-control """),format.raw/*37.33*/("""{"""),format.raw/*37.34*/("""
+        """),format.raw/*38.9*/("""background: url('"""),_display_(/*38.27*/routes/*38.33*/.Assets.versioned("plugins/datatables/img/details_close.png")),format.raw/*38.94*/("""') no-repeat center center;
+    """),format.raw/*39.5*/("""}"""),format.raw/*39.6*/("""
+"""),format.raw/*40.1*/("""</style>    
 <!-- END CSS for this page -->
 
 </head>
@@ -74,7 +76,7 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 
           <!-- LOGO -->
           <div class='headerbar-left'>
-             <a href='index.html' class='logo'><img alt='logo' src='"""),_display_(/*52.70*/routes/*52.76*/.Assets.versioned("images/logo.png")),format.raw/*52.112*/("""' /> <span>Admin</span></a>
+             <a href='index.html' class='logo'><img alt='logo' src='"""),_display_(/*54.70*/routes/*54.76*/.Assets.versioned("images/logo.png")),format.raw/*54.112*/("""' /> <span>Admin</span></a>
          </div>
 
          <nav class='navbar-custom'>
@@ -82,7 +84,7 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
             <ul class='list-inline float-right mb-0'>
                 <li class='list-inline-item dropdown notif'>
                     <a class='nav-link dropdown-toggle nav-user' data-toggle='dropdown' href='#' role='button' aria-haspopup='false' aria-expanded='false'>
-                        <img src='"""),_display_(/*60.36*/routes/*60.42*/.Assets.versioned("images/avatars/admin.png")),format.raw/*60.87*/("""' alt='Profile image' class='avatar-rounded'>
+                        <img src='"""),_display_(/*62.36*/routes/*62.42*/.Assets.versioned("images/avatars/admin.png")),format.raw/*62.87*/("""' alt='Profile image' class='avatar-rounded'>
                     </a>
                     <div class='dropdown-menu dropdown-menu-right profile-dropdown'>
                         <!-- item-->
@@ -153,7 +155,6 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
     <div class='clearfix'></div>
 
 </div>
-
 </div>
 <!-- End Sidebar -->
 
@@ -311,30 +312,30 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 </div>
 <!-- END main -->
 
-<script src='"""),_display_(/*289.15*/routes/*289.21*/.Assets.versioned("js/sweetalert2.min.js")),format.raw/*289.63*/("""'></script>
-<script src='"""),_display_(/*290.15*/routes/*290.21*/.Assets.versioned("js/modernizr.min.js")),format.raw/*290.61*/("""'></script>
-<script src='"""),_display_(/*291.15*/routes/*291.21*/.Assets.versioned("js/jquery.min.js")),format.raw/*291.58*/("""'></script>
-<script src='"""),_display_(/*292.15*/routes/*292.21*/.Assets.versioned("js/moment.min.js")),format.raw/*292.58*/("""'></script>
+<script src='"""),_display_(/*290.15*/routes/*290.21*/.Assets.versioned("js/sweetalert2.min.js")),format.raw/*290.63*/("""'></script>
+<script src='"""),_display_(/*291.15*/routes/*291.21*/.Assets.versioned("js/modernizr.min.js")),format.raw/*291.61*/("""'></script>
+<script src='"""),_display_(/*292.15*/routes/*292.21*/.Assets.versioned("js/jquery.min.js")),format.raw/*292.58*/("""'></script>
+<script src='"""),_display_(/*293.15*/routes/*293.21*/.Assets.versioned("js/moment.min.js")),format.raw/*293.58*/("""'></script>
 
-<script src='"""),_display_(/*294.15*/routes/*294.21*/.Assets.versioned("js/popper.min.js")),format.raw/*294.58*/("""'></script>
-<script src='"""),_display_(/*295.15*/routes/*295.21*/.Assets.versioned("js/bootstrap.min.js")),format.raw/*295.61*/("""'></script>
+<script src='"""),_display_(/*295.15*/routes/*295.21*/.Assets.versioned("js/popper.min.js")),format.raw/*295.58*/("""'></script>
+<script src='"""),_display_(/*296.15*/routes/*296.21*/.Assets.versioned("js/bootstrap.min.js")),format.raw/*296.61*/("""'></script>
 
-<script src='"""),_display_(/*297.15*/routes/*297.21*/.Assets.versioned("js/detect.js")),format.raw/*297.54*/("""'></script>
-<script src='"""),_display_(/*298.15*/routes/*298.21*/.Assets.versioned("js/fastclick.js")),format.raw/*298.57*/("""'></script>
-<script src='"""),_display_(/*299.15*/routes/*299.21*/.Assets.versioned("js/jquery.blockUI.js")),format.raw/*299.62*/("""'></script>
-<script src='"""),_display_(/*300.15*/routes/*300.21*/.Assets.versioned("js/jquery.nicescroll.js")),format.raw/*300.65*/("""'></script>
-<script src='"""),_display_(/*301.15*/routes/*301.21*/.Assets.versioned("js/jquery.scrollTo.min.js")),format.raw/*301.67*/("""'></script>
-<script src='"""),_display_(/*302.15*/routes/*302.21*/.Assets.versioned("plugins/switchery/switchery.min.js")),format.raw/*302.76*/("""'></script>
+<script src='"""),_display_(/*298.15*/routes/*298.21*/.Assets.versioned("js/detect.js")),format.raw/*298.54*/("""'></script>
+<script src='"""),_display_(/*299.15*/routes/*299.21*/.Assets.versioned("js/fastclick.js")),format.raw/*299.57*/("""'></script>
+<script src='"""),_display_(/*300.15*/routes/*300.21*/.Assets.versioned("js/jquery.blockUI.js")),format.raw/*300.62*/("""'></script>
+<script src='"""),_display_(/*301.15*/routes/*301.21*/.Assets.versioned("js/jquery.nicescroll.js")),format.raw/*301.65*/("""'></script>
+<script src='"""),_display_(/*302.15*/routes/*302.21*/.Assets.versioned("js/jquery.scrollTo.min.js")),format.raw/*302.67*/("""'></script>
+<script src='"""),_display_(/*303.15*/routes/*303.21*/.Assets.versioned("plugins/switchery/switchery.min.js")),format.raw/*303.76*/("""'></script>
 
 <!-- App js -->
-<script src='"""),_display_(/*305.15*/routes/*305.21*/.Assets.versioned("js/pikeadmin.js")),format.raw/*305.57*/("""'></script>
+<script src='"""),_display_(/*306.15*/routes/*306.21*/.Assets.versioned("js/pikeadmin.js")),format.raw/*306.57*/("""'></script>
 
 
 <!-- Datatable js -->
 <script src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'></script>
 <script src='https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js'></script>
 <!-- BEGIN Java Script for this page -->
-<script src='"""),_display_(/*312.15*/routes/*312.21*/.Assets.versioned("js/pagesJS/aseguradoras.js")),format.raw/*312.68*/("""'></script>
+<script src='"""),_display_(/*313.15*/routes/*313.21*/.Assets.versioned("js/pagesJS/aseguradoras.js")),format.raw/*313.68*/("""'></script>
 <!-- END Java Script for this page -->
 
 </body>
@@ -354,11 +355,11 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2019-10-08T14:52:43.480
-                  SOURCE: C:/Users/juanm/Documents/documentosImportantes/semestre 6/Requisitos/Seguros/app/views/aseguradoras.scala.html
-                  HASH: 4b5cdf8496f87bc82d86e530a5d4b80a2cab65f7
-                  MATRIX: 818->0|1229->384|1244->390|1304->429|1378->476|1393->482|1470->538|1563->604|1578->610|1641->652|1753->737|1768->743|1847->801|1953->880|1968->886|2033->930|2117->987|2132->993|2187->1027|2474->1286|2503->1287|2540->1297|2585->1315|2600->1321|2681->1381|2767->1440|2795->1441|2828->1447|2884->1475|2913->1476|2950->1486|2995->1504|3010->1510|3092->1571|3152->1604|3180->1605|3209->1607|3550->1921|3565->1927|3623->1963|4047->2360|4062->2366|4128->2411|13685->11940|13701->11946|13765->11988|13820->12015|13836->12021|13898->12061|13953->12088|13969->12094|14028->12131|14083->12158|14099->12164|14158->12201|14215->12230|14231->12236|14290->12273|14345->12300|14361->12306|14423->12346|14480->12375|14496->12381|14551->12414|14606->12441|14622->12447|14680->12483|14735->12510|14751->12516|14814->12557|14869->12584|14885->12590|14951->12634|15006->12661|15022->12667|15090->12713|15145->12740|15161->12746|15238->12801|15312->12847|15328->12853|15386->12889|15690->13165|15706->13171|15775->13218
-                  LINES: 26->1|37->12|37->12|37->12|40->15|40->15|40->15|43->18|43->18|43->18|46->21|46->21|46->21|49->24|49->24|49->24|50->25|50->25|50->25|56->31|56->31|57->32|57->32|57->32|57->32|59->34|59->34|60->35|60->35|60->35|61->36|61->36|61->36|61->36|62->37|62->37|63->38|77->52|77->52|77->52|85->60|85->60|85->60|314->289|314->289|314->289|315->290|315->290|315->290|316->291|316->291|316->291|317->292|317->292|317->292|319->294|319->294|319->294|320->295|320->295|320->295|322->297|322->297|322->297|323->298|323->298|323->298|324->299|324->299|324->299|325->300|325->300|325->300|326->301|326->301|326->301|327->302|327->302|327->302|330->305|330->305|330->305|337->312|337->312|337->312
+                  DATE: 2019-10-08T16:09:32.220
+                  SOURCE: D:/INGENIERIA DE SISTEMAS/Ingenieria de Requisitos/Seguros/app/views/aseguradoras.scala.html
+                  HASH: 9b8a0ef518083ae61fc80269db97ccf9f0be4887
+                  MATRIX: 729->1|825->3|853->5|1264->389|1279->395|1339->434|1413->481|1428->487|1505->543|1598->609|1613->615|1676->657|1788->742|1803->748|1882->806|1992->889|2007->895|2072->939|2156->996|2171->1002|2226->1036|2513->1295|2542->1296|2579->1306|2624->1324|2639->1330|2720->1390|2806->1449|2834->1450|2867->1456|2923->1484|2952->1485|2989->1495|3034->1513|3049->1519|3131->1580|3191->1613|3219->1614|3248->1616|3589->1930|3604->1936|3662->1972|4086->2369|4101->2375|4167->2420|13722->11947|13738->11953|13802->11995|13857->12022|13873->12028|13935->12068|13990->12095|14006->12101|14065->12138|14120->12165|14136->12171|14195->12208|14252->12237|14268->12243|14327->12280|14382->12307|14398->12313|14460->12353|14517->12382|14533->12388|14588->12421|14643->12448|14659->12454|14717->12490|14772->12517|14788->12523|14851->12564|14906->12591|14922->12597|14988->12641|15043->12668|15059->12674|15127->12720|15182->12747|15198->12753|15275->12808|15349->12854|15365->12860|15423->12896|15727->13172|15743->13178|15812->13225
+                  LINES: 21->1|26->1|27->2|38->13|38->13|38->13|41->16|41->16|41->16|44->19|44->19|44->19|47->22|47->22|47->22|51->26|51->26|51->26|52->27|52->27|52->27|58->33|58->33|59->34|59->34|59->34|59->34|61->36|61->36|62->37|62->37|62->37|63->38|63->38|63->38|63->38|64->39|64->39|65->40|79->54|79->54|79->54|87->62|87->62|87->62|315->290|315->290|315->290|316->291|316->291|316->291|317->292|317->292|317->292|318->293|318->293|318->293|320->295|320->295|320->295|321->296|321->296|321->296|323->298|323->298|323->298|324->299|324->299|324->299|325->300|325->300|325->300|326->301|326->301|326->301|327->302|327->302|327->302|328->303|328->303|328->303|331->306|331->306|331->306|338->313|338->313|338->313
                   -- GENERATED --
               */
           

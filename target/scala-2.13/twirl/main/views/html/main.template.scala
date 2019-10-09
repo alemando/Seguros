@@ -69,8 +69,8 @@ Seq[Any](format.raw/*7.32*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2019-10-05T19:00:31.609
-                  SOURCE: C:/Users/juanm/Documents/documentosImportantes/semestre 6/Requisitos/Seguros/app/views/main.scala.html
+                  DATE: 2019-10-08T16:09:32.338
+                  SOURCE: D:/INGENIERIA DE SISTEMAS/Ingenieria de Requisitos/Seguros/app/views/main.scala.html
                   HASH: be49df457fee414c7efc8e689a2e3033a3af8ec7
                   MATRIX: 992->266|1117->296|1147->300|1231->357|1257->362|1419->497|1434->503|1496->544|1576->597|1591->603|1654->645|1739->703|1754->709|1815->748|1864->770|1879->776|1941->817|2022->871|2037->877|2099->918|2413->1206|2441->1213|2470->1215
                   LINES: 26->7|31->7|33->9|37->13|37->13|39->15|39->15|39->15|40->16|40->16|40->16|41->17|41->17|41->17|42->18|42->18|42->18|43->19|43->19|43->19|53->29|53->29|54->30

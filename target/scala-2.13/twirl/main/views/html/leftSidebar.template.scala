@@ -50,6 +50,10 @@ Seq[Any](format.raw/*1.16*/("""
                             <li """),_display_(/*25.34*/if(name=="Aseguradoras")/*25.58*/{_display_(Seq[Any](format.raw/*25.59*/(""" """),format.raw/*25.60*/("""class="active" """)))}),format.raw/*25.76*/("""><a href='clientes.html'>Ver Aseguradoras </a></li>
                         </ul>
                     </li>
+
+                    <li class='submenu'>
+                        <a href='#' data-target="#añadirCategoria" data-toggle="modal"><i class='fa fa-fw fa-tv'></i> <span> Agregar Categoría</span></a>
+                    </li>
 					
             </ul>
 
@@ -61,7 +65,31 @@ Seq[Any](format.raw/*1.16*/("""
 
 		</div>
 
-	</div>
+    </div>
+        <!-- Modal -->
+        <div class="modal fade" id="añadirCategoria" tabindex="-1" role="dialog" aria-labelledby="customModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="titleAñadirCategoria">Añadir una Categoría</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form autocomplete="off" action="#" id="form-añadirCategoria">
+                            <div class="form-group">
+                                <label>Nombre<span class="text-danger">*</span></label>
+                                <input name="categoria" type="text" class="form-control" id="input-nombre-categoria" placeholder="Nombre" required autocomplete="off">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelar-añadirCategoria">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Registrar</button>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
 """)))}))
       }
     }
@@ -78,9 +106,9 @@ Seq[Any](format.raw/*1.16*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2019-10-09T15:44:51.434
+                  DATE: 2019-10-09T17:34:23.156
                   SOURCE: C:/Users/user/Documents/GitHub/Seguros/app/views/leftSidebar.scala.html
-                  HASH: 4f2004d2b16923df7856b4f1ceceae5d93e985ed
+                  HASH: b8db9d50dc45936efdaace738d18115cbd329b8a
                   MATRIX: 735->1|844->15|872->18|919->57|969->70|998->73|1384->432|1413->452|1452->453|1481->454|1528->470|1741->656|1770->676|1809->677|1838->678|1885->694|2103->885|2136->909|2175->910|2204->911|2251->927|2460->1109|2493->1133|2532->1134|2561->1135|2608->1151
                   LINES: 21->1|26->1|27->2|27->2|27->2|28->3|41->16|41->16|41->16|41->16|41->16|43->18|43->18|43->18|43->18|43->18|48->23|48->23|48->23|48->23|48->23|50->25|50->25|50->25|50->25|50->25
                   -- GENERATED --

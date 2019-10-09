@@ -43,4 +43,23 @@ object Categoria{
             }
         })
     }
+
+    //este metodo lo que hace es verificar los datos sean correctos por medio de expresiones regulares
+  def verificacion(nombre: String): (Boolean,String) = {
+      //expresion regular para verificar si todo son numeros
+      val numberPattern: Regex = "^[\\d\\s]+$".r
+      //expresion regular para verificar si todo son lertas
+      val letterPattern: Regex = "^[a-zA-Z\\s]+$".r
+      //expresion regular para verificar si es una fecha, atentos, permite formatos como 31.12.3013 o 01/01/2013 o 05-3-2013 o 15.03.2013
+      val datePatter: Regex = "^(?:3[01]|[12][0-9]|0?[1-9])([\\-/.])(0?[1-9]|1[1-2])\\1\\d{4}$".r
+
+      val matchesnombre = letterPattern.findAllIn(nombre)
+  
+      if (matchesnombre.size == 0){
+          return(false,"Esto no es un caracter")
+      }
+      return(true, "correcto")
+
+  }
+
 }

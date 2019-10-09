@@ -92,6 +92,42 @@ object Cliente{
         }
     })
   }
+
+   //este metodo lo que hace es verificar los datos sean correctos por medio de expresiones regulares
+  def verificacion(documento:String, nombre:String, apellido1:String, apellido2:String, pdireccion:String, 
+pdatosResidencia:String, pdatosContacto:String, fechaNacimiento:String, pingresos:Int,  pegresos:Int): (Boolean,String) = {
+      //expresion regular para verificar si todo son numeros
+      val numberPattern: Regex = "^[\\d\\s]+$".r
+      //expresion regular para verificar si todo son lertas
+      val letterPattern: Regex = "^[a-zA-Z\\s]+$".r
+      //expresion regular para verificar si es una fecha, atentos, permite formatos como 31.12.3013 o 01/01/2013 o 05-3-2013 o 15.03.2013
+      val datePatter: Regex = "^(?:3[01]|[12][0-9]|0?[1-9])([\\-/.])(0?[1-9]|1[1-2])\\1\\d{4}$".r
+      // si el tamaño del match es 0 significa que no encontro match con la expresion regular.
+      val matchesdocumento = numberPattern.findAllIn(documento)
+      val matchesdatcont = numberPattern.findAllIn(pdatosContacto)
+      val matchesingresos = numberPattern.findAllIn(pingresos)
+      val matchesegresos = numberPattern.findAllIn(pegresos)
+      if (matchesdocumento.size == 0 || matchesdatcont.size == 0 || matchesegresos.size == 0 || matchesingresos.size == 0){
+          return(false,"Esto no es un numero o no es positivo el numero")
+      }
+
+      val matchesnombre = letterPattern.findAllIn(nombre)
+      val matchesapp1 = letterPattern.findAllIn(apellido1)
+      val matchesapp2 = letterPattern.findAllIn(apellido2)
+      val matchesdireccion = letterPattern.findAllIn(pdireccion)
+      val matchesresidencia = letterPattern.findAllIn(pdatosResidencia)
+  
+      if (matchesnombre.size == 0 || matchesapp1.size == 0 || matchesapp2.size == 0 || matchesdireccion.size == 0 || matchesresidencia.size == 0){
+          return(false,"Esto no es un caracter")
+      }
+
+      val matchesfecha = datePatter.findAllIn(fechaNacimiento)
+      if(matchesfecha.size == 0){
+        return(false, "Esto no es una fecha")
+      }
+      return(true, "correcto")
+
+  }
   
   //Esta parte se supone que crea un método para devolver un objeto de la base de datos, sin embargo aún no funciona
   //Pues tengo problemas con el manejo del promise.

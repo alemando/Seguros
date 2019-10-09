@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 [0m[[0m[31merror[0m] [0m[0mC:\Users\Usuario\Desktop\seguros\app\views\clientes.scala.html:119:82: value ptelefono is not a member of models.Cliente[0m
 [0m[[0m[31merror[0m] [0m[0m                                                                <td>@clientes(x).ptelefono</td>[0m
 [0m[[0m[31merror[0m] [0m[0m                                                                                 ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m
+=======
+[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\Documents\documentosImportantes\semestre 6\Requisitos\Seguros\conf\routes:11:1: value SellerYes is not a member of controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0mGET     /SellerYes							controllers.HomeController.SellerYes[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
+>>>>>>> 2c6dcd706cc061fcd3e7b45a3cd8c3c3f9645140

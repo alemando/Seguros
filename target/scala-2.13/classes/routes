@@ -4,6 +4,13 @@
 # ~~~~
 
 # An example controller showing a sample home page
+<<<<<<< HEAD
+=======
+GET     /                                   controllers.HomeController.index
+GET     /explore                            controllers.HomeController.explore
+GET     /tutorial                           controllers.HomeController.tutorial
+GET     /clientes                           controllers.ClienteController.principal
+>>>>>>> 2c6dcd706cc061fcd3e7b45a3cd8c3c3f9645140
 
 GET     /                                   controllers.AsyncController.verAseguradoras
 GET     /clientes                           controllers.AsyncController.verClientes

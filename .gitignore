@@ -7,10 +7,10 @@ bin/
 /modules
 /project/project
 /project/target
-/target
 tmp/
 test-result
 server.pid
+/target/
 *.eml
 /dist/
 .cache

@@ -10,8 +10,8 @@ import scala.concurrent.Promise
 import scala.util.matching.Regex
 import scala.collection.mutable.ArrayBuffer
 //Creación de la clase cliente 
-case class Cliente( documento:String, nombre:String, apellido1:String, apellido2:String, pdireccion:String, 
-pdatosResidencia:String, pdatosContacto:String, fechaNacimiento:String, pingresos:String,  pegresos:String){
+case class Cliente( documento:String, nombre:String, apellido1:String, apellido2:String, pdireccion:String,
+ptelefono:String, fechaNacimiento:String, pingresos:String,  pegresos:String){
 
   //Este método me regresa un clienteBean, lo que hace es convetir esta clase case, en una plana
   //para poder ser recibida en la base de datos.*/
@@ -22,8 +22,7 @@ pdatosResidencia:String, pdatosContacto:String, fechaNacimiento:String, pingreso
     cliente.apellido1=apellido1
     cliente.apellido2=apellido2
     cliente.pdireccion=pdireccion
-    cliente.pdatosResidencia=pdatosResidencia
-    cliente.pdatosContacto=pdatosContacto
+    cliente.ptelefono=ptelefono
     cliente.fechaNacimiento=fechaNacimiento
     cliente.pingresos=pingresos
     cliente.pegresos=pegresos
@@ -40,8 +39,7 @@ class ClienteBean(){
   @BeanProperty var apellido1:String=null
   @BeanProperty var apellido2:String=null
   @BeanProperty var pdireccion:String=null
-  @BeanProperty var pdatosResidencia:String=null
-  @BeanProperty var pdatosContacto:String=null
+  @BeanProperty var ptelefono:String=null
   @BeanProperty var fechaNacimiento:String=null
   @BeanProperty var pingresos:String=null
   @BeanProperty var pegresos:String=null
@@ -49,7 +47,7 @@ class ClienteBean(){
   //Este método me convierte una clase Bean en una normal, para poder manejarlas con fácilidad en scala.
   //Es usado cuando obtenemos elementos de la base de datos y los tenemos que interpretar como case classes.
   def toCase:Cliente={
-      new Cliente(documento,nombre,apellido1,apellido2,pdireccion,pdatosResidencia,pdatosContacto,fechaNacimiento,pingresos,pegresos)
+      new Cliente(documento,nombre,apellido1,apellido2,pdireccion,ptelefono,fechaNacimiento,pingresos,pegresos)
   }
 }
 

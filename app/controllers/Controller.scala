@@ -21,33 +21,41 @@ class Controller @Inject()(cc: ControllerComponents) extends AbstractController(
    */
   def guardarCliente() = Action { implicit request: Request[AnyContent] =>
     {
-      val paramVal = request.body.asFormUrlEncoded.map{args =>
+      val urlValues = request.body.asFormUrlEncoded.map{args =>
         val documento = args("documento").head
-        val clientePrueba = Cliente(documento, "prueba", "prueba", "Franco", "Calle 11", "Nose", "Nose", "10/28/1999", "140000","10000")
+        val nombre = args("nombre").head
+        val apellido1 = args("apellido1").head
+        val apellido2 = args("apellido2").head
+        val direccion = args("direccion").head
+        val telefono = args("telefono").head
+        val fechaNacimiento = args("fechaNacimiento").head
+        val ingresos = args("ingresos").head
+        val egresos = args("egresos").head
+        val clientePrueba = Cliente(documento, nombre, apellido1, apellido2, direccion, telefono, fechaNacimiento, ingresos, egresos)
         Cliente.create(clientePrueba)
       }
       
       Ok("1")
     }
   }
-  
+
   def guardarAseguradora() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.aseguradoras())
+    Ok(views.html.aseguradoras("Aseguradoras")("sd")(request))
   }
   
   def verCategoria() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.aseguradoras())
+    Ok(views.html.aseguradoras("Aseguradoras")("sd")(request))
   }
 
   def guardarCategoria() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.aseguradoras())
+    Ok(views.html.aseguradoras("Aseguradoras")("sd")(request))
   }
 
   def verBienes() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.aseguradoras())
+    Ok(views.html.aseguradoras("Aseguradoras")("sd")(request))
   }
 
   def guardarBien() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.aseguradoras())
+    Ok(views.html.aseguradoras("Aseguradoras")("sd")(request))
   }
 }

@@ -1,407 +1,345 @@
-@()
-<!DOCTYPE html>
-<html lang="en">
-<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-		<title>Pike Admin - Free Bootstrap 4 Admin Template</title>
-		<meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin">
-		<meta name="author" content="Pike Web Development - https://www.pikephp.com">
+@import scala.collection.mutable.ArrayBuffer
+@(name: String)(clientes:ArrayBuffer[Cliente])(implicit request: RequestHeader)
+@defining(play.core.PlayVersion.current) { version =>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    		<meta charset="utf-8">
+    		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    		
+    		<title>Pike Admin - Free Bootstrap 4 Admin Template</title>
+    		<meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin">
+    		<meta name="author" content="Pike Web Development - https://www.pikephp.com">
 
-		<!-- Favicon -->
-		<link rel="shortcut icon" href='@routes.Assets.versioned("images/favicon.ico")'>
+    		<!-- Favicon -->
+    		<link rel="shortcut icon" href='@routes.Assets.versioned("images/favicon.ico")'>
 
-		<!-- Switchery css -->
-		<link href='@routes.Assets.versioned("plugins/switchery/switchery.min.css")' rel="stylesheet" />
-		
-		<!-- Bootstrap CSS -->
-		<link href='@routes.Assets.versioned("css/bootstrap.min.css")' rel="stylesheet" type="text/css" />
-		
-		<!-- Font Awesome CSS -->
-		<link href='@routes.Assets.versioned("font-awesome/css/font-awesome.min.css")' rel="stylesheet" type="text/css" />
-		
-		<!-- Custom CSS -->
-        <link href='@routes.Assets.versioned("css/sweetalert2.min.css")' rel="stylesheet" type="text/css" />   
-		<link href='@routes.Assets.versioned("css/style.css")' rel="stylesheet" type="text/css" />	
-		
-		<!-- BEGIN CSS for this page -->
-        <!-- DataTable -->
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css"/>    
-        <style> 
-        td.details-control {
-        background: url('@routes.Assets.versioned("plugins/datatables/img/details_open.png")') no-repeat center center;
-        cursor: pointer;
-        }
-        tr.shown td.details-control {
-        background: url('@routes.Assets.versioned("plugins/datatables/img/details_close.png")') no-repeat center center;
-        }
-        </style>    
-		<!-- END CSS for this page -->
-				
-</head>
+    		<!-- Switchery css -->
+    		<link href='@routes.Assets.versioned("plugins/switchery/switchery.min.css")' rel="stylesheet" />
+    		
+    		<!-- Bootstrap CSS -->
+    		<link href='@routes.Assets.versioned("css/bootstrap.min.css")' rel="stylesheet" type="text/css" />
+    		
+    		<!-- Font Awesome CSS -->
+    		<link href='@routes.Assets.versioned("font-awesome/css/font-awesome.min.css")' rel="stylesheet" type="text/css" />
+    		
+    		<!-- Custom CSS -->
+            <link href='@routes.Assets.versioned("css/sweetalert2.min.css")' rel="stylesheet" type="text/css" />
+            <link href='@routes.Assets.versioned("css/dataTableCollapse.css")' rel="stylesheet" type="text/css" />   
+    		<link href='@routes.Assets.versioned("css/style.css")' rel="stylesheet" type="text/css" />	
+    		
+    		<!-- BEGIN CSS for this page -->
+            <!-- DataTable -->
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css"/>    
+            <style> 
+            td.details-control {
+            background: url('@routes.Assets.versioned("plugins/datatables/img/details_open.png")') no-repeat center center;
+            cursor: pointer;
+            }
+            tr.shown td.details-control {
+            background: url('@routes.Assets.versioned("plugins/datatables/img/details_close.png")') no-repeat center center;
+            }
+            </style>    
+    		<!-- END CSS for this page -->
+    				
+    </head>
 
-<body class="adminbody">
+    <body class="adminbody">
 
-<div id="main">
+    <div id="main">
 
-	<!-- top bar navigation -->
-	<div class="headerbar">
+    	<!-- top bar navigation -->
+    	@header()
+    	<!-- End Navigation -->
+    	
+     
+    	<!-- Left Sidebar -->
+    	@leftSidebar(name)
+    	<!-- End Sidebar -->
 
-		<!-- LOGO -->
-        <div class="headerbar-left">
-			<a href="index.html" class="logo"><img alt="logo" src='@routes.Assets.versioned("images/logo.png")' /> <span>Admin</span></a>
-        </div>
 
-        <nav class="navbar-custom">
-
-                    <ul class="list-inline float-right mb-0">
-                        <li class="list-inline-item dropdown notif">
-                            <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <img src='@routes.Assets.versioned("images/avatars/admin.png")' alt="Profile image" class="avatar-rounded">
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right profile-dropdown">
-                                <!-- item-->
-                                <div class="dropdown-item noti-title">
-                                    <h5 class="text-overflow"><small>Hola, Admin</small> </h5>
-                                </div>
-
-                                <!-- item-->
-                                <a href="pro-profile.html" class="dropdown-item notify-item">
-                                    <i class="fa fa-user"></i> <span>Perfil</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="#" class="dropdown-item notify-item">
-                                    <i class="fa fa-power-off"></i> <span>Cerrar Sesion</span>
-                                </a>
-                            </div>
-                        </li>
-
-                    </ul>
-
-                    <ul class="list-inline menu-left mb-0">
-                        <li class="float-left">
-                            <button class="button-menu-mobile open-left">
-								<i class="fa fa-fw fa-bars"></i>
-                            </button>
-                        </li>                        
-                    </ul>
-
-        </nav>
-
-	</div>
-	<!-- End Navigation -->
-	
- 
-	<!-- Left Sidebar -->
-	<div class="left main-sidebar">
-	
-		<div class="sidebar-inner leftscroll">
-
-			<div id="sidebar-menu">
-        
-			<ul>
-
-					<li class="submenu">
-						<a href="index.html"><i class="fa fa-fw fa-bars"></i><span> Home </span> </a>
-                    </li>
-										
-                    <li class="submenu">
-                        <a href="#" class="active"><i class="fa fa-fw fa-tv"></i> <span> Clientes</span> <span class="menu-arrow"></span></a>
-                            <ul class="list-unstyled">
-                                <li class="active"><a href="clientes.html">Ver Clientes</a></li>
-                            </ul>
-                    </li>
-
+        <div class="content-page">
+    	
+    		<!-- Start content -->
+            <div class="content">
                 
-                    <li class = 'submenu'>
-                        <a href='#'><i class= 'fa fa-fw fa bars'></i><span>Registrar Categoría</span></a>
-                    </li>
-            </ul>
+    			<div class="container-fluid">
 
-            <div class="clearfix"></div>
+    					
+    							<div class="row">
+    									<div class="col-xl-12">
+    											<div class="breadcrumb-holder">
+    													<h1 class="main-title float-left">Clientes</h1>
+    													<ol class="breadcrumb float-right">
+    														<li class="breadcrumb-item">Clientes</li>
+    														<li class="breadcrumb-item active">Ver Clientes</li>
+    													</ol>
+    													<div class="clearfix"></div>
+    											</div>
+    									</div>
+    							</div>
+    							<!-- end row -->
 
-			</div>
+    							<div class="row">
+    									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">                      
+                                            <div class="card mb-3">
+                                                <div class="card-header">
+                                                    <div class="row">
+                                                        <div class="col-xs-6 col-sm-6 col-md-8 col-lg-10 col-xl-10">
+                                                            <h3><i class="fa fa-users"></i> Clientes disponibles</h3>
+                                                        </div>
+                                                        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2">
+                                                            <a role="button" href="#" id="añadir-cliente" class="btn btn-success float-right" data-target="#añadirCliente" data-toggle="modal">Añadir Cliente<span class="btn-label btn-label-right"><i class="fa fa-user-circle"></i></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                    
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                    <table id="tabla-clientes" class="table table-bordered table-hover display">
+                                                        <thead>
+                                                            <tr>
+                                                                <th></th>
+                                                                <th>Documento</th>
+                                                                <th>Nombres</th>
+                                                                <th>Contacto</th>
+                                                                <th>Residencia</th>
+                                                                <th>Fecha Nacimiento</th>
+                                                                <th>Ingresos</th>
+                                                                <th>Egresos</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>                                        
+                                                        <tbody>                                                         
+                                                        	@for(x <- 0 until clientes.size){
+                                                            <tr>
+                                                            	<td></td>
+                                                              	<td>@clientes(x).documento</td>
+                                                                <td>@clientes(x).nombre</td>
+                                                                <td>@clientes(x).pdatosContacto</td>
+                                                                <td>@clientes(x).pdireccion</td>
+                                                                <td>@clientes(x).fechaNacimiento</td>
+                                                                <td>@clientes(x).pingresos</td>
+                                                                <td>@clientes(x).pegresos</td>
+                                                                <th><center><a role="button" href="#" class="btn btn-primary editar-cliente"><i class="fa fa-pencil"></i></a> <a role="button" href="#" class="btn btn-danger eliminar-cliente"><i class="fa fa-trash-o"></i></a></center></th>
+                                                                </tr>                                                                
+                                                                }                                                                
+                                                        </tbody>
+                                                    </table>
+                                                    </div>
+                                                    
+                                                </div>                                                      
+                                            </div><!-- end card-->                  
+                                        </div>
+    							</div>
+
+
+
+                </div>
+    			<!-- END container-fluid -->
+
+    		</div>
+    		<!-- END content -->
+
+        </div>
+    	<!-- END content-page -->
         
-			<div class="clearfix"></div>
 
-		</div>
-
-	</div>
-	<!-- End Sidebar -->
-
-
-    <div class="content-page">
-	
-		<!-- Start content -->
-        <div class="content">
-            
-			<div class="container-fluid">
-
-					
-							<div class="row">
-									<div class="col-xl-12">
-											<div class="breadcrumb-holder">
-													<h1 class="main-title float-left">Clientes</h1>
-													<ol class="breadcrumb float-right">
-														<li class="breadcrumb-item">Clientes</li>
-														<li class="breadcrumb-item active">Ver Clientes</li>
-													</ol>
-													<div class="clearfix"></div>
-											</div>
-									</div>
-							</div>
-							<!-- end row -->
-
-							
-							<div class="row">
-									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">                      
-                                        <div class="card mb-3">
-                                            <div class="card-header">
-                                                <div class="row">
-                                                    <div class="col-xs-6 col-sm-6 col-md-8 col-lg-10 col-xl-10">
-                                                        <h3><i class="fa fa-users"></i> Clientes disponibles</h3>
-                                                    </div>
-                                                    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-                                                        <a role="button" href="#" id="añadir-cliente" class="btn btn-success float-right" data-target="#añadirCliente" data-toggle="modal">Añadir Cliente<span class="btn-label btn-label-right"><i class="fa fa-user-circle"></i></span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                
-                                            <div class="card-body">
-                                                <div class="table-responsive">
-                                                <table id="tabla-clientes" class="table table-bordered table-hover display">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Documento</th>
-                                                            <th>Nombres</th>
-                                                            <th>Contacto</th>
-                                                            <th>Residencia</th>
-                                                            <th>Fecha Nacimiento</th>
-                                                            <th>Ingresos</th>
-                                                            <th>Egresos</th>
-                                                            <th></th>
-                                                        </tr>
-                                                    </thead>                                        
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Ejemplo borrar doc</td>
-                                                            <td>Ejemplo borrar nom</td>
-                                                            <td>Ejemplo borrar con</td>
-                                                            <td>Ejemplo borrar res</td>
-                                                            <td>Ejemplo borrar fn</td>
-                                                            <td>Ejemplo borrar ing</td>
-                                                            <td>Ejemplo borrar egr</td>
-                                                            <th><center><a role="button" href="#" class="btn btn-primary editar-cliente"><i class="fa fa-pencil"></i></a> <a role="button" href="#" class="btn btn-danger eliminar-cliente"><i class="fa fa-trash-o"></i></a></center></th>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                </div>
-                                                
-                                            </div>                                                      
-                                        </div><!-- end card-->                  
-                                    </div>
-							</div>
-
-
-
-            </div>
-			<!-- END container-fluid -->
-
-		</div>
-		<!-- END content -->
+    	@footer()
 
     </div>
-	<!-- END content-page -->
-    
-	<footer class="footer">
-		<span class="text-right">
-		Copyright <a target="_blank" href="#">Seguros Inequidad</a>
-		</span>
-		<span class="float-right">
-		Powered by <a target="_blank" href="https://www.pikeadmin.com"><b>Pike Admin</b></a>
-		</span>
-	</footer>
-
-</div>
-<!-- Modal -->
-<div class="modal fade" id="añadirCliente" tabindex="-1" role="dialog" aria-labelledby="customModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="titleAñadirCliente">Añadir a un nuevo cliente</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form autocomplete="off" action="#" id="form-añadirCliente">
-                    <div class="form-group">
-                        <label>Documento<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="input-documento-cliente" placeholder="Documento" required autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <label>Nombre<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="input-nombre-cliente" placeholder="Nombre" required autocomplete="off">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label>Apellido 1 <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="input-apellido1-cliente" placeholder="Primer Apellido" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Apellido 2 <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="input-apellido2-cliente" placeholder="Segundo Apellido" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label>Direccion<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="input-direccion-cliente" placeholder="Direccion" required autocomplete="off">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Telefono <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="input-telefono-cliente" placeholder="Telefono" required>
-                        </div>
-                    </div> 
-                    <div class="form-group">
-                        <label>Fecha Nacimiento<span class="text-danger">*</span></label>
-                        <input type="date" class="form-control" id="input-nacimiento-cliente" placeholder="Fecha Nacimiento" required autocomplete="off">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label>Ingresos<span class="text-danger">*</span></label>
-                            <input type="number" class="form-control" id="input-ingresos-cliente" placeholder="Ingresos" required autocomplete="off">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Egresos <span class="text-danger">*</span></label>
-                            <input type="number" class="form-control" id="input-egresos-cliente" placeholder="Egresos" required>
-                        </div>
-                    </div>    
+    <!-- Modal -->
+    <div class="modal fade" id="añadirCliente" tabindex="-1" role="dialog" aria-labelledby="customModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titleAñadirCliente">Añadir a un nuevo cliente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelar-añadirCliente">Cancelar</button>
-                    <button type="submit" class="btn btn-success">Registrar</button>
-                </form>
+                <div class="modal-body">
+                    <form autocomplete="off" action="#" id="form-añadirCliente">
+                        <div class="form-group">
+                            <label>Documento<span class="text-danger">*</span></label>
+                            <input name="documento" type="text" class="form-control" id="input-documento-cliente" placeholder="Documento" required autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre<span class="text-danger">*</span></label>
+                            <input name="nombre" type="text" class="form-control"	 id="input-nombre-cliente" placeholder="Nombre" required autocomplete="off">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Apellido 1 <span class="text-danger">*</span></label>
+                                <input name="apellido1" type="text" class="form-control" id="input-apellido1-cliente" placeholder="Primer Apellido" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Apellido 2 <span class="text-danger">*</span></label>
+                                <input name="apellido2" type="text" class="form-control" id="input-apellido2-cliente" placeholder="Segundo Apellido" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Direccion<span class="text-danger">*</span></label>
+                                <input name="direccion" type="text" class="form-control" id="input-direccion-cliente" placeholder="Direccion" required autocomplete="off">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Telefono <span class="text-danger">*</span></label>
+                                <input name="telefono" type="text" class="form-control" id="input-telefono-cliente" placeholder="Telefono" required>
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <label>Fecha Nacimiento<span class="text-danger">*</span></label>
+                            <input name="fechaNacimiento" type="date" class="form-control" id="input-nacimiento-cliente" placeholder="Fecha Nacimiento" required autocomplete="off">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Ingresos<span class="text-danger">*</span></label>
+                                <input name="ingresos" type="number" class="form-control" id="input-ingresos-cliente" placeholder="Ingresos" required autocomplete="off">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Egresos <span class="text-danger">*</span></label>
+                                <input name="egresos" type="number" class="form-control" id="input-egresos-cliente" placeholder="Egresos" required>
+                            </div>
+                        </div>    
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelar-añadirCliente">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Registrar</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Modal Editar -->
-<div class="modal fade" id="modal-editar-cliente" tabindex="-1" role="dialog" aria-labelledby="customModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="titleEditarCliente">Editar Cliente: <span id="id-cliente"></span></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form autocomplete="off" action="#" id="form-añadirCliente">
-                    <div class="form-group">
-                        <label>Documento<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="input-documento-cliente-editar" placeholder="Documento" required autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <label>Nombre<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="input-nombre-cliente-editar" placeholder="Nombre" required autocomplete="off">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label>Apellido 1 <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="input-apellido1-cliente-editar" placeholder="Primer Apellido" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Apellido 2 <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="input-apellido2-cliente-editar" placeholder="Segundo Apellido" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label>Direccion<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="input-direccion-cliente-editar" placeholder="Direccion" required autocomplete="off">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Telefono <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="input-telefono-cliente-editar" placeholder="Telefono" required>
-                        </div>
-                    </div> 
-                    <div class="form-group">
-                        <label>Fecha Nacimiento<span class="text-danger">*</span></label>
-                        <input type="date" class="form-control" id="input-nacimiento-cliente-editar" placeholder="Fecha Nacimiento" required autocomplete="off">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label>Ingresos<span class="text-danger">*</span></label>
-                            <input type="number" class="form-control" id="input-ingresos-cliente-editar" placeholder="Ingresos" required autocomplete="off">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Egresos <span class="text-danger">*</span></label>
-                            <input type="number" class="form-control" id="input-egresos-cliente-editar" placeholder="Egresos" required>
-                        </div>
-                    </div>    
+    <!-- Modal Editar -->
+    <div class="modal fade" id="modal-editar-cliente" tabindex="-1" role="dialog" aria-labelledby="customModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titleEditarCliente">Editar Cliente: <span id="id-cliente"></span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelar-editarCliente">Cancelar</button>
-                    <button type="submit" class="btn btn-success">Editar</button>
-                </form>
+                <div class="modal-body">
+                    <form autocomplete="off" action="#" id="form-añadirCliente">
+                        <div class="form-group">
+                            <label>Documento<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="input-documento-cliente-editar" placeholder="Documento" required autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="input-nombre-cliente-editar" placeholder="Nombre" required autocomplete="off">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Apellido 1 <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="input-apellido1-cliente-editar" placeholder="Primer Apellido" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Apellido 2 <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="input-apellido2-cliente-editar" placeholder="Segundo Apellido" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Direccion<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="input-direccion-cliente-editar" placeholder="Direccion" required autocomplete="off">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Telefono <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="input-telefono-cliente-editar" placeholder="Telefono" required>
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <label>Fecha Nacimiento<span class="text-danger">*</span></label>
+                            <input type="date" class="form-control" id="input-nacimiento-cliente-editar" placeholder="Fecha Nacimiento" required autocomplete="off">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Ingresos<span class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="input-ingresos-cliente-editar" placeholder="Ingresos" required autocomplete="off">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Egresos <span class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="input-egresos-cliente-editar" placeholder="Egresos" required>
+                            </div>
+                        </div>    
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelar-editarCliente">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Editar</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- END main -->
-
-<!-- Modal Categoria -->
-<div class='modal fade' id='registrarCategoria' tabindex='-1' role='dialog' aria-labelledby='customModal' aria-hidden='true'>
-    <div class='modal-dialog' role='document'>
-        <div class='modal-content'>
-            <div class='modal-header'>
-                <h5 class='modal-title' id='titleAñadirCliente'>Registrar Categoría</h5>
-                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                    <span aria-hidden='true'>&times;</span>
-                </button>
-            </div>
-            <div class='modal-body'>
-                <form autocomplete='off' action='#' id='form-añadirCliente'>
-                    <div class='form-group'>
-                        <label>Nombre<span class='text-danger'>*</span></label>
-                        <input type='text' class='form-control' id='input-nombre-cliente' placeholder='Nombre' required autocomplete='off'>
-                    </div>
+    <!-- Modal Registrar Bien-->
+    <div class="modal fade" id="añadirBien" tabindex="-1" role="dialog" aria-labelledby="customModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titleAñadirCliente">Añadir a un nuevo bien</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class='modal-footer'>
-                    <button type='button' class='btn btn-secondary' data-dismiss='modal' id='cancelar-añadirCliente'>Cancelar</button>
-                    <button type='submit' class='btn btn-success'>Registrar</button>
-                </form>
+                <div class="modal-body">
+                    <form autocomplete="off" action="#" id="form-añadirBien">
+                        <div class="form-group">
+                            <label>Documento cliente<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="input-documento-cliente-bien" placeholder="Documento" required autocomplete="off" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>Categoria <span class="text-danger">*</span></label>
+                            <select class="custom-select" id="input-nombre-categoria-bien" required>
+                                <option value="">Selecciona la categoria</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre referencia<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="input-nombre-referencia-bien" placeholder="Nombre referencia" required autocomplete="off">
+                        </div> 
+                        <div class="form-group">
+                            <label>Caracteristicas<span class="text-danger">*</span></label>
+                            <textarea id="input-caracteristicas-bien" class="md-textarea form-control" rows="3" required autocomplete="off"></textarea>
+                        </div>  
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelar-añadirCategoria">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Registrar</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<script src='@routes.Assets.versioned("js/sweetalert2.min.js")'></script>
-<script src='@routes.Assets.versioned("js/modernizr.min.js")'></script>
-<script src='@routes.Assets.versioned("js/jquery.min.js")'></script>
-<script src='@routes.Assets.versioned("js/moment.min.js")'></script>
+    <!-- END main -->
 
-<script src='@routes.Assets.versioned("js/popper.min.js")'></script>
-<script src='@routes.Assets.versioned("js/bootstrap.min.js")'></script>
+    <script src='@routes.Assets.versioned("js/sweetalert2.min.js")'></script>
+    <script src='@routes.Assets.versioned("js/modernizr.min.js")'></script>
+    <script src='@routes.Assets.versioned("js/jquery.min.js")'></script>
+    <script src='@routes.Assets.versioned("js/moment.min.js")'></script>
 
-<script src='@routes.Assets.versioned("js/detect.js")'></script>
-<script src='@routes.Assets.versioned("js/fastclick.js")'></script>
-<script src='@routes.Assets.versioned("js/jquery.blockUI.js")'></script>
-<script src='@routes.Assets.versioned("js/jquery.nicescroll.js")'></script>
-<script src='@routes.Assets.versioned("js/jquery.scrollTo.min.js")'></script>
-<script src='@routes.Assets.versioned("plugins/switchery/switchery.min.js")'></script>
+    <script src='@routes.Assets.versioned("js/popper.min.js")'></script>
+    <script src='@routes.Assets.versioned("js/bootstrap.min.js")'></script>
 
-<!-- App js -->
-<script src='@routes.Assets.versioned("js/pikeadmin.js")'></script>
+    <script src='@routes.Assets.versioned("js/detect.js")'></script>
+    <script src='@routes.Assets.versioned("js/fastclick.js")'></script>
+    <script src='@routes.Assets.versioned("js/jquery.blockUI.js")'></script>
+    <script src='@routes.Assets.versioned("js/jquery.nicescroll.js")'></script>
+    <script src='@routes.Assets.versioned("js/jquery.scrollTo.min.js")'></script>
+    <script src='@routes.Assets.versioned("plugins/switchery/switchery.min.js")'></script>
 
-<!-- BEGIN Java Script for this page -->
+    <!-- App js -->
+    <script src='@routes.Assets.versioned("js/pikeadmin.js")'></script>
 
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-<script src='@routes.Assets.versioned("js/pagesJS/clientes.js")'></script>
-<!-- END Java Script for this page -->
+    <!-- BEGIN Java Script for this page -->
 
-</body>
-</html>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script src='@routes.Assets.versioned("js/pagesJS/clientes.js")'></script>
+    <!-- END Java Script for this page -->
+
+    </body>
+    </html>
+}

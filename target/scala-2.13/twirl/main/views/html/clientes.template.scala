@@ -24,8 +24,7 @@ object clientes extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.H
       {
 
 
-Seq[Any](format.raw/*2.80*/("""
-"""),_display_(/*3.2*/defining(play.core.PlayVersion.current)/*3.41*/ { version =>_display_(Seq[Any](format.raw/*3.54*/("""
+Seq[Any](_display_(/*3.2*/defining(play.core.PlayVersion.current)/*3.41*/ { version =>_display_(Seq[Any](format.raw/*3.54*/("""
     """),format.raw/*4.5*/("""<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -141,7 +140,7 @@ Seq[Any](format.raw/*2.80*/("""
                                                             	<td></td>
                                                               	<td>"""),_display_(/*117.69*/clientes(x)/*117.80*/.documento),format.raw/*117.90*/("""</td>
                                                                 <td>"""),_display_(/*118.70*/clientes(x)/*118.81*/.nombre),format.raw/*118.88*/("""</td>
-                                                                <td>"""),_display_(/*119.70*/clientes(x)/*119.81*/.pdatosContacto),format.raw/*119.96*/("""</td>
+                                                                <td>"""),_display_(/*119.70*/clientes(x)/*119.81*/.ptelefono),format.raw/*119.91*/("""</td><!-- Revisar este atributo!!!!-->
                                                                 <td>"""),_display_(/*120.70*/clientes(x)/*120.81*/.pdireccion),format.raw/*120.92*/("""</td>
                                                                 <td>"""),_display_(/*121.70*/clientes(x)/*121.81*/.fechaNacimiento),format.raw/*121.97*/("""</td>
                                                                 <td>"""),_display_(/*122.70*/clientes(x)/*122.81*/.pingresos),format.raw/*122.91*/("""</td>
@@ -187,44 +186,44 @@ Seq[Any](format.raw/*2.80*/("""
                     <form autocomplete="off" action="#" id="form-añadirCliente">
                         <div class="form-group">
                             <label>Documento<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="input-documento-cliente" placeholder="Documento" required autocomplete="off">
+                            <input name="documento" type="text" class="form-control" id="input-documento-cliente" placeholder="Documento" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Nombre<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control"	 id="input-nombre-cliente" placeholder="Nombre" required autocomplete="off">
+                            <input name="nombre" type="text" class="form-control"	 id="input-nombre-cliente" placeholder="Nombre" required autocomplete="off">
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Apellido 1 <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="input-apellido1-cliente" placeholder="Primer Apellido" required>
+                                <input name="apellido1" type="text" class="form-control" id="input-apellido1-cliente" placeholder="Primer Apellido" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Apellido 2 <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="input-apellido2-cliente" placeholder="Segundo Apellido" required>
+                                <input name="apellido2" type="text" class="form-control" id="input-apellido2-cliente" placeholder="Segundo Apellido" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Direccion<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="input-direccion-cliente" placeholder="Direccion" required autocomplete="off">
+                                <input name="direccion" type="text" class="form-control" id="input-direccion-cliente" placeholder="Direccion" required autocomplete="off">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Telefono <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="input-telefono-cliente" placeholder="Telefono" required>
+                                <input name="telefono" type="text" class="form-control" id="input-telefono-cliente" placeholder="Telefono" required>
                             </div>
                         </div> 
                         <div class="form-group">
                             <label>Fecha Nacimiento<span class="text-danger">*</span></label>
-                            <input type="date" class="form-control" id="input-nacimiento-cliente" placeholder="Fecha Nacimiento" required autocomplete="off">
+                            <input name="fechaNacimiento" type="date" class="form-control" id="input-nacimiento-cliente" placeholder="Fecha Nacimiento" required autocomplete="off">
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Ingresos<span class="text-danger">*</span></label>
-                                <input type="number" class="form-control" id="input-ingresos-cliente" placeholder="Ingresos" required autocomplete="off">
+                                <input name="ingresos" type="number" class="form-control" id="input-ingresos-cliente" placeholder="Ingresos" required autocomplete="off">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Egresos <span class="text-danger">*</span></label>
-                                <input type="number" class="form-control" id="input-egresos-cliente" placeholder="Egresos" required>
+                                <input name="egresos" type="number" class="form-control" id="input-egresos-cliente" placeholder="Egresos" required>
                             </div>
                         </div>    
                     </div>
@@ -384,11 +383,11 @@ Seq[Any](format.raw/*2.80*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2019-10-09T09:36:38.274
-                  SOURCE: C:/Users/Usuario/Desktop/seguros/app/views/clientes.scala.html
-                  HASH: df7e149a463bf7982c3ce3601509c448973316c0
-                  MATRIX: 432->1|818->47|991->125|1019->128|1066->167|1116->180|1148->186|1644->655|1659->661|1719->700|1801->755|1816->761|1893->817|2000->897|2015->903|2078->945|2204->1044|2219->1050|2298->1108|2424->1207|2439->1213|2504->1257|2595->1321|2610->1327|2677->1373|2765->1434|2780->1440|2835->1474|3170->1781|3199->1782|3241->1796|3286->1814|3301->1820|3382->1880|3481->1951|3510->1952|3552->1966|3608->1994|3637->1995|3679->2009|3724->2027|3739->2033|3821->2094|3890->2135|3919->2136|3961->2150|4159->2322|4188->2330|4222->2337|4321->2410|4359->2427|4393->2434|7956->5969|8004->6000|8044->6001|8135->6063|8309->6209|8330->6220|8362->6230|8466->6306|8487->6317|8516->6324|8620->6400|8641->6411|8678->6426|8782->6502|8803->6513|8836->6524|8940->6600|8961->6611|8999->6627|9103->6703|9124->6714|9156->6724|9260->6800|9281->6811|9312->6820|9840->7316|9991->7438|10646->8066|10676->8074|10712->8082|22151->19493|22167->19499|22231->19541|22290->19572|22306->19578|22368->19618|22427->19649|22443->19655|22502->19692|22561->19723|22577->19729|22636->19766|22697->19799|22713->19805|22772->19842|22831->19873|22847->19879|22909->19919|22970->19952|22986->19958|23041->19991|23100->20022|23116->20028|23174->20064|23233->20095|23249->20101|23312->20142|23371->20173|23387->20179|23453->20223|23512->20254|23528->20260|23596->20306|23655->20337|23671->20343|23748->20398|23830->20452|23846->20458|23904->20494|24201->20763|24217->20769|24282->20812|24399->20898
-                  LINES: 17->1|22->2|27->2|28->3|28->3|28->3|29->4|40->15|40->15|40->15|43->18|43->18|43->18|46->21|46->21|46->21|49->24|49->24|49->24|52->27|52->27|52->27|53->28|53->28|53->28|54->29|54->29|54->29|60->35|60->35|61->36|61->36|61->36|61->36|63->38|63->38|64->39|64->39|64->39|65->40|65->40|65->40|65->40|66->41|66->41|67->42|77->52|77->52|78->53|82->57|82->57|83->58|139->114|139->114|139->114|140->115|142->117|142->117|142->117|143->118|143->118|143->118|144->119|144->119|144->119|145->120|145->120|145->120|146->121|146->121|146->121|147->122|147->122|147->122|148->123|148->123|148->123|151->126|152->127|173->148|173->148|175->150|343->318|343->318|343->318|344->319|344->319|344->319|345->320|345->320|345->320|346->321|346->321|346->321|348->323|348->323|348->323|349->324|349->324|349->324|351->326|351->326|351->326|352->327|352->327|352->327|353->328|353->328|353->328|354->329|354->329|354->329|355->330|355->330|355->330|356->331|356->331|356->331|359->334|359->334|359->334|365->340|365->340|365->340|370->345
+                  DATE: 2019-10-09T15:22:36.906
+                  SOURCE: C:/Users/juanm/git/Seguros/app/views/clientes.scala.html
+                  HASH: 2cf539521a9786c3b820d5dfd2495c44590f69b5
+                  MATRIX: 432->1|818->46|990->126|1037->165|1087->178|1118->183|1603->641|1618->647|1678->686|1757->738|1772->744|1849->800|1953->877|1968->883|2031->925|2154->1021|2169->1027|2248->1085|2371->1181|2386->1187|2451->1231|2541->1294|2556->1300|2623->1346|2710->1406|2725->1412|2780->1446|3109->1747|3138->1748|3179->1761|3224->1779|3239->1785|3320->1845|3417->1914|3446->1915|3487->1928|3543->1956|3572->1957|3613->1970|3658->1988|3673->1994|3755->2055|3823->2095|3852->2096|3893->2109|4081->2271|4110->2279|4143->2285|4238->2354|4276->2371|4309->2377|7816->5856|7864->5887|7904->5888|7994->5949|8166->6093|8187->6104|8219->6114|8322->6189|8343->6200|8372->6207|8475->6282|8496->6293|8528->6303|8664->6411|8685->6422|8718->6433|8821->6508|8842->6519|8880->6535|8983->6610|9004->6621|9036->6631|9139->6706|9160->6717|9191->6726|9716->7219|9866->7340|10500->7947|10530->7955|10564->7961|21987->19356|22003->19362|22067->19404|22125->19434|22141->19440|22203->19480|22261->19510|22277->19516|22336->19553|22394->19583|22410->19589|22469->19626|22528->19657|22544->19663|22603->19700|22661->19730|22677->19736|22739->19776|22798->19807|22814->19813|22869->19846|22927->19876|22943->19882|23001->19918|23059->19948|23075->19954|23138->19995|23196->20025|23212->20031|23278->20075|23336->20105|23352->20111|23420->20157|23478->20187|23494->20193|23571->20248|23650->20299|23666->20305|23724->20341|24015->20604|24031->20610|24096->20653|24208->20734
+                  LINES: 17->1|22->2|27->3|27->3|27->3|28->4|39->15|39->15|39->15|42->18|42->18|42->18|45->21|45->21|45->21|48->24|48->24|48->24|51->27|51->27|51->27|52->28|52->28|52->28|53->29|53->29|53->29|59->35|59->35|60->36|60->36|60->36|60->36|62->38|62->38|63->39|63->39|63->39|64->40|64->40|64->40|64->40|65->41|65->41|66->42|76->52|76->52|77->53|81->57|81->57|82->58|138->114|138->114|138->114|139->115|141->117|141->117|141->117|142->118|142->118|142->118|143->119|143->119|143->119|144->120|144->120|144->120|145->121|145->121|145->121|146->122|146->122|146->122|147->123|147->123|147->123|150->126|151->127|172->148|172->148|174->150|342->318|342->318|342->318|343->319|343->319|343->319|344->320|344->320|344->320|345->321|345->321|345->321|347->323|347->323|347->323|348->324|348->324|348->324|350->326|350->326|350->326|351->327|351->327|351->327|352->328|352->328|352->328|353->329|353->329|353->329|354->330|354->330|354->330|355->331|355->331|355->331|358->334|358->334|358->334|364->340|364->340|364->340|369->345
                   -- GENERATED --
               */
           

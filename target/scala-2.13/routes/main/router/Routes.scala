@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/Usuario/Desktop/seguros/conf/routes
-// @DATE:Tue Oct 08 22:19:37 COT 2019
+// @SOURCE:C:/Users/juanm/git/Seguros/conf/routes
+// @DATE:Wed Oct 09 14:15:34 COT 2019
 
 package router
 
@@ -17,7 +17,7 @@ class Routes(
   AsyncController_0: controllers.AsyncController,
   // @LINE:11
   Controller_2: controllers.Controller,
-  // @LINE:24
+  // @LINE:26
   Assets_1: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -28,7 +28,7 @@ class Routes(
     AsyncController_0: controllers.AsyncController,
     // @LINE:11
     Controller_2: controllers.Controller,
-    // @LINE:24
+    // @LINE:26
     Assets_1: controllers.Assets
   ) = this(errorHandler, AsyncController_0, Controller_2, Assets_1, "/")
 
@@ -168,7 +168,7 @@ class Routes(
     )
   )
 
-  // @LINE:18
+  // @LINE:19
   private[this] lazy val controllers_Controller_guardarCategoria6_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("categorias/save")))
   )
@@ -182,11 +182,11 @@ class Routes(
       "POST",
       this.prefix + """categorias/save""",
       """""",
-      Seq()
+      Seq("""nocsrf""")
     )
   )
 
-  // @LINE:20
+  // @LINE:21
   private[this] lazy val controllers_Controller_verBienes7_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("bienes")))
   )
@@ -204,7 +204,7 @@ class Routes(
     )
   )
 
-  // @LINE:21
+  // @LINE:23
   private[this] lazy val controllers_Controller_guardarBien8_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("bienes/save")))
   )
@@ -218,11 +218,11 @@ class Routes(
       "POST",
       this.prefix + """bienes/save""",
       """""",
-      Seq()
+      Seq("""nocsrf""")
     )
   )
 
-  // @LINE:24
+  // @LINE:26
   private[this] lazy val controllers_Assets_versioned9_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
@@ -279,25 +279,25 @@ class Routes(
         controllers_Controller_verCategoria5_invoker.call(Controller_2.verCategoria)
       }
   
-    // @LINE:18
+    // @LINE:19
     case controllers_Controller_guardarCategoria6_route(params@_) =>
       call { 
         controllers_Controller_guardarCategoria6_invoker.call(Controller_2.guardarCategoria)
       }
   
-    // @LINE:20
+    // @LINE:21
     case controllers_Controller_verBienes7_route(params@_) =>
       call { 
         controllers_Controller_verBienes7_invoker.call(Controller_2.verBienes)
       }
   
-    // @LINE:21
+    // @LINE:23
     case controllers_Controller_guardarBien8_route(params@_) =>
       call { 
         controllers_Controller_guardarBien8_invoker.call(Controller_2.guardarBien)
       }
   
-    // @LINE:24
+    // @LINE:26
     case controllers_Assets_versioned9_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
         controllers_Assets_versioned9_invoker.call(Assets_1.versioned(path, file))

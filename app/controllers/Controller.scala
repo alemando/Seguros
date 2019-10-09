@@ -41,6 +41,13 @@ class Controller @Inject()(cc: ControllerComponents) extends AbstractController(
   }
   val aseguradoras: ArrayBuffer[Aseguradora] = null
   def guardarAseguradora() = Action { implicit request: Request[AnyContent] =>
+    val urlValues = request.body.asFormUrlEncoded.map{args =>
+      val nit = args("nit").head
+      val nombre = args("nombre").head
+      val contacto = args("contacto").head
+      val aseguradoraPrueba = Aseguradora(nit, nombre, contacto)
+      Aseguradora.create(aseguradoraPrueba)
+    }
     Ok("1")
   }
   

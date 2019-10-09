@@ -1,11 +1,6 @@
 // @GENERATOR:play-routes-compiler
-<<<<<<< HEAD
 // @SOURCE:C:/Users/Usuario/Desktop/seguros/conf/routes
-// @DATE:Wed Oct 09 15:39:31 COT 2019
-=======
-// @SOURCE:C:/Users/juanm/Documents/documentosImportantes/semestre 6/Requisitos/Seguros/conf/routes
-// @DATE:Wed Oct 09 00:37:00 COT 2019
->>>>>>> 2c6dcd706cc061fcd3e7b45a3cd8c3c3f9645140
+// @DATE:Wed Oct 09 16:13:15 COT 2019
 
 import play.api.mvc.Call
 
@@ -84,7 +79,6 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "aseguradoras/save")
     }
   
-<<<<<<< HEAD
     // @LINE:11
     def guardarCliente(): Call = {
       
@@ -95,27 +89,12 @@ package controllers {
     def verBienes(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "bienes")
-=======
-  }
-
-  // @LINE:14
-  class ReverseAssets(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
->>>>>>> 2c6dcd706cc061fcd3e7b45a3cd8c3c3f9645140
     }
   
-<<<<<<< HEAD
     // @LINE:19
     def guardarCategoria(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "categorias/save")
-=======
-    // @LINE:14
-    def versioned(file:Asset): Call = {
-      implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
-      Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
->>>>>>> 2c6dcd706cc061fcd3e7b45a3cd8c3c3f9645140
     }
   
   }

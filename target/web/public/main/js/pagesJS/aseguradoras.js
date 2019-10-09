@@ -167,7 +167,7 @@ $(document).ready(function() {
                 "contacto" : $("#input-contacto-aseguradora").val()
             }
             $.ajax({
-                url: '#',
+                url: '/aseguradoras/save',
                 type: 'POST',
                 data: data,
                 success:function(data){  

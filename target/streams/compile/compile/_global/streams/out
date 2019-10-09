@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\user\Documents\GitHub\Seguros\app\views\clientes.scala.html:120:6: value pdatosContacto is not a member of models.Cliente[0m
-[0m[[0m[31merror[0m] [0m[0m                                                                <td>@clientes(x).pdireccion</td>[0m
-[0m[[0m[31merror[0m] [0m[0m     ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\user\Documents\GitHub\Seguros\app\views\clientes.scala.html:119:82: value pdatosContacto is not a member of models.Cliente[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                <td>@clientes(x).pdatosContacto</td>[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                 ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m

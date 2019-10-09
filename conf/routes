@@ -15,9 +15,11 @@ GET     /aseguradoras                       controllers.AsyncController.verClien
 POST    /aseguradoras/save                  controllers.Controller.guardarAseguradora
 
 GET     /categorias                         controllers.Controller.verCategoria
++ nocsrf
 POST    /categorias/save                    controllers.Controller.guardarCategoria
 
 GET     /bienes                             controllers.Controller.verBienes
++ nocsrf
 POST    /bienes/save                        controllers.Controller.guardarBien
 
 # Map static resources from the /public folder to the /assets URL path

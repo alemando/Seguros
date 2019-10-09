@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Usuario/Desktop/seguros/conf/routes
-// @DATE:Tue Oct 08 22:19:37 COT 2019
+// @DATE:Wed Oct 09 10:11:08 COT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -44,7 +44,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:24
+  // @LINE:26
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -52,7 +52,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:24
+    // @LINE:26
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -72,7 +72,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:21
+    // @LINE:23
     def guardarBien: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Controller.guardarBien",
       """
@@ -112,7 +112,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:20
+    // @LINE:21
     def verBienes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Controller.verBienes",
       """
@@ -122,7 +122,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:18
+    // @LINE:19
     def guardarCategoria: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Controller.guardarCategoria",
       """

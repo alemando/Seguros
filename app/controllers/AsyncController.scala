@@ -33,7 +33,7 @@ class AsyncController @Inject()(cc: ControllerComponents, actorSystem: ActorSyst
   private def getFutureClientes(delayTime: FiniteDuration): Future[ArrayBuffer[Cliente]] = {
     val promise: Promise[ArrayBuffer[Cliente]] = Promise[ArrayBuffer[Cliente]]()
     actorSystem.scheduler.scheduleOnce(delayTime) {
-      val Clientes :ArrayBuffer[Cliente]= Cliente.obtenerClientes().get 
+      val Clientes :ArrayBuffer[Cliente]= Cliente.obtenerClientes().getOrElse(ArrayBuffer()) 
       promise.success(Clientes)
     }(actorSystem.dispatcher) // run scheduled tasks using the actor system's dispatcher
     promise.future

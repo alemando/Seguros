@@ -140,7 +140,7 @@ $(document).ready(function() {
                 "egresos" : $("#input-ingresos-cliente-editar").val()
             }
             $.ajax({
-                url: 'clientes/save',
+                url: '#',
                 type: 'POST',
                 data: data,
                 success:function(data){ 
@@ -200,7 +200,7 @@ $(document).ready(function() {
                 "egresos" : $("#input-ingresos-cliente").val()
             }
             $.ajax({
-                url: '#',
+                url: 'clientes/save',
                 type: 'POST',
                 data: data,
                 success:function(data){  

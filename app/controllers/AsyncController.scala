@@ -10,11 +10,12 @@ import scala.concurrent.{ExecutionContext, Future, Promise}
 import scala.collection.mutable.ArrayBuffer
 import models.Cliente
 
+
 @Singleton
 class AsyncController @Inject()(cc: ControllerComponents, actorSystem: ActorSystem)(implicit exec: ExecutionContext) extends AbstractController(cc) {
 
   def verClientes = Action.async {implicit request: Request[AnyContent] =>
-    getFutureClientes(3.second).map { msg => Ok(views.html.clientes("Clientes")(msg)(request))}
+    getFutureClientes(10.second).map { msg => Ok(views.html.clientes("Clientes")(msg)(request))}
   }
   
   def verAseguradoras = Action.async {implicit request: Request[AnyContent] =>
@@ -32,7 +33,8 @@ class AsyncController @Inject()(cc: ControllerComponents, actorSystem: ActorSyst
   private def getFutureClientes(delayTime: FiniteDuration): Future[ArrayBuffer[Cliente]] = {
     val promise: Promise[ArrayBuffer[Cliente]] = Promise[ArrayBuffer[Cliente]]()
     actorSystem.scheduler.scheduleOnce(delayTime) {
-      promise.success(ArrayBuffer(Cliente("holo","holo","holo","holo","holo","holo","holo","holo","holo","holo")))
+      val Clientes :ArrayBuffer[Cliente]= Cliente.obtenerClientes().get 
+      promise.success(Clientes)
     }(actorSystem.dispatcher) // run scheduled tasks using the actor system's dispatcher
     promise.future
   }

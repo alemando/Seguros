@@ -1,4 +1,5 @@
-@(name: String)(param:Any)(implicit request: RequestHeader)
+@import scala.collection.mutable.ArrayBuffer
+@(name: String)(clientes:ArrayBuffer[Cliente])(implicit request: RequestHeader)
 @defining(play.core.PlayVersion.current) { version =>
     <!DOCTYPE html>
     <html lang="en">
@@ -79,7 +80,6 @@
     							</div>
     							<!-- end row -->
 
-    							
     							<div class="row">
     									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">                      
                                             <div class="card mb-3">
@@ -110,18 +110,20 @@
                                                                 <th></th>
                                                             </tr>
                                                         </thead>                                        
-                                                        <tbody>
+                                                        <tbody>                                                         
+                                                        	@for(x <- 0 until clientes.size){
                                                             <tr>
-                                                                <td></td>
-                                                                <td>Ejemplo borrar doc</td>
-                                                                <td>Ejemplo borrar nom</td>
-                                                                <td>Ejemplo borrar con</td>
-                                                                <td>Ejemplo borrar res</td>
-                                                                <td>Ejemplo borrar fn</td>
-                                                                <td>Ejemplo borrar ing</td>
-                                                                <td>Ejemplo borrar egr</td>
+                                                            	<td></td>
+                                                              	<td>@clientes(x).documento</td>
+                                                                <td>@clientes(x).nombre</td>
+                                                                <td>@clientes(x).pdatosContacto</td>
+                                                                <td>@clientes(x).pdireccion</td>
+                                                                <td>@clientes(x).fechaNacimiento</td>
+                                                                <td>@clientes(x).pingresos</td>
+                                                                <td>@clientes(x).pegresos</td>
                                                                 <th><center><a role="button" href="#" class="btn btn-primary editar-cliente"><i class="fa fa-pencil"></i></a> <a role="button" href="#" class="btn btn-danger eliminar-cliente"><i class="fa fa-trash-o"></i></a></center></th>
-                                                            </tr>
+                                                                </tr>                                                                
+                                                                }                                                                
                                                         </tbody>
                                                     </table>
                                                     </div>

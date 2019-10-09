@@ -14,18 +14,19 @@ import views.html._
 import play.api.templates.PlayMagic._
 import play.api.mvc._
 import play.api.data._
+/*1.2*/import scala.collection.mutable.ArrayBuffer
 
-object clientes extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[String,Any,RequestHeader,play.twirl.api.HtmlFormat.Appendable] {
+object clientes extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[String,ArrayBuffer[Cliente],RequestHeader,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(name: String)(param:Any)(implicit request: RequestHeader):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*2.2*/(name: String)(clientes:ArrayBuffer[Cliente])(implicit request: RequestHeader):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.60*/("""
-"""),_display_(/*2.2*/defining(play.core.PlayVersion.current)/*2.41*/ { version =>_display_(Seq[Any](format.raw/*2.54*/("""
-    """),format.raw/*3.5*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*2.80*/("""
+"""),_display_(/*3.2*/defining(play.core.PlayVersion.current)/*3.41*/ { version =>_display_(Seq[Any](format.raw/*3.54*/("""
+    """),format.raw/*4.5*/("""<!DOCTYPE html>
     <html lang="en">
     <head>
     		<meta charset="utf-8">
@@ -36,34 +37,34 @@ Seq[Any](format.raw/*1.60*/("""
     		<meta name="author" content="Pike Web Development - https://www.pikephp.com">
 
     		<!-- Favicon -->
-    		<link rel="shortcut icon" href='"""),_display_(/*14.40*/routes/*14.46*/.Assets.versioned("images/favicon.ico")),format.raw/*14.85*/("""'>
+    		<link rel="shortcut icon" href='"""),_display_(/*15.40*/routes/*15.46*/.Assets.versioned("images/favicon.ico")),format.raw/*15.85*/("""'>
 
     		<!-- Switchery css -->
-    		<link href='"""),_display_(/*17.20*/routes/*17.26*/.Assets.versioned("plugins/switchery/switchery.min.css")),format.raw/*17.82*/("""' rel="stylesheet" />
+    		<link href='"""),_display_(/*18.20*/routes/*18.26*/.Assets.versioned("plugins/switchery/switchery.min.css")),format.raw/*18.82*/("""' rel="stylesheet" />
     		
     		<!-- Bootstrap CSS -->
-    		<link href='"""),_display_(/*20.20*/routes/*20.26*/.Assets.versioned("css/bootstrap.min.css")),format.raw/*20.68*/("""' rel="stylesheet" type="text/css" />
+    		<link href='"""),_display_(/*21.20*/routes/*21.26*/.Assets.versioned("css/bootstrap.min.css")),format.raw/*21.68*/("""' rel="stylesheet" type="text/css" />
     		
     		<!-- Font Awesome CSS -->
-    		<link href='"""),_display_(/*23.20*/routes/*23.26*/.Assets.versioned("font-awesome/css/font-awesome.min.css")),format.raw/*23.84*/("""' rel="stylesheet" type="text/css" />
+    		<link href='"""),_display_(/*24.20*/routes/*24.26*/.Assets.versioned("font-awesome/css/font-awesome.min.css")),format.raw/*24.84*/("""' rel="stylesheet" type="text/css" />
     		
     		<!-- Custom CSS -->
-            <link href='"""),_display_(/*26.26*/routes/*26.32*/.Assets.versioned("css/sweetalert2.min.css")),format.raw/*26.76*/("""' rel="stylesheet" type="text/css" />
-            <link href='"""),_display_(/*27.26*/routes/*27.32*/.Assets.versioned("css/dataTableCollapse.css")),format.raw/*27.78*/("""' rel="stylesheet" type="text/css" />   
-    		<link href='"""),_display_(/*28.20*/routes/*28.26*/.Assets.versioned("css/style.css")),format.raw/*28.60*/("""' rel="stylesheet" type="text/css" />	
+            <link href='"""),_display_(/*27.26*/routes/*27.32*/.Assets.versioned("css/sweetalert2.min.css")),format.raw/*27.76*/("""' rel="stylesheet" type="text/css" />
+            <link href='"""),_display_(/*28.26*/routes/*28.32*/.Assets.versioned("css/dataTableCollapse.css")),format.raw/*28.78*/("""' rel="stylesheet" type="text/css" />   
+    		<link href='"""),_display_(/*29.20*/routes/*29.26*/.Assets.versioned("css/style.css")),format.raw/*29.60*/("""' rel="stylesheet" type="text/css" />	
     		
     		<!-- BEGIN CSS for this page -->
             <!-- DataTable -->
             <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css"/>    
             <style> 
-            td.details-control """),format.raw/*34.32*/("""{"""),format.raw/*34.33*/("""
-            """),format.raw/*35.13*/("""background: url('"""),_display_(/*35.31*/routes/*35.37*/.Assets.versioned("plugins/datatables/img/details_open.png")),format.raw/*35.97*/("""') no-repeat center center;
+            td.details-control """),format.raw/*35.32*/("""{"""),format.raw/*35.33*/("""
+            """),format.raw/*36.13*/("""background: url('"""),_display_(/*36.31*/routes/*36.37*/.Assets.versioned("plugins/datatables/img/details_open.png")),format.raw/*36.97*/("""') no-repeat center center;
             cursor: pointer;
-            """),format.raw/*37.13*/("""}"""),format.raw/*37.14*/("""
-            """),format.raw/*38.13*/("""tr.shown td.details-control """),format.raw/*38.41*/("""{"""),format.raw/*38.42*/("""
-            """),format.raw/*39.13*/("""background: url('"""),_display_(/*39.31*/routes/*39.37*/.Assets.versioned("plugins/datatables/img/details_close.png")),format.raw/*39.98*/("""') no-repeat center center;
-            """),format.raw/*40.13*/("""}"""),format.raw/*40.14*/("""
-            """),format.raw/*41.13*/("""</style>    
+            """),format.raw/*38.13*/("""}"""),format.raw/*38.14*/("""
+            """),format.raw/*39.13*/("""tr.shown td.details-control """),format.raw/*39.41*/("""{"""),format.raw/*39.42*/("""
+            """),format.raw/*40.13*/("""background: url('"""),_display_(/*40.31*/routes/*40.37*/.Assets.versioned("plugins/datatables/img/details_close.png")),format.raw/*40.98*/("""') no-repeat center center;
+            """),format.raw/*41.13*/("""}"""),format.raw/*41.14*/("""
+            """),format.raw/*42.13*/("""</style>    
     		<!-- END CSS for this page -->
     				
     </head>
@@ -73,13 +74,13 @@ Seq[Any](format.raw/*1.60*/("""
     <div id="main">
 
     	<!-- top bar navigation -->
-    	"""),_display_(/*51.7*/header()),format.raw/*51.15*/("""
-    	"""),format.raw/*52.6*/("""<!-- End Navigation -->
+    	"""),_display_(/*52.7*/header()),format.raw/*52.15*/("""
+    	"""),format.raw/*53.6*/("""<!-- End Navigation -->
     	
      
     	<!-- Left Sidebar -->
-    	"""),_display_(/*56.7*/leftSidebar(name)),format.raw/*56.24*/("""
-    	"""),format.raw/*57.6*/("""<!-- End Sidebar -->
+    	"""),_display_(/*57.7*/leftSidebar(name)),format.raw/*57.24*/("""
+    	"""),format.raw/*58.6*/("""<!-- End Sidebar -->
 
 
         <div class="content-page">
@@ -104,7 +105,6 @@ Seq[Any](format.raw/*1.60*/("""
     							</div>
     							<!-- end row -->
 
-    							
     							<div class="row">
     									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">                      
                                             <div class="card mb-3">
@@ -135,19 +135,21 @@ Seq[Any](format.raw/*1.60*/("""
                                                                 <th></th>
                                                             </tr>
                                                         </thead>                                        
-                                                        <tbody>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Ejemplo borrar doc</td>
-                                                                <td>Ejemplo borrar nom</td>
-                                                                <td>Ejemplo borrar con</td>
-                                                                <td>Ejemplo borrar res</td>
-                                                                <td>Ejemplo borrar fn</td>
-                                                                <td>Ejemplo borrar ing</td>
-                                                                <td>Ejemplo borrar egr</td>
+                                                        <tbody>                                                         
+                                                        	"""),_display_(/*114.59*/for(x <- 0 until clientes.size) yield /*114.90*/{_display_(Seq[Any](format.raw/*114.91*/("""
+                                                            """),format.raw/*115.61*/("""<tr>
+                                                            	<td></td>
+                                                              	<td>"""),_display_(/*117.69*/clientes(x)/*117.80*/.documento),format.raw/*117.90*/("""</td>
+                                                                <td>"""),_display_(/*118.70*/clientes(x)/*118.81*/.nombre),format.raw/*118.88*/("""</td>
+                                                                <td>"""),_display_(/*119.70*/clientes(x)/*119.81*/.pdatosContacto),format.raw/*119.96*/("""</td>
+                                                                <td>"""),_display_(/*120.70*/clientes(x)/*120.81*/.pdireccion),format.raw/*120.92*/("""</td>
+                                                                <td>"""),_display_(/*121.70*/clientes(x)/*121.81*/.fechaNacimiento),format.raw/*121.97*/("""</td>
+                                                                <td>"""),_display_(/*122.70*/clientes(x)/*122.81*/.pingresos),format.raw/*122.91*/("""</td>
+                                                                <td>"""),_display_(/*123.70*/clientes(x)/*123.81*/.pegresos),format.raw/*123.90*/("""</td>
                                                                 <th><center><a role="button" href="#" class="btn btn-primary editar-cliente"><i class="fa fa-pencil"></i></a> <a role="button" href="#" class="btn btn-danger eliminar-cliente"><i class="fa fa-trash-o"></i></a></center></th>
-                                                            </tr>
-                                                        </tbody>
+                                                                </tr>                                                                
+                                                                """)))}),format.raw/*126.66*/("""                                                                
+                                                        """),format.raw/*127.57*/("""</tbody>
                                                     </table>
                                                     </div>
                                                     
@@ -168,9 +170,9 @@ Seq[Any](format.raw/*1.60*/("""
     	<!-- END content-page -->
         
 
-    	"""),_display_(/*146.7*/footer()),format.raw/*146.15*/("""
+    	"""),_display_(/*148.7*/footer()),format.raw/*148.15*/("""
 
-    """),format.raw/*148.5*/("""</div>
+    """),format.raw/*150.5*/("""</div>
     <!-- Modal -->
     <div class="modal fade" id="añadirCliente" tabindex="-1" role="dialog" aria-labelledby="customModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -338,42 +340,42 @@ Seq[Any](format.raw/*1.60*/("""
     </div>
     <!-- END main -->
 
-    <script src='"""),_display_(/*316.19*/routes/*316.25*/.Assets.versioned("js/sweetalert2.min.js")),format.raw/*316.67*/("""'></script>
-    <script src='"""),_display_(/*317.19*/routes/*317.25*/.Assets.versioned("js/modernizr.min.js")),format.raw/*317.65*/("""'></script>
-    <script src='"""),_display_(/*318.19*/routes/*318.25*/.Assets.versioned("js/jquery.min.js")),format.raw/*318.62*/("""'></script>
-    <script src='"""),_display_(/*319.19*/routes/*319.25*/.Assets.versioned("js/moment.min.js")),format.raw/*319.62*/("""'></script>
+    <script src='"""),_display_(/*318.19*/routes/*318.25*/.Assets.versioned("js/sweetalert2.min.js")),format.raw/*318.67*/("""'></script>
+    <script src='"""),_display_(/*319.19*/routes/*319.25*/.Assets.versioned("js/modernizr.min.js")),format.raw/*319.65*/("""'></script>
+    <script src='"""),_display_(/*320.19*/routes/*320.25*/.Assets.versioned("js/jquery.min.js")),format.raw/*320.62*/("""'></script>
+    <script src='"""),_display_(/*321.19*/routes/*321.25*/.Assets.versioned("js/moment.min.js")),format.raw/*321.62*/("""'></script>
 
-    <script src='"""),_display_(/*321.19*/routes/*321.25*/.Assets.versioned("js/popper.min.js")),format.raw/*321.62*/("""'></script>
-    <script src='"""),_display_(/*322.19*/routes/*322.25*/.Assets.versioned("js/bootstrap.min.js")),format.raw/*322.65*/("""'></script>
+    <script src='"""),_display_(/*323.19*/routes/*323.25*/.Assets.versioned("js/popper.min.js")),format.raw/*323.62*/("""'></script>
+    <script src='"""),_display_(/*324.19*/routes/*324.25*/.Assets.versioned("js/bootstrap.min.js")),format.raw/*324.65*/("""'></script>
 
-    <script src='"""),_display_(/*324.19*/routes/*324.25*/.Assets.versioned("js/detect.js")),format.raw/*324.58*/("""'></script>
-    <script src='"""),_display_(/*325.19*/routes/*325.25*/.Assets.versioned("js/fastclick.js")),format.raw/*325.61*/("""'></script>
-    <script src='"""),_display_(/*326.19*/routes/*326.25*/.Assets.versioned("js/jquery.blockUI.js")),format.raw/*326.66*/("""'></script>
-    <script src='"""),_display_(/*327.19*/routes/*327.25*/.Assets.versioned("js/jquery.nicescroll.js")),format.raw/*327.69*/("""'></script>
-    <script src='"""),_display_(/*328.19*/routes/*328.25*/.Assets.versioned("js/jquery.scrollTo.min.js")),format.raw/*328.71*/("""'></script>
-    <script src='"""),_display_(/*329.19*/routes/*329.25*/.Assets.versioned("plugins/switchery/switchery.min.js")),format.raw/*329.80*/("""'></script>
+    <script src='"""),_display_(/*326.19*/routes/*326.25*/.Assets.versioned("js/detect.js")),format.raw/*326.58*/("""'></script>
+    <script src='"""),_display_(/*327.19*/routes/*327.25*/.Assets.versioned("js/fastclick.js")),format.raw/*327.61*/("""'></script>
+    <script src='"""),_display_(/*328.19*/routes/*328.25*/.Assets.versioned("js/jquery.blockUI.js")),format.raw/*328.66*/("""'></script>
+    <script src='"""),_display_(/*329.19*/routes/*329.25*/.Assets.versioned("js/jquery.nicescroll.js")),format.raw/*329.69*/("""'></script>
+    <script src='"""),_display_(/*330.19*/routes/*330.25*/.Assets.versioned("js/jquery.scrollTo.min.js")),format.raw/*330.71*/("""'></script>
+    <script src='"""),_display_(/*331.19*/routes/*331.25*/.Assets.versioned("plugins/switchery/switchery.min.js")),format.raw/*331.80*/("""'></script>
 
     <!-- App js -->
-    <script src='"""),_display_(/*332.19*/routes/*332.25*/.Assets.versioned("js/pikeadmin.js")),format.raw/*332.61*/("""'></script>
+    <script src='"""),_display_(/*334.19*/routes/*334.25*/.Assets.versioned("js/pikeadmin.js")),format.raw/*334.61*/("""'></script>
 
     <!-- BEGIN Java Script for this page -->
 
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-    <script src='"""),_display_(/*338.19*/routes/*338.25*/.Assets.versioned("js/pagesJS/clientes.js")),format.raw/*338.68*/("""'></script>
+    <script src='"""),_display_(/*340.19*/routes/*340.25*/.Assets.versioned("js/pagesJS/clientes.js")),format.raw/*340.68*/("""'></script>
     <!-- END Java Script for this page -->
 
     </body>
     </html>
-""")))}),format.raw/*343.2*/("""
+""")))}),format.raw/*345.2*/("""
 """))
       }
     }
   }
 
-  def render(name:String,param:Any,request:RequestHeader): play.twirl.api.HtmlFormat.Appendable = apply(name)(param)(request)
+  def render(name:String,clientes:ArrayBuffer[Cliente],request:RequestHeader): play.twirl.api.HtmlFormat.Appendable = apply(name)(clientes)(request)
 
-  def f:((String) => (Any) => (RequestHeader) => play.twirl.api.HtmlFormat.Appendable) = (name) => (param) => (request) => apply(name)(param)(request)
+  def f:((String) => (ArrayBuffer[Cliente]) => (RequestHeader) => play.twirl.api.HtmlFormat.Appendable) = (name) => (clientes) => (request) => apply(name)(clientes)(request)
 
   def ref: this.type = this
 
@@ -382,11 +384,11 @@ Seq[Any](format.raw/*1.60*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2019-10-08T22:19:40.800
+                  DATE: 2019-10-09T09:36:38.274
                   SOURCE: C:/Users/Usuario/Desktop/seguros/app/views/clientes.scala.html
-                  HASH: 0784bfa0222d6f82443226b9a28e79ddd063394f
-                  MATRIX: 750->1|903->59|931->62|978->101|1028->114|1060->120|1556->589|1571->595|1631->634|1713->689|1728->695|1805->751|1912->831|1927->837|1990->879|2116->978|2131->984|2210->1042|2336->1141|2351->1147|2416->1191|2507->1255|2522->1261|2589->1307|2677->1368|2692->1374|2747->1408|3082->1715|3111->1716|3153->1730|3198->1748|3213->1754|3294->1814|3393->1885|3422->1886|3464->1900|3520->1928|3549->1929|3591->1943|3636->1961|3651->1967|3733->2028|3802->2069|3831->2070|3873->2084|4071->2256|4100->2264|4134->2271|4233->2344|4271->2361|4305->2368|9596->7632|9626->7640|9662->7648|21101->19059|21117->19065|21181->19107|21240->19138|21256->19144|21318->19184|21377->19215|21393->19221|21452->19258|21511->19289|21527->19295|21586->19332|21647->19365|21663->19371|21722->19408|21781->19439|21797->19445|21859->19485|21920->19518|21936->19524|21991->19557|22050->19588|22066->19594|22124->19630|22183->19661|22199->19667|22262->19708|22321->19739|22337->19745|22403->19789|22462->19820|22478->19826|22546->19872|22605->19903|22621->19909|22698->19964|22780->20018|22796->20024|22854->20060|23151->20329|23167->20335|23232->20378|23349->20464
-                  LINES: 21->1|26->1|27->2|27->2|27->2|28->3|39->14|39->14|39->14|42->17|42->17|42->17|45->20|45->20|45->20|48->23|48->23|48->23|51->26|51->26|51->26|52->27|52->27|52->27|53->28|53->28|53->28|59->34|59->34|60->35|60->35|60->35|60->35|62->37|62->37|63->38|63->38|63->38|64->39|64->39|64->39|64->39|65->40|65->40|66->41|76->51|76->51|77->52|81->56|81->56|82->57|171->146|171->146|173->148|341->316|341->316|341->316|342->317|342->317|342->317|343->318|343->318|343->318|344->319|344->319|344->319|346->321|346->321|346->321|347->322|347->322|347->322|349->324|349->324|349->324|350->325|350->325|350->325|351->326|351->326|351->326|352->327|352->327|352->327|353->328|353->328|353->328|354->329|354->329|354->329|357->332|357->332|357->332|363->338|363->338|363->338|368->343
+                  HASH: df7e149a463bf7982c3ce3601509c448973316c0
+                  MATRIX: 432->1|818->47|991->125|1019->128|1066->167|1116->180|1148->186|1644->655|1659->661|1719->700|1801->755|1816->761|1893->817|2000->897|2015->903|2078->945|2204->1044|2219->1050|2298->1108|2424->1207|2439->1213|2504->1257|2595->1321|2610->1327|2677->1373|2765->1434|2780->1440|2835->1474|3170->1781|3199->1782|3241->1796|3286->1814|3301->1820|3382->1880|3481->1951|3510->1952|3552->1966|3608->1994|3637->1995|3679->2009|3724->2027|3739->2033|3821->2094|3890->2135|3919->2136|3961->2150|4159->2322|4188->2330|4222->2337|4321->2410|4359->2427|4393->2434|7956->5969|8004->6000|8044->6001|8135->6063|8309->6209|8330->6220|8362->6230|8466->6306|8487->6317|8516->6324|8620->6400|8641->6411|8678->6426|8782->6502|8803->6513|8836->6524|8940->6600|8961->6611|8999->6627|9103->6703|9124->6714|9156->6724|9260->6800|9281->6811|9312->6820|9840->7316|9991->7438|10646->8066|10676->8074|10712->8082|22151->19493|22167->19499|22231->19541|22290->19572|22306->19578|22368->19618|22427->19649|22443->19655|22502->19692|22561->19723|22577->19729|22636->19766|22697->19799|22713->19805|22772->19842|22831->19873|22847->19879|22909->19919|22970->19952|22986->19958|23041->19991|23100->20022|23116->20028|23174->20064|23233->20095|23249->20101|23312->20142|23371->20173|23387->20179|23453->20223|23512->20254|23528->20260|23596->20306|23655->20337|23671->20343|23748->20398|23830->20452|23846->20458|23904->20494|24201->20763|24217->20769|24282->20812|24399->20898
+                  LINES: 17->1|22->2|27->2|28->3|28->3|28->3|29->4|40->15|40->15|40->15|43->18|43->18|43->18|46->21|46->21|46->21|49->24|49->24|49->24|52->27|52->27|52->27|53->28|53->28|53->28|54->29|54->29|54->29|60->35|60->35|61->36|61->36|61->36|61->36|63->38|63->38|64->39|64->39|64->39|65->40|65->40|65->40|65->40|66->41|66->41|67->42|77->52|77->52|78->53|82->57|82->57|83->58|139->114|139->114|139->114|140->115|142->117|142->117|142->117|143->118|143->118|143->118|144->119|144->119|144->119|145->120|145->120|145->120|146->121|146->121|146->121|147->122|147->122|147->122|148->123|148->123|148->123|151->126|152->127|173->148|173->148|175->150|343->318|343->318|343->318|344->319|344->319|344->319|345->320|345->320|345->320|346->321|346->321|346->321|348->323|348->323|348->323|349->324|349->324|349->324|351->326|351->326|351->326|352->327|352->327|352->327|353->328|353->328|353->328|354->329|354->329|354->329|355->330|355->330|355->330|356->331|356->331|356->331|359->334|359->334|359->334|365->340|365->340|365->340|370->345
                   -- GENERATED --
               */
           

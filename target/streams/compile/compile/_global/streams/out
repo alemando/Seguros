@@ -1,0 +1,7 @@
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Usuario\Desktop\seguros\app\controllers\AsyncController.scala:14:1: identifier expected but '@' found.[0m
+[0m[[0m[31merror[0m] [0m[0m@Singleton[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Usuario\Desktop\seguros\app\controllers\AsyncController.scala:14:11: . expected[0m
+[0m[[0m[31merror[0m] [0m[0m@Singleton[0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

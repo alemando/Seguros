@@ -8,6 +8,22 @@ $(document).ready(function() {
                 "autoWidth": false,
                 "destroy":true,
                 "responsive":true,
+                "columns": [
+                    {
+                        "className":      'details-control',
+                        "orderable":      false,
+                        "data":           null,
+                        "defaultContent": ''
+                    },
+                    null,  
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
                 "language": {
                 "lengthMenu": "Mostrar _MENU_ registros por pagina",
                 "zeroRecords": "No se han encontrado registros",
@@ -19,6 +35,8 @@ $(document).ready(function() {
             });
         editarCliente("#tabla-clientes tbody",table);
         eliminarCliente("#tabla-clientes tbody",table);
+        registrarBien("#tabla-clientes tbody",table);
+        $('.details-control').attr('data-title','Añadir bien');
     }
 
     $("#cancelar-editarCliente").click(function(){
@@ -26,20 +44,29 @@ $(document).ready(function() {
         document.getElementById("form-editarCliente").reset();
     });
 
+    function registrarBien(tbody,table){
+        $(tbody).on("click", ".details-control", function(){
+            var data=table.row($(this).parents("tr")).data();
+
+            $("#input-documento-cliente-bien").val(data[1]);
+            $("#añadirBien").modal("show");
+        });
+    }
+
     function editarCliente(tbody,table){
         $(tbody).on("click", ".editar-cliente", function(){
             var data=table.row($(this).parents("tr")).data();
-            $("#id-cliente").html(data[0]);
+            $("#id-cliente").html(data[1]);
 
-            $("#input-documento-cliente-editar").val(data[0]);
-            $("#input-nombre-cliente-editar").val(data[1]);
-            $("#input-apellido1-cliente-editar").val(data[1]);
-            $("#input-apellido2-cliente-editar").val(data[1]);
-            $("#input-telefono-cliente-editar").val(data[2]);
-            $("#input-direccion-cliente-editar").val(data[3]);
-            $("#input-nacimiento-cliente-editar").val(data[4]);
-            $("#input-ingresos-cliente-editar").val(data[5]);
-            $("#input-egresos-cliente-editar").val(data[6]);           
+            $("#input-documento-cliente-editar").val(data[1]);
+            $("#input-nombre-cliente-editar").val(data[2]);
+            $("#input-apellido1-cliente-editar").val(data[2]);
+            $("#input-apellido2-cliente-editar").val(data[2]);
+            $("#input-telefono-cliente-editar").val(data[3]);
+            $("#input-direccion-cliente-editar").val(data[4]);
+            $("#input-nacimiento-cliente-editar").val(data[5]);
+            $("#input-ingresos-cliente-editar").val(data[6]);
+            $("#input-egresos-cliente-editar").val(data[7]);           
             $("#modal-editar-cliente").modal("show");
         });
     }
@@ -113,7 +140,7 @@ $(document).ready(function() {
                 "egresos" : $("#input-ingresos-cliente-editar").val()
             }
             $.ajax({
-                url: '#',
+                url: 'clientes/save',
                 type: 'POST',
                 data: data,
                 success:function(data){ 

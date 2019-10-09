@@ -49,7 +49,7 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2019-10-08T19:08:56.429
+                  DATE: 2019-10-08T22:19:40.904
                   SOURCE: C:/Users/Usuario/Desktop/seguros/app/views/footer.scala.html
                   HASH: 0f0ccdca694f9e5602c7fd5bd55233f7533d0dff
                   MATRIX: 723->1|819->3|847->6|894->45|944->58|972->60

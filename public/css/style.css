@@ -15,6 +15,32 @@ a {
     color: #0ca4ca;
     text-decoration: none; }
 
+[data-title]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+}
+[data-title]:after {
+    content: attr(data-title);
+    background-color: #0959aa;
+    color: #fff;
+    font-size: 150%;
+    position: absolute;
+    padding: 1px 3px 2px 3px;
+    bottom: 1.1em;
+    left: 100%;
+    white-space: nowrap;
+    box-shadow: 1px 1px 3px #222222;
+    opacity: 0;
+    border-radius: 3px 3px 3px 3px;
+    border: 1px solid #111111;
+    z-index: 99999;
+    visibility: hidden;
+}
+[data-title] {
+    position: relative;
+}
+
 .small {
 	font-size: 0.7rem;
 }

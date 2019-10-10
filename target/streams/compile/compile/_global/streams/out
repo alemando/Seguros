@@ -1,4 +1,0 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\git\Seguros\app\views\clientes.scala.html:1:46: ';' expected but '@' found.[0m
-[0m[[0m[31merror[0m] [0m[0m@import scala.collection.mutable.ArrayBuffer @(name:[0m
-[0m[[0m[31merror[0m] [0m[0m                                             ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m

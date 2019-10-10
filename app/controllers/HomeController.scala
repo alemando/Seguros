@@ -40,7 +40,7 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
   def SellerYes() ={Main
       Thread.sleep(1000);
       Action {implicit request: Request[AnyContent] =>
-      Ok(views.html.SellerYes(Main.clienteBD)(Main.aseguradoraBD)(Main.bienBD)(Main.credencialBD)(Main.vendedorBD)(Main.categoriaBD)(Main.listaAseguradoras))
+      Ok(views.html.SellerYes(Main.listaAseguradoras)(Main.listaClientes)(Main.listaCategorias))
     
     }
   }

@@ -1,6 +1,6 @@
 @* SellerYes Template File *@
 @import scala.collection.mutable.ArrayBuffer
-@(cliente: Option[Cliente])(ase: Option[Aseguradora])(bien: Option[Bien])(crede: Option[Credencial])(ven: Option[Vendedor])(cat: Option[Categoria])(lista: Option[ArrayBuffer[Aseguradora]])
+@(lista1: Option[ArrayBuffer[Aseguradora]])(lista2: Option[ArrayBuffer[Cliente]])(lista3: Option[ArrayBuffer[Categoria]])
 
 <!DOCTYPE html>
 <html lang = "e">
@@ -11,13 +11,9 @@
 </head>
 
 <body>
-	<h1> Cliente: @cliente.map(_.nombre)</h1>
-	<h1> Aseguradora: @ase.map(_.nombre)</h1>
-	<h1> Bien: @bien.map(_.id)</h1>
-	<h1> Credencial: @crede.map(_.usuario)</h1>
-	<h1> Vendedor: @ven.map(_.nombre)</h1>
-	<h1> Categoria: @cat.map(_.nombre)</h1>
-	<h1> Lista: @lista</h1>
+	<h1> Lista aseguradoras: @lista1</h1>
+	<h1> Lista clientes: @lista2</h1>
+	<h1> Lista categorias: @lista3</h1>
 </body>
 
 </html>

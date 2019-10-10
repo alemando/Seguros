@@ -1,17 +1,17 @@
 @(name: String)
 @defining(play.core.PlayVersion.current) { version =>
-	<div class="left main-sidebar">
-	
-		<div class="sidebar-inner leftscroll">
+    <div class="left main-sidebar">
+    
+        <div class="sidebar-inner leftscroll">
 
-			<div id="sidebar-menu">
+            <div id="sidebar-menu">
         
-			<ul>
+            <ul>
 
-					<li class="submenu">
-						<a href="index.html"><i class="fa fa-fw fa-bars"></i><span> Home </span> </a>
+                    <li class="submenu">
+                        <a href="index.html"><i class="fa fa-fw fa-bars"></i><span> Home </span> </a>
                     </li>
-										
+                                        
                     <li class="submenu">
                         <a href="/clientes" @if(name=="Clientes"){ class="active" }><i class="fa fa-fw fa-tv"></i> <span> Clientes</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
@@ -25,16 +25,16 @@
                             <li @if(name=="Aseguradoras"){ class="active" }><a href='/'>Ver Aseguradoras </a></li>
                         </ul>
                     </li>
-					
+                    
             </ul>
 
             <div class="clearfix"></div>
 
-			</div>
+            </div>
         
-			<div class="clearfix"></div>
+            <div class="clearfix"></div>
 
-		</div>
+        </div>
 
-	</div>
+    </div>
 }

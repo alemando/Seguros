@@ -5,6 +5,7 @@ import play.api._
 import play.api.mvc._
 import models._
 import scala.collection.mutable.ArrayBuffer
+import scala.util.Random
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -35,7 +36,7 @@ class Controller @Inject()(cc: ControllerComponents) extends AbstractController(
         val clientePrueba = Cliente(documento, nombre, apellido1, apellido2, direccion, telefono, fechaNacimiento, ingresos, egresos)
         Cliente.create(clientePrueba)
       }
-      
+
       Ok("1")
     }
   }
@@ -50,7 +51,7 @@ class Controller @Inject()(cc: ControllerComponents) extends AbstractController(
     }
     Ok("1")
   }
-  
+
   def verCategoria() = Action { implicit request: Request[AnyContent] =>
     Ok("1")
   }
@@ -69,6 +70,14 @@ class Controller @Inject()(cc: ControllerComponents) extends AbstractController(
   }
 
   def guardarBien() = Action { implicit request: Request[AnyContent] =>
+    val valuePost = request.body.asFormUrlEncoded.map{ args =>
+    val documento = args("documento").head
+    val categoria = args("categoria").head
+    val nomRef = args("nomRef").head
+    val caracteristicas = args("caracteristicas").head
+    val id= Random.nextInt(10000).toString
+    Bien.create(Bien(id,documento,categoria,nomRef,caracteristicas))
+    }
     Ok("1")
   }
 }

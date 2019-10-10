@@ -1,0 +1,39 @@
+[0m[[0m[31merror[0m] [0m[0mD:\Desktop\seguros\app\views\aseguradoras.scala.html:114:86: value size is not a member of object views.html.clientes[0m
+[0m[[0m[31merror[0m] [0m[0m                                                          @for(x <- 0 until clientes.size){[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Desktop\seguros\app\views\aseguradoras.scala.html:117:78: missing argument list for method apply in object clientes[0m
+[0m[[0m[31merror[0m] [0m[0mUnapplied methods are only converted to functions when a function type is expected.[0m
+[0m[[0m[31merror[0m] [0m[0mYou can make this conversion explicit by writing `apply _` or `apply(_)(_)(_)` instead of `apply`.[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                <td>@clientes(x).documento</td>[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Desktop\seguros\app\views\aseguradoras.scala.html:118:78: missing argument list for method apply in object clientes[0m
+[0m[[0m[31merror[0m] [0m[0mUnapplied methods are only converted to functions when a function type is expected.[0m
+[0m[[0m[31merror[0m] [0m[0mYou can make this conversion explicit by writing `apply _` or `apply(_)(_)(_)` instead of `apply`.[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                <td>@clientes(x).nombre</td>[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Desktop\seguros\app\views\aseguradoras.scala.html:119:78: missing argument list for method apply in object clientes[0m
+[0m[[0m[31merror[0m] [0m[0mUnapplied methods are only converted to functions when a function type is expected.[0m
+[0m[[0m[31merror[0m] [0m[0mYou can make this conversion explicit by writing `apply _` or `apply(_)(_)(_)` instead of `apply`.[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                <td>@clientes(x).pdatosContacto</td>[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Desktop\seguros\app\views\aseguradoras.scala.html:120:78: missing argument list for method apply in object clientes[0m
+[0m[[0m[31merror[0m] [0m[0mUnapplied methods are only converted to functions when a function type is expected.[0m
+[0m[[0m[31merror[0m] [0m[0mYou can make this conversion explicit by writing `apply _` or `apply(_)(_)(_)` instead of `apply`.[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                <td>@clientes(x).pdireccion</td>[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Desktop\seguros\app\views\aseguradoras.scala.html:121:78: missing argument list for method apply in object clientes[0m
+[0m[[0m[31merror[0m] [0m[0mUnapplied methods are only converted to functions when a function type is expected.[0m
+[0m[[0m[31merror[0m] [0m[0mYou can make this conversion explicit by writing `apply _` or `apply(_)(_)(_)` instead of `apply`.[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                <td>@clientes(x).fechaNacimiento</td>[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Desktop\seguros\app\views\aseguradoras.scala.html:122:78: missing argument list for method apply in object clientes[0m
+[0m[[0m[31merror[0m] [0m[0mUnapplied methods are only converted to functions when a function type is expected.[0m
+[0m[[0m[31merror[0m] [0m[0mYou can make this conversion explicit by writing `apply _` or `apply(_)(_)(_)` instead of `apply`.[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                <td>@clientes(x).pingresos</td>[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Desktop\seguros\app\views\aseguradoras.scala.html:123:78: missing argument list for method apply in object clientes[0m
+[0m[[0m[31merror[0m] [0m[0mUnapplied methods are only converted to functions when a function type is expected.[0m
+[0m[[0m[31merror[0m] [0m[0mYou can make this conversion explicit by writing `apply _` or `apply(_)(_)(_)` instead of `apply`.[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                <td>@clientes(x).pegresos</td>[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m8 errors found[0m

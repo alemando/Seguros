@@ -1,12 +1,12 @@
 @import scala.collection.mutable.ArrayBuffer
-@(name: String)(clientes:ArrayBuffer[Cliente])(implicit request: RequestHeader)
+@(name: String)(clientes:ArrayBuffer[Cliente])(categorias: ArrayBuffer[Categoria])(implicit request: RequestHeader)
 @defining(play.core.PlayVersion.current) { version =>
     <!DOCTYPE html>
     <html lang="en">
     <head>
     		<meta charset="utf-8">
     		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    		
+
     		<title>Pike Admin - Free Bootstrap 4 Admin Template</title>
     		<meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin">
     		<meta name="author" content="Pike Web Development - https://www.pikephp.com">
@@ -16,22 +16,22 @@
 
     		<!-- Switchery css -->
     		<link href='@routes.Assets.versioned("plugins/switchery/switchery.min.css")' rel="stylesheet" />
-    		
+
     		<!-- Bootstrap CSS -->
     		<link href='@routes.Assets.versioned("css/bootstrap.min.css")' rel="stylesheet" type="text/css" />
-    		
+
     		<!-- Font Awesome CSS -->
     		<link href='@routes.Assets.versioned("font-awesome/css/font-awesome.min.css")' rel="stylesheet" type="text/css" />
-    		
+
     		<!-- Custom CSS -->
             <link href='@routes.Assets.versioned("css/sweetalert2.min.css")' rel="stylesheet" type="text/css" />
-            <link href='@routes.Assets.versioned("css/dataTableCollapse.css")' rel="stylesheet" type="text/css" />   
-    		<link href='@routes.Assets.versioned("css/style.css")' rel="stylesheet" type="text/css" />	
-    		
+            <link href='@routes.Assets.versioned("css/dataTableCollapse.css")' rel="stylesheet" type="text/css" />
+    		<link href='@routes.Assets.versioned("css/style.css")' rel="stylesheet" type="text/css" />
+
     		<!-- BEGIN CSS for this page -->
             <!-- DataTable -->
-            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css"/>    
-            <style> 
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css"/>
+            <style>
             td.details-control {
             background: url('@routes.Assets.versioned("plugins/datatables/img/details_open.png")') no-repeat center center;
             cursor: pointer;
@@ -39,9 +39,9 @@
             tr.shown td.details-control {
             background: url('@routes.Assets.versioned("plugins/datatables/img/details_close.png")') no-repeat center center;
             }
-            </style>    
+            </style>
     		<!-- END CSS for this page -->
-    				
+
     </head>
 
     <body class="adminbody">
@@ -51,21 +51,21 @@
     	<!-- top bar navigation -->
     	@header()
     	<!-- End Navigation -->
-    	
-     
+
+
     	<!-- Left Sidebar -->
     	@leftSidebar(name)
     	<!-- End Sidebar -->
 
 
         <div class="content-page">
-    	
+
     		<!-- Start content -->
             <div class="content">
-                
+
     			<div class="container-fluid">
 
-    					
+
     							<div class="row">
     									<div class="col-xl-12">
     											<div class="breadcrumb-holder">
@@ -81,7 +81,7 @@
     							<!-- end row -->
 
     							<div class="row">
-    									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">                      
+    									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                             <div class="card mb-3">
                                                 <div class="card-header">
                                                     <div class="row">
@@ -93,7 +93,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                    
+
                                                 <div class="card-body">
                                                     <div class="table-responsive">
                                                     <table id="tabla-clientes" class="table table-bordered table-hover display">
@@ -109,8 +109,8 @@
                                                                 <th>Egresos</th>
                                                                 <th></th>
                                                             </tr>
-                                                        </thead>                                        
-                                                        <tbody>                                                         
+                                                        </thead>
+                                                        <tbody>
                                                         	@for(x <- 0 until clientes.size){
                                                             <tr>
                                                             	<td></td>
@@ -122,14 +122,14 @@
                                                                 <td>@clientes(x).pingresos</td>
                                                                 <td>@clientes(x).pegresos</td>
                                                                 <th><center><a role="button" href="#" class="btn btn-primary editar-cliente"><i class="fa fa-pencil"></i></a> <a role="button" href="#" class="btn btn-danger eliminar-cliente"><i class="fa fa-trash-o"></i></a></center></th>
-                                                                </tr>                                                                
-                                                                }                                                                
+                                                                </tr>
+                                                                }
                                                         </tbody>
                                                     </table>
                                                     </div>
-                                                    
-                                                </div>                                                      
-                                            </div><!-- end card-->                  
+
+                                                </div>
+                                            </div><!-- end card-->
                                         </div>
     							</div>
 
@@ -143,7 +143,7 @@
 
         </div>
     	<!-- END content-page -->
-        
+
 
     	@footer()
 
@@ -187,7 +187,7 @@
                                 <label>Telefono <span class="text-danger">*</span></label>
                                 <input name="telefono" type="text" class="form-control" id="input-telefono-cliente" placeholder="Telefono" required>
                             </div>
-                        </div> 
+                        </div>
                         <div class="form-group">
                             <label>Fecha Nacimiento<span class="text-danger">*</span></label>
                             <input name="fechaNacimiento" type="date" class="form-control" id="input-nacimiento-cliente" placeholder="Fecha Nacimiento" required autocomplete="off">
@@ -201,7 +201,7 @@
                                 <label>Egresos <span class="text-danger">*</span></label>
                                 <input name="egresos" type="number" class="form-control" id="input-egresos-cliente" placeholder="Egresos" required>
                             </div>
-                        </div>    
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelar-añadirCliente">Cancelar</button>
@@ -250,7 +250,7 @@
                                 <label>Telefono <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="input-telefono-cliente-editar" placeholder="Telefono" required>
                             </div>
-                        </div> 
+                        </div>
                         <div class="form-group">
                             <label>Fecha Nacimiento<span class="text-danger">*</span></label>
                             <input type="date" class="form-control" id="input-nacimiento-cliente-editar" placeholder="Fecha Nacimiento" required autocomplete="off">
@@ -264,7 +264,7 @@
                                 <label>Egresos <span class="text-danger">*</span></label>
                                 <input type="number" class="form-control" id="input-egresos-cliente-editar" placeholder="Egresos" required>
                             </div>
-                        </div>    
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelar-editarCliente">Cancelar</button>
@@ -288,22 +288,24 @@
                     <form autocomplete="off" action="#" id="form-añadirBien">
                         <div class="form-group">
                             <label>Documento cliente<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="input-documento-cliente-bien" placeholder="Documento" required autocomplete="off" disabled>
+                            <input type="text" class="form-control" name="documento" id="input-documento-cliente-bien" placeholder="Documento" required autocomplete="off" disabled>
                         </div>
                         <div class="form-group">
                             <label>Categoria <span class="text-danger">*</span></label>
-                            <select class="custom-select" id="input-nombre-categoria-bien" required>
-                                <option value="">Selecciona la categoria</option>
+                            <select class="custom-select" name="categoria" id="input-nombre-categoria-bien">
+                              @for(x <- 0 until categorias.size){
+                                <option value=""> @categorias(x).nombre </option>
+                              }
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Nombre referencia<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="input-nombre-referencia-bien" placeholder="Nombre referencia" required autocomplete="off">
-                        </div> 
+                            <input type="text" class="form-control" name="nomRef" id="input-nombre-referencia-bien" placeholder="Nombre referencia" required autocomplete="off">
+                        </div>
                         <div class="form-group">
                             <label>Caracteristicas<span class="text-danger">*</span></label>
-                            <textarea id="input-caracteristicas-bien" class="md-textarea form-control" rows="3" required autocomplete="off"></textarea>
-                        </div>  
+                              <textarea id="input-caracteristicas-bien" name="caracteristicas" class="md-textarea form-control" rows="3" required autocomplete="off"></textarea>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelar-añadirCategoria">Cancelar</button>

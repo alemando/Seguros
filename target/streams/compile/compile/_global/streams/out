@@ -1,4 +1,12 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\Usuario\Desktop\seguros\app\views\clientes.scala.html:119:82: value ptelefono is not a member of models.Cliente[0m
-[0m[[0m[31merror[0m] [0m[0m                                                                <td>@clientes(x).ptelefono</td><!-- Revisar este atributo!!!!-->[0m
-[0m[[0m[31merror[0m] [0m[0m                                                                                 ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Sebastian\Documents\GitHub\Seguros2\app\controllers\AsyncController.scala:21:85: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : scala.collection.mutable.ArrayBuffer[models.Categoria][0m
+[0m[[0m[31merror[0m] [0m[0m required: play.api.mvc.RequestHeader[0m
+[0m[[0m[31merror[0m] [0m[0m  getFutureClientes(10.second).map { msg => Ok(views.html.clientes("Clientes")(msg)(Categorias)(request))}[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Sebastian\Documents\GitHub\Seguros2\app\views\clientes.scala.html:296:49: not found: value categorias[0m
+[0m[[0m[31merror[0m] [0m[0m                              @for(x <- 0 until categorias.size){[0m
+[0m[[0m[31merror[0m] [0m[0m                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Sebastian\Documents\GitHub\Seguros2\app\views\clientes.scala.html:297:52: not found: value categorias[0m
+[0m[[0m[31merror[0m] [0m[0m                                <option value=""> @categorias(x).nombre </option>[0m
+[0m[[0m[31merror[0m] [0m[0m                                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0mthree errors found[0m

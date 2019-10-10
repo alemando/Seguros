@@ -15,7 +15,7 @@ $(document).ready(function() {
                         "data":           null,
                         "defaultContent": ''
                     },
-                    null,  
+                    null,
                     null,
                     null,
                     null,
@@ -66,7 +66,7 @@ $(document).ready(function() {
             $("#input-direccion-cliente-editar").val(data[4]);
             $("#input-nacimiento-cliente-editar").val(data[5]);
             $("#input-ingresos-cliente-editar").val(data[6]);
-            $("#input-egresos-cliente-editar").val(data[7]);           
+            $("#input-egresos-cliente-editar").val(data[7]);
             $("#modal-editar-cliente").modal("show");
         });
     }
@@ -89,7 +89,7 @@ $(document).ready(function() {
                     url: '#',
                     type: 'POST',
                     data: {"documento":data[0]},
-                    success:function(data){  
+                    success:function(data){
                       if(data!=""){
                         if(data==1){
                             loadData();
@@ -99,20 +99,20 @@ $(document).ready(function() {
                                   'Se ha eliminado correctamente el cliente',
                                   'success'
                                 );
-                            },500); 
-                            
+                            },500);
+
                         }else if(data==0 || data==3){
-                            loadData();  
+                            loadData();
                             setTimeout(function(){
                                 Swal(
                                   'Error!',
                                   'Ha ocurrido un error, vuelva a intentar',
                                   'error'
                                 );
-                            },500);        
+                            },500);
                         }
                       }
-                    }   
+                    }
                 });
               }
             });
@@ -143,7 +143,7 @@ $(document).ready(function() {
                 url: '#',
                 type: 'POST',
                 data: data,
-                success:function(data){ 
+                success:function(data){
                   if(data!=""){
                     if(data==1){
                         $("#modal-editar-cliente").modal("hide");
@@ -155,7 +155,7 @@ $(document).ready(function() {
                             );
                             $("#id-cliente").html("");
                             document.getElementById("form-editarCliente").reset();
-                        },500); 
+                        },500);
                     }else if(data==0){
                         $("#modal-editar-cliente").modal("hide");
                         setTimeout(function(){
@@ -178,9 +178,9 @@ $(document).ready(function() {
                         },500);
                     }
                   }
-                }   
+                }
             }).always(function(){
-                        loadData();                        
+                        loadData();
                             });
 
     });
@@ -203,7 +203,7 @@ $(document).ready(function() {
                 url: 'clientes/save',
                 type: 'POST',
                 data: data,
-                success:function(data){  
+                success:function(data){
                   if(data!=""){
                     if(data==1){
                         $("#añadirCliente").modal("hide");
@@ -214,8 +214,8 @@ $(document).ready(function() {
                               'success'
                             );
                             document.getElementById("form-añadirCliente").reset();
-                            loadData(); 
-                        },500); 
+                            loadData();
+                        },500);
                     }else if(data==0){
                         $("#añadirCliente").modal("hide");
                         setTimeout(function(){
@@ -225,7 +225,7 @@ $(document).ready(function() {
                               'error'
                             );
                             document.getElementById("form-añadirCliente").reset();
-                            loadData();  
+                            loadData();
                         },500);
                     }else if(data==2){
                         setTimeout(function(){
@@ -237,9 +237,60 @@ $(document).ready(function() {
                         },500);
                     }
                   }
-                }   
+                }
             });
 
     });
+		$("#form-añadirBien").submit(function(event){
+				event.preventDefault();
+				var data;
+						data = {
+								"documento" : $("#input-documento-cliente-bien").val(),
+								"categoria" : $("#input-nombre-categoria-bien").val(),
+								"nomRef" : $("#input-nombre-referencia-bien").val(),
+								"caracteristicas" : $("#input-caracteristicas-bien").val()
+						}
+						$.ajax({
+								url: 'bienes/save',
+								type: 'POST',
+								data: data,
+								success:function(data){
+									if(data!=""){
+										if(data==1){
+												$("#añadirBien").modal("hide");
+												setTimeout(function(){
+														Swal(
+															'Satisfactorio!',
+															'Se ha registrado correctamente el bien al cliente',
+															'success'
+														);
+														document.getElementById("form-añadirBien").reset();
+														loadData();
+												},500);
+										}else if(data==0){
+												$("#añadirCliente").modal("hide");
+												setTimeout(function(){
+														Swal(
+															'Error!',
+															'Ha ocurrido un error, vuelva a intentar',
+															'error'
+														);
+														document.getElementById("form-añadirBien").reset();
+														loadData();
+												},500);
+										}else if(data==2){
+												setTimeout(function(){
+														Swal(
+															'Error!',
+															'Al parecer este numero de identificacion ya esta registrado',
+															'error'
+														);
+												},500);
+										}
+									}
+								}
+						});
+
+		});
 
 });

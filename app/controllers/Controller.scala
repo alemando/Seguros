@@ -55,7 +55,12 @@ class Controller @Inject()(cc: ControllerComponents) extends AbstractController(
   }
 
   def guardarCategoria() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.aseguradoras("Aseguradoras")("sd")(request))
+    val urlValues = request.body.asFormUrlEncoded.map{args =>
+      val categoria = args("categoria").head
+      val categoriaPrueba = Categoria(categoria)
+      Categoria.create(categoriaPrueba)
+    }
+    Ok("1")
   }
 
   def verBienes() = Action { implicit request: Request[AnyContent] =>

@@ -7,10 +7,6 @@
 			<div id="sidebar-menu">
         
 			<ul>
-                    <li class="submenu">
-                        <a id = "agregar-categoria"><i class="fa fa-fw fa-bars fa-fw"></i><span> Agragar categoria </span> </a>
-                    </li>
-
 					<li class="submenu">
 						<a href="index.html"><i class="fa fa-fw fa-bars"></i><span> Home </span> </a>
                     </li>
@@ -18,14 +14,14 @@
                     <li class="submenu">
                         <a href="#" @if(name=="Clientes"){ class="active" }><i class="fa fa-fw fa-tv"></i> <span> Clientes</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
-                                <li @if(name=="Clientes"){ class="active" }><a href="clientes.html">Ver Clientes</a></li>
+                                <li @if(name=="Clientes"){ class="active" }><a href="clientes">Ver Clientes</a></li>
                             </ul>
                     </li>
 
                     <li class='submenu'>
                         <a href='#' @if(name=="Aseguradoras"){ class="active" }><i class='fa fa-fw fa-tv'></i> <span> Aseguradoras</span> <span class='menu-arrow'></span></a>
                         <ul class='list-unstyled'>
-                            <li @if(name=="Aseguradoras"){ class="active" }><a href='clientes.html'>Ver Aseguradoras </a></li>
+                            <li @if(name=="Aseguradoras"){ class="active" }><a href='aseguradoras'>Ver Aseguradoras </a></li>
                         </ul>
                     </li>
 
@@ -67,4 +63,7 @@
                 </div>
             </div>
         </div>
+        <!-- BEGIN Java Script for this page -->
+        <script src='@routes.Assets.versioned("js/pagesJS/sidebar.js")'></script>
+        <!-- END Java Script for this page -->
 }

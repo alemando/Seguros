@@ -4,10 +4,24 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                                   controllers.HomeController.index
-GET     /explore                            controllers.HomeController.explore
-GET     /tutorial                           controllers.HomeController.tutorial
 
+GET     /                           		controllers.AsyncController.verAseguradoras
+
+GET     /clientes                           controllers.AsyncController.verClientes
++ nocsrf
+POST    /clientes/save                      controllers.Controller.guardarCliente
+
+GET     /aseguradoras                       controllers.AsyncController.verAseguradoras
++ nocsrf
+POST    /aseguradoras/save                  controllers.Controller.guardarAseguradora
+
+GET     /categorias                         controllers.Controller.verCategoria
++ nocsrf
+POST    /categorias/save                    controllers.Controller.guardarCategoria
+
+GET     /bienes                             controllers.Controller.verBienes
++ nocsrf
+POST    /bienes/save                        controllers.Controller.guardarBien
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

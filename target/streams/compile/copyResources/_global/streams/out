@@ -1,0 +1,5 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\alema\Documents\GitHub\Seguros\conf\application.conf,C:\Users\alema\Documents\GitHub\Seguros\target\scala-2.13\classes\application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\alema\Documents\GitHub\Seguros\conf\logback.xml,C:\Users\alema\Documents\GitHub\Seguros\target\scala-2.13\classes\logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\alema\Documents\GitHub\Seguros\conf\messages,C:\Users\alema\Documents\GitHub\Seguros\target\scala-2.13\classes\messages)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\alema\Documents\GitHub\Seguros\conf\routes,C:\Users\alema\Documents\GitHub\Seguros\target\scala-2.13\classes\routes)[0m

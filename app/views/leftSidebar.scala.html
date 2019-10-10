@@ -1,0 +1,69 @@
+@(name: String)
+@defining(play.core.PlayVersion.current) { version =>
+	<div class="left main-sidebar">
+	
+		<div class="sidebar-inner leftscroll">
+
+			<div id="sidebar-menu">
+        
+			<ul>
+					<li class="submenu">
+						<a href="index.html"><i class="fa fa-fw fa-bars"></i><span> Home </span> </a>
+                    </li>
+										
+                    <li class="submenu">
+                        <a href="#" @if(name=="Clientes"){ class="active" }><i class="fa fa-fw fa-tv"></i> <span> Clientes</span> <span class="menu-arrow"></span></a>
+                            <ul class="list-unstyled">
+                                <li @if(name=="Clientes"){ class="active" }><a href="clientes">Ver Clientes</a></li>
+                            </ul>
+                    </li>
+
+                    <li class='submenu'>
+                        <a href='#' @if(name=="Aseguradoras"){ class="active" }><i class='fa fa-fw fa-tv'></i> <span> Aseguradoras</span> <span class='menu-arrow'></span></a>
+                        <ul class='list-unstyled'>
+                            <li @if(name=="Aseguradoras"){ class="active" }><a href='aseguradoras'>Ver Aseguradoras </a></li>
+                        </ul>
+                    </li>
+
+                    <li class='submenu'>
+                        <a href='#' data-target="#añadirCategoria" data-toggle="modal"><i class='fa fa-fw fa-tv'></i> <span> Agregar Categoría</span></a>
+                    </li>
+					
+            </ul>
+
+            <div class="clearfix"></div>
+
+			</div>
+        
+			<div class="clearfix"></div>
+
+		</div>
+    </div>
+        <!-- Modal -->
+        <div class="modal fade" id="añadirCategoria" tabindex="-1" role="dialog" aria-labelledby="customModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="titleAñadirCategoria">Añadir una Categoría</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form autocomplete="off" action="#" id="form-añadirCategoria">
+                            <div class="form-group">
+                                <label>Nombre<span class="text-danger">*</span></label>
+                                <input name="categoria" type="text" class="form-control" id="input-nombre-categoria" placeholder="Nombre" required autocomplete="off">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelar-añadirCategoria">Cancelar</button>
+                                <button type="submit" class="btn btn-success">Registrar</button>
+                            
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+}

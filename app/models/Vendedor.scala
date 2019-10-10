@@ -7,6 +7,7 @@ import scala.beans.BeanProperty
 import com.google.firebase.FirebaseException
 import scala.concurrent.Future
 import scala.concurrent.Promise
+import scala.util.matching.Regex
 
 //Case class de venderdor, tendra los metodos de instancia y la inicializacion de los atributos de instancia
 //Se corrigienron unos atributos para tener consitencia con la BD
@@ -92,5 +93,30 @@ object Vendedor{
     Thread.sleep(10000)                                            //Tiempo de espera para la respuesta de sus exámenes
     val vendedorOption :Option[Vendedor] = {if(vendedorFuture.isCompleted){vendedorFuture.value.get.toOption}else{None}}
     vendedorOption                                                 //Se parsea a option y se devuleve lo que se entrega
+  }
+  
+  //Vendedor(documento,nombre,apellido1,apellido2,numContacto)
+  def verificacion(documentoIdentidad: String, nombre: String, apellido1: String, apellido2: String, 
+                    numContacto: String): (Boolean,String) = {
+    //expresion regular para verificar si todo son numeros
+    val numberPattern: Regex = "^[\\d\\s]+$".r
+    //expresion regular para verificar si todo son letras
+    val letterPattern: Regex = "^[a-zA-Z\\s]+$".r
+    //variables que guardan en su caso el match con la expresion regular
+    val matchesDocumento = numberPattern.findAllIn(documentoIdentidad)
+    val matchesContacto = numberPattern.findAllIn(numContacto)
+    
+    // si el tamaño del match es 0 significa que no encontro match con la expresion regular.
+    if (matchesDocumento.size == 0 || matchesContacto.size == 0){
+        return(false,"Esto no es un numero o no es positivo el numero")
+    }
+    val matchesnombre = letterPattern.findAllIn(nombre)
+    val matchesappellido1 = letterPattern.findAllIn(apellido1)
+    val matchesappellido2 = letterPattern.findAllIn(apellido2)
+
+    if (matchesnombre.size == 0 || matchesappellido1.size == 0 || matchesappellido2.size == 0){
+        return(false,"Esto no es un caracter")
+    }
+    return(true, "correcto")
   }
 }

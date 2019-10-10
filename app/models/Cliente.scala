@@ -142,6 +142,4 @@ object Cliente{
     clienteOption                                                 //Se parsea a option y se devuleve lo que se entrega
   }
 
-  //Esta parte se supone que crea un método para devolver un objeto de la base de datos, sin embargo aún no funciona
-  //Pues tengo problemas con el manejo del promise.
 }

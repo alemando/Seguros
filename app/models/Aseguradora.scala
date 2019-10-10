@@ -1,5 +1,6 @@
 package models
 
+import scala.util.matching.Regex
 import scala.beans.BeanProperty
 import utils.Conexion
 import com.google.firebase.database._
@@ -98,4 +99,29 @@ object Aseguradora{
     val option: Option[ArrayBuffer[Aseguradora]] = {if(future.isCompleted){future.value.get.toOption}else{None}}
     option
   }
+
+    //este metodo lo que hace es verificar los datos sean correctos por medio de expresiones regulares
+  def verificacion(nit: String, nombre: String, contacto: String): (Boolean,String) = {
+      //expresion regular para verificar si todo son numeros
+      val numberPattern: Regex = "^[\\d\\s]+$".r
+      //expresion regular para verificar si todo son lertas
+      val letterPattern: Regex = "^[a-zA-Z\\s]+$".r
+      //expresion regular para verificar si es una fecha, atentos, permite formatos como 31.12.3013 o 01/01/2013 o 05-3-2013 o 15.03.2013
+      val datePatter: Regex = "^(?:3[01]|[12][0-9]|0?[1-9])([\\-/.])(0?[1-9]|1[1-2])\\1\\d{4}$".r
+      //variables que guardan en su caso el match con la expresion regular
+      val matchesnit = numberPattern.findAllIn(nit)
+      val matchescontacto = numberPattern.findAllIn(contacto)
+      // si el tamaño del match es 0 significa que no encontro match con la expresion regular.
+      if (matchesnit.size == 0 || matchescontacto.size == 0){
+          return(false,"Esto no es un numero o no es positivo el numero")
+      }
+      val matchesnombre = letterPattern.findAllIn(nombre)
+  
+      if (matchesnombre.size == 0){
+          return(false,"Esto no es un caracter")
+      }
+      return(true, "correcto")
+
+  }
+    
 }

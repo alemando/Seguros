@@ -26,3 +26,6 @@ pc.stdout
 .bloop/
 .metals/metals.log
 .metals/metals.h2.db
+.metals/metals.h2.db
+.metals/metals.log
+.metals/metals.log

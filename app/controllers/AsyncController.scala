@@ -18,7 +18,7 @@ class AsyncController @Inject()(cc: ControllerComponents, actorSystem: ActorSyst
 
 def verClientes = Action.async {implicit request: Request[AnyContent] =>
   val Categorias = Categoria.obtenerCategorias().getOrElse(ArrayBuffer())
-  getFutureClientes(10.second).map { msg => Ok(views.html.clientes("Clientes")(msg)(Categorias)(request))}
+  getFutureClientes(3.second).map { msg => Ok(views.html.clientes("Clientes")(msg)(Categorias)(request))}
 }
 
   def verAseguradoras = Action.async {implicit request: Request[AnyContent] =>

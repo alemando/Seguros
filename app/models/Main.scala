@@ -22,8 +22,10 @@ object Main{
   val bienBD: Option[Bien] = Bien.obtenerPorId("1")
   val credencialBD : Option[Credencial] = Credencial.obtenerPorCedulaVendedor("123456789")
   val vendedorBD : Option[Vendedor] = Vendedor.obtenerPorCedula("123456789")
-  val categoriaBD : Option[Categoria] = Categoria.obtenerPorNombre("Vehiculo")
+  val categoriaBD : Option[Categoria] = Categoria.obtenerPorNombre("Vehiculo")*/
 
-  val listaAseguradoras : Option[ArrayBuffer[Aseguradora]] = Aseguradora.obtenerAseguradoras()*/
+  val listaAseguradoras : Option[ArrayBuffer[Aseguradora]] = Aseguradora.obtenerAseguradoras()
+  val listaClientes : Option[ArrayBuffer[Cliente]] = Cliente.obtenerClientes()
+  val listaCategorias : Option[ArrayBuffer[Categoria]] = Categoria.obtenerCategorias()
   
 }

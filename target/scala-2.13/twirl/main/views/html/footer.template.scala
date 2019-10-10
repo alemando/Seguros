@@ -49,8 +49,8 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2019-10-09T23:39:56.195
-                  SOURCE: D:/Desktop/seguros/app/views/footer.scala.html
+                  DATE: 2019-10-10T01:24:28.592
+                  SOURCE: C:/Users/alema/Documents/GitHub/Seguros/app/views/footer.scala.html
                   HASH: 0f0ccdca694f9e5602c7fd5bd55233f7533d0dff
                   MATRIX: 723->1|819->3|847->6|894->45|944->58|972->60
                   LINES: 21->1|26->1|27->2|27->2|27->2|28->3

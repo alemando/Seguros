@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:D:/Desktop/seguros/conf/routes
-// @DATE:Thu Oct 10 00:48:42 COT 2019
+// @SOURCE:C:/Users/alema/Documents/GitHub/Seguros/conf/routes
+// @DATE:Thu Oct 10 01:24:28 COT 2019
 
 package router
 

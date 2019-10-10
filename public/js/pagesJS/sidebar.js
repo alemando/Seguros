@@ -1,9 +1,10 @@
 $(document).ready(function() {
+
 	$(window).load(function(){
         loadData();
     });
-	
-	$("#form-añadirCliente").submit(function(event){
+	$("#form-añadirCategoria").submit(function(event){
+		console.log("Hola")
 	    event.preventDefault();
 	    var data;
 	        data = {

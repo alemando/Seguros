@@ -10,7 +10,7 @@ bin/
 tmp/
 test-result
 server.pid
-/target/
+target/
 *.eml
 /dist/
 .cache

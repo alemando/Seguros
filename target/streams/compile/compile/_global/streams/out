@@ -1,10 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\git\Seguros\app\controllers\Controller.scala:52:5: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : Unit[0m
-[0m[[0m[31merror[0m] [0m[0m required: play.api.mvc.Result[0m
-[0m[[0m[31merror[0m] [0m[0m    } catch {[0m
-[0m[[0m[31merror[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\juanm\git\Seguros\app\controllers\Controller.scala:53:12: This catches all Throwables. If this is really intended, use `case _ : Throwable` to clear this warning.[0m
-[0m[[0m[33mwarn[0m] [0m[0m      case _ => Ok("0")[0m
-[0m[[0m[33mwarn[0m] [0m[0m           ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\juanm\git\Seguros\app\views\clientes.scala.html:1:46: ';' expected but '@' found.[0m
+[0m[[0m[31merror[0m] [0m[0m@import scala.collection.mutable.ArrayBuffer @(name:[0m
+[0m[[0m[31merror[0m] [0m[0m                                             ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m

@@ -31,22 +31,25 @@ Seq[Any](_display_(/*2.2*/defining(play.core.PlayVersion.current)/*2.41*/ { vers
 			<div id="sidebar-menu">
         
 			<ul>
+                    <li class="submenu">
+                        <a id = "agregar-categoria"><i class="fa fa-fw fa-bars fa-fw"></i><span> Agragar categoria </span> </a>
+                    </li>
 
 					<li class="submenu">
 						<a href="index.html"><i class="fa fa-fw fa-bars"></i><span> Home </span> </a>
                     </li>
 										
                     <li class="submenu">
-                        <a href="#" """),_display_(/*16.38*/if(name=="Clientes")/*16.58*/{_display_(Seq[Any](format.raw/*16.59*/(""" """),format.raw/*16.60*/("""class="active" """)))}),format.raw/*16.76*/("""><i class="fa fa-fw fa-tv"></i> <span> Clientes</span> <span class="menu-arrow"></span></a>
+                        <a href="#" """),_display_(/*19.38*/if(name=="Clientes")/*19.58*/{_display_(Seq[Any](format.raw/*19.59*/(""" """),format.raw/*19.60*/("""class="active" """)))}),format.raw/*19.76*/("""><i class="fa fa-fw fa-tv"></i> <span> Clientes</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
-                                <li """),_display_(/*18.38*/if(name=="Clientes")/*18.58*/{_display_(Seq[Any](format.raw/*18.59*/(""" """),format.raw/*18.60*/("""class="active" """)))}),format.raw/*18.76*/("""><a href="clientes.html">Ver Clientes</a></li>
+                                <li """),_display_(/*21.38*/if(name=="Clientes")/*21.58*/{_display_(Seq[Any](format.raw/*21.59*/(""" """),format.raw/*21.60*/("""class="active" """)))}),format.raw/*21.76*/("""><a href="clientes.html">Ver Clientes</a></li>
                             </ul>
                     </li>
 
                     <li class='submenu'>
-                        <a href='#' """),_display_(/*23.38*/if(name=="Aseguradoras")/*23.62*/{_display_(Seq[Any](format.raw/*23.63*/(""" """),format.raw/*23.64*/("""class="active" """)))}),format.raw/*23.80*/("""><i class='fa fa-fw fa-tv'></i> <span> Aseguradoras</span> <span class='menu-arrow'></span></a>
+                        <a href='#' """),_display_(/*26.38*/if(name=="Aseguradoras")/*26.62*/{_display_(Seq[Any](format.raw/*26.63*/(""" """),format.raw/*26.64*/("""class="active" """)))}),format.raw/*26.80*/("""><i class='fa fa-fw fa-tv'></i> <span> Aseguradoras</span> <span class='menu-arrow'></span></a>
                         <ul class='list-unstyled'>
-                            <li """),_display_(/*25.34*/if(name=="Aseguradoras")/*25.58*/{_display_(Seq[Any](format.raw/*25.59*/(""" """),format.raw/*25.60*/("""class="active" """)))}),format.raw/*25.76*/("""><a href='clientes.html'>Ver Aseguradoras </a></li>
+                            <li """),_display_(/*28.34*/if(name=="Aseguradoras")/*28.58*/{_display_(Seq[Any](format.raw/*28.59*/(""" """),format.raw/*28.60*/("""class="active" """)))}),format.raw/*28.76*/("""><a href='clientes.html'>Ver Aseguradoras </a></li>
                         </ul>
                     </li>
 					
@@ -61,6 +64,38 @@ Seq[Any](_display_(/*2.2*/defining(play.core.PlayVersion.current)/*2.41*/ { vers
 		</div>
 
 	</div>
+
+    <!-- Modal Registrar Categoria-->
+    <div class="modal fade" id="añadirCategoria" tabindex="-1" role="dialog"
+        aria-labelledby="customModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titleAñadirCliente">Añadir a un
+                        nuevo bien</h5>
+                    <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form autocomplete="off" action="#" id="form-añadirCategoria">
+                        <div class="form-group">
+                            <label>Categoria<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control"
+                                id="input-categoria" placeholder="Nombre de la categoria"
+                                required autocomplete="off" disabled>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal" id="cancelar-añadirCategoria">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 """)))}))
       }
     }
@@ -77,11 +112,11 @@ Seq[Any](_display_(/*2.2*/defining(play.core.PlayVersion.current)/*2.41*/ { vers
 
               /*
                   -- GENERATED --
-                  DATE: 2019-10-09T14:15:34.729
+                  DATE: 2019-10-09T16:20:45.598
                   SOURCE: C:/Users/juanm/git/Seguros/app/views/leftSidebar.scala.html
-                  HASH: f3f714217cc5ef154a21822c63c865b6b7bb0373
-                  MATRIX: 735->1|843->17|890->56|940->69|968->71|1341->417|1370->437|1409->438|1438->439|1485->455|1696->639|1725->659|1764->660|1793->661|1840->677|2053->863|2086->887|2125->888|2154->889|2201->905|2408->1085|2441->1109|2480->1110|2509->1111|2556->1127
-                  LINES: 21->1|26->2|26->2|26->2|27->3|40->16|40->16|40->16|40->16|40->16|42->18|42->18|42->18|42->18|42->18|47->23|47->23|47->23|47->23|47->23|49->25|49->25|49->25|49->25|49->25
+                  HASH: 44fda53d681c2d7c464c8b057566429ce68f0d1d
+                  MATRIX: 735->1|843->17|890->56|940->69|968->71|1536->612|1565->632|1604->633|1633->634|1680->650|1891->834|1920->854|1959->855|1988->856|2035->872|2248->1058|2281->1082|2320->1083|2349->1084|2396->1100|2603->1280|2636->1304|2675->1305|2704->1306|2751->1322
+                  LINES: 21->1|26->2|26->2|26->2|27->3|43->19|43->19|43->19|43->19|43->19|45->21|45->21|45->21|45->21|45->21|50->26|50->26|50->26|50->26|50->26|52->28|52->28|52->28|52->28|52->28
                   -- GENERATED --
               */
           
